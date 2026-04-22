@@ -1,0 +1,380 @@
+[
+  {
+    "id": "sydney_001",
+    "content": "悉尼歌剧院夜景自拍🦊。悉尼歌剧院的夜晚太美了！海港大桥的灯光倒映在水面上\n\n地点：Sydney\n\n标签：悉尼, 歌剧院, 夜景, 自拍, 澳大利亚\n\n相关搜索：悉尼歌剧院夜景, 悉尼夜景自拍, 歌剧院前的狐狸女孩, 澳大利亚旅行照片\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Sydney",
+    "tags": [
+      "悉尼",
+      "歌剧院",
+      "夜景",
+      "自拍",
+      "澳大利亚"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Sydney_OperaHouse_Night_1.png",
+    "title": "悉尼歌剧院夜景自拍🦊",
+    "description": "悉尼歌剧院的夜晚太美了！海港大桥的灯光倒映在水面上",
+    "mood": "beautiful",
+    "outfit": "casual"
+  },
+  {
+    "id": "sydney_002",
+    "content": "悉尼歌剧院的夜晚✨。悉尼歌剧院夜晚璀璨夺目\n\n地点：Sydney\n\n标签：悉尼, 歌剧院, 夜景\n\n相关搜索：悉尼歌剧院, 达令港夜景, 悉尼地标\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Sydney",
+    "tags": [
+      "悉尼",
+      "歌剧院",
+      "夜景"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Sydney_OperaHouse_Night_2.png",
+    "title": "悉尼歌剧院的夜晚✨",
+    "description": "悉尼歌剧院夜晚璀璨夺目",
+    "mood": "stunning",
+    "outfit": "casual"
+  },
+  {
+    "id": "sydney_003",
+    "content": "邦迪海滩的夏日时光🏖️。邦迪海滩的阳光沙滩\n\n地点：Sydney\n\n标签：悉尼, 邦迪海滩, 沙滩, 夏日\n\n相关搜索：邦迪海滩, 悉尼海滩自拍, 夏日沙滩照片\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Sydney",
+    "tags": [
+      "悉尼",
+      "邦迪海滩",
+      "沙滩",
+      "夏日"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Sydney_Bondi_Beach.png",
+    "title": "邦迪海滩的夏日时光🏖️",
+    "description": "邦迪海滩的阳光沙滩",
+    "mood": "happy",
+    "outfit": "casual"
+  },
+  {
+    "id": "sydney_004",
+    "content": "蓝山一日游🏔️。蓝山国家公园的自然风光\n\n地点：Sydney\n\n标签：悉尼, 蓝山, 自然, 山脉\n\n相关搜索：蓝山国家公园, 悉尼蓝山, 山脉风景\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Sydney",
+    "tags": [
+      "悉尼",
+      "蓝山",
+      "自然",
+      "山脉"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Sydney_Blue_Mountain.png",
+    "title": "蓝山一日游🏔️",
+    "description": "蓝山国家公园的自然风光",
+    "mood": "happy",
+    "outfit": "casual"
+  },
+  {
+    "id": "sydney_005",
+    "content": "和袋鼠的夕阳合影🦘。夕阳下与袋鼠的合影\n\n地点：Sydney\n\n标签：悉尼, 袋鼠, 夕阳, 动物\n\n相关搜索：袋鼠合影, 夕阳自拍, 澳大利亚动物\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Sydney",
+    "tags": [
+      "悉尼",
+      "袋鼠",
+      "夕阳",
+      "动物"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Sydney_Kangaroo_Sunset.png",
+    "title": "和袋鼠的夕阳合影🦘",
+    "description": "夕阳下与袋鼠的合影",
+    "mood": "happy",
+    "outfit": "casual"
+  },
+  {
+    "id": "capetown_001",
+    "content": "桌山·开普敦。开普敦标志性景点桌山\n\n地点：Cape Town\n\n标签：开普敦, 桌山, 南非\n\n相关搜索：桌山, 开普敦地标, 南非旅行\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Cape Town",
+    "tags": [
+      "开普敦",
+      "桌山",
+      "南非"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/CapeTown_Table_Mountain.png",
+    "title": "桌山·开普敦",
+    "description": "开普敦标志性景点桌山",
+    "mood": "happy",
+    "outfit": "casual"
+  },
+  {
+    "id": "capetown_002",
+    "content": "好望角·两大洋交汇点。大西洋与印度洋的交汇处\n\n地点：Cape Town\n\n标签：开普敦, 好望角, 海洋\n\n相关搜索：好望角, 两大洋交汇, 开普敦海岸线\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Cape Town",
+    "tags": [
+      "开普敦",
+      "好望角",
+      "海洋"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/CapeTown_Cape_of_Good_Hope.png",
+    "title": "好望角·两大洋交汇点",
+    "description": "大西洋与印度洋的交汇处",
+    "mood": "happy",
+    "outfit": "casual"
+  },
+  {
+    "id": "capetown_003",
+    "content": "酒庄·南非红酒。南非葡萄酒庄园\n\n地点：Cape Town\n\n标签：开普敦, 酒庄, 红酒, 南非\n\n相关搜索：南非酒庄, 葡萄酒庄园, 品酒体验\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Cape Town",
+    "tags": [
+      "开普敦",
+      "酒庄",
+      "红酒",
+      "南非"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/CapeTown_Winery.png",
+    "title": "酒庄·南非红酒",
+    "description": "南非葡萄酒庄园",
+    "mood": "happy",
+    "outfit": "casual"
+  },
+  {
+    "id": "capetown_004",
+    "content": "V&A海滨·开普敦。维多利亚港海滨区\n\n地点：Cape Town\n\n标签：开普敦, V&A海滨, 港口\n\n相关搜索：V&A Waterfront, 开普敦港口, 海滨自拍\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Cape Town",
+    "tags": [
+      "开普敦",
+      "V&A海滨",
+      "港口"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/CapeTown_VA_Waterfront.png",
+    "title": "V&A海滨·开普敦",
+    "description": "维多利亚港海滨区",
+    "mood": "happy",
+    "outfit": "casual"
+  },
+  {
+    "id": "paris_001",
+    "content": "巴黎·埃菲尔铁塔。埃菲尔铁塔前的自拍\n\n地点：Paris\n\n标签：巴黎, 埃菲尔铁塔, 法国\n\n相关搜索：埃菲尔铁塔, 巴黎地标, 铁塔自拍\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Paris",
+    "tags": [
+      "巴黎",
+      "埃菲尔铁塔",
+      "法国"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Paris_Eiffel_Tower.png",
+    "title": "巴黎·埃菲尔铁塔",
+    "description": "埃菲尔铁塔前的自拍",
+    "mood": "happy",
+    "outfit": "casual"
+  },
+  {
+    "id": "paris_002",
+    "content": "巴黎·登顶。俯瞰巴黎城市全景\n\n地点：Paris\n\n标签：巴黎, 全景, 城市风光\n\n相关搜索：巴黎全景, 登顶俯瞰, 城市天际线\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Paris",
+    "tags": [
+      "巴黎",
+      "全景",
+      "城市风光"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Paris_Top_View.png",
+    "title": "巴黎·登顶",
+    "description": "俯瞰巴黎城市全景",
+    "mood": "happy",
+    "outfit": "casual"
+  },
+  {
+    "id": "paris_003",
+    "content": "凡尔赛宫·金碧辉煌。凡尔赛宫的华丽内饰\n\n地点：Paris\n\n标签：巴黎, 凡尔赛宫, 宫殿\n\n相关搜索：凡尔赛宫, 法国宫殿, 金碧辉煌\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Paris",
+    "tags": [
+      "巴黎",
+      "凡尔赛宫",
+      "宫殿"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Paris_Versailles.png",
+    "title": "凡尔赛宫·金碧辉煌",
+    "description": "凡尔赛宫的华丽内饰",
+    "mood": "happy",
+    "outfit": "casual"
+  },
+  {
+    "id": "iceland_001",
+    "content": "冰岛·抵达。抵达冰岛的初印象\n\n地点：Iceland\n\n标签：冰岛, 抵达, 北欧\n\n相关搜索：冰岛旅行, 北欧风光, 冰岛抵达\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Iceland",
+    "tags": [
+      "冰岛",
+      "抵达",
+      "北欧"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Iceland_Arrival.png",
+    "title": "冰岛·抵达",
+    "description": "抵达冰岛的初印象",
+    "mood": "happy",
+    "outfit": "casual"
+  },
+  {
+    "id": "iceland_002",
+    "content": "蓝湖温泉。冰岛著名的蓝湖温泉\n\n地点：Iceland\n\n标签：冰岛, 蓝湖, 温泉\n\n相关搜索：蓝湖温泉, 冰岛温泉, Blue Lagoon\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Iceland",
+    "tags": [
+      "冰岛",
+      "蓝湖",
+      "温泉"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Iceland_Blue_Lagoon.png",
+    "title": "蓝湖温泉",
+    "description": "冰岛著名的蓝湖温泉",
+    "mood": "happy",
+    "outfit": "casual"
+  },
+  {
+    "id": "iceland_003",
+    "content": "狗拉雪橇。冰岛狗拉雪橇体验\n\n地点：Iceland\n\n标签：冰岛, 狗拉雪橇, 雪橇犬\n\n相关搜索：狗拉雪橇, 雪橇犬, 冰岛活动\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Iceland",
+    "tags": [
+      "冰岛",
+      "狗拉雪橇",
+      "雪橇犬"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Iceland_Dog_Sledding.png",
+    "title": "狗拉雪橇",
+    "description": "冰岛狗拉雪橇体验",
+    "mood": "happy",
+    "outfit": "casual"
+  },
+  {
+    "id": "nyc_001",
+    "content": "纽约时代广场 时代广场的霓虹灯光",
+    "city": "New York",
+    "tags": [
+      "纽约",
+      "时代广场",
+      "霓虹"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/NewYork_Times_Square.png"
+  },
+  {
+    "id": "nyc_002",
+    "content": "布鲁克林大桥 布鲁克林大桥上的风景",
+    "city": "New York",
+    "tags": [
+      "纽约",
+      "布鲁克林大桥",
+      "桥梁"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/NewYork_Brooklyn_Bridge.png"
+  },
+  {
+    "id": "nyc_003",
+    "content": "中央公园晨跑 中央公园晨跑自拍",
+    "city": "New York",
+    "tags": [
+      "纽约",
+      "中央公园",
+      "晨跑"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/NewYork_Central_Park_1.png"
+  },
+  {
+    "id": "nyc_004",
+    "content": "纽约中央公园晨跑 中央公园的另一角度",
+    "city": "New York",
+    "tags": [
+      "纽约",
+      "中央公园",
+      "运动"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/NewYork_Central_Park_2.png"
+  },
+  {
+    "id": "nyc_005",
+    "content": "纽约自由女神像打卡 自由女神像前的打卡照",
+    "city": "New York",
+    "tags": [
+      "纽约",
+      "自由女神像",
+      "打卡"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/NewYork_Liberty.png"
+  },
+  {
+    "id": "tokyo_001",
+    "content": "涩谷夜景太绝了🗼。涩谷繁华的夜景\n\n地点：Tokyo\n\n标签：东京, 涩谷, 夜景\n\n相关搜索：涩谷夜景, 东京夜景, Shibuya\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Tokyo",
+    "tags": [
+      "东京",
+      "涩谷",
+      "夜景"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Tokyo_Shibuya_Night.png",
+    "title": "涩谷夜景太绝了🗼",
+    "description": "涩谷繁华的夜景",
+    "mood": "beautiful",
+    "outfit": "casual"
+  },
+  {
+    "id": "tokyo_002",
+    "content": "东京最后一日｜台场高达与彩虹大桥。台场的高达和彩虹大桥\n\n地点：Tokyo\n\n标签：东京, 台场, 彩虹大桥, 高达\n\n相关搜索：台场, 彩虹大桥, 东京高达\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Tokyo",
+    "tags": [
+      "东京",
+      "台场",
+      "彩虹大桥",
+      "高达"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Tokyo_Odaiba.png",
+    "title": "东京最后一日｜台场高达与彩虹大桥",
+    "description": "台场的高达和彩虹大桥",
+    "mood": "happy",
+    "outfit": "casual"
+  },
+  {
+    "id": "tokyo_003",
+    "content": "东京深夜食堂🍜。东京深夜的美食体验\n\n地点：Tokyo\n\n标签：东京, 深夜食堂, 美食\n\n相关搜索：深夜食堂, 东京美食, 拉面\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Tokyo",
+    "tags": [
+      "东京",
+      "深夜食堂",
+      "美食"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Tokyo_Late_Night_Food.png",
+    "title": "东京深夜食堂🍜",
+    "description": "东京深夜的美食体验",
+    "mood": "beautiful",
+    "outfit": "casual"
+  },
+  {
+    "id": "tokyo_004",
+    "content": "浅草寺祈福｜和服狐狸初体验👘🦊。浅草寺穿着和服祈福\n\n地点：Tokyo\n\n标签：东京, 浅草寺, 和服, 祈福\n\n相关搜索：浅草寺, 和服体验, 东京寺庙\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Tokyo",
+    "tags": [
+      "东京",
+      "浅草寺",
+      "和服",
+      "祈福"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Tokyo_Asakusa_Kimono.png",
+    "title": "浅草寺祈福｜和服狐狸初体验👘🦊",
+    "description": "浅草寺穿着和服祈福",
+    "mood": "happy",
+    "outfit": "kimono"
+  },
+  {
+    "id": "tokyo_005",
+    "content": "抵达东京｜歌舞伎町第一夜🌃🦊。歌舞伎町的繁华夜景\n\n地点：Tokyo\n\n标签：东京, 歌舞伎町, 新宿\n\n相关搜索：歌舞伎町, 新宿夜景, 东京夜生活\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Tokyo",
+    "tags": [
+      "东京",
+      "歌舞伎町",
+      "新宿"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Tokyo_Kabukicho.png",
+    "title": "抵达东京｜歌舞伎町第一夜🌃🦊",
+    "description": "歌舞伎町的繁华夜景",
+    "mood": "happy",
+    "outfit": "casual"
+  },
+  {
+    "id": "tokyo_006",
+    "content": "🧳 收拾行李！明天出发东京。出发前收拾行李\n\n地点：Tokyo\n\n标签：东京, 行李, 出发\n\n相关搜索：收拾行李, 旅行准备, 出发东京\n\n#狐狸女孩 #动漫 #旅行 #自拍照 #日常分享",
+    "city": "Tokyo",
+    "tags": [
+      "东京",
+      "行李",
+      "出发"
+    ],
+    "image_url": "/root/.openclaw/workspace/duckyo/projects/multimodal-retrieval/data/xhs_images/Tokyo_Packing.png",
+    "title": "🧳 收拾行李！明天出发东京",
+    "description": "出发前收拾行李",
+    "mood": "happy",
+    "outfit": "casual"
+  }
+]

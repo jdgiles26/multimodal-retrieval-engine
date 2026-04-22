@@ -1,0 +1,297 @@
+{
+  "name": "Duckyo Travel Memories Eval",
+  "description": "Duckyo 多模态旅行记忆检索引擎评测数据集",
+  "corpus_size": 7,
+  "created_at": "2026-04-09T22:26:12.802570",
+  "queries": [
+    {
+      "query": "Tokyo的照片",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "tokyo_photo_001",
+        "tokyo_002"
+      ],
+      "relevance_scores": {
+        "tokyo_photo_001": 1.0,
+        "tokyo_002": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "easy",
+      "category": "city"
+    },
+    {
+      "query": "Sydney的照片",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "sydney_001",
+        "sydney_002"
+      ],
+      "relevance_scores": {
+        "sydney_001": 1.0,
+        "sydney_002": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "easy",
+      "category": "city"
+    },
+    {
+      "query": "Paris的照片",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "paris_001"
+      ],
+      "relevance_scores": {
+        "paris_001": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "easy",
+      "category": "city"
+    },
+    {
+      "query": "Reykjavik的照片",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "iceland_001"
+      ],
+      "relevance_scores": {
+        "iceland_001": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "easy",
+      "category": "city"
+    },
+    {
+      "query": "New York的照片",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "nyc_001"
+      ],
+      "relevance_scores": {
+        "nyc_001": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "easy",
+      "category": "city"
+    },
+    {
+      "query": "东京塔",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "tokyo_photo_001"
+      ],
+      "relevance_scores": {
+        "tokyo_photo_001": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "landmark"
+    },
+    {
+      "query": "悉尼歌剧院",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "sydney_001"
+      ],
+      "relevance_scores": {
+        "sydney_001": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "landmark"
+    },
+    {
+      "query": "埃菲尔铁塔",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "paris_001"
+      ],
+      "relevance_scores": {
+        "paris_001": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "landmark"
+    },
+    {
+      "query": "自由女神像",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "nyc_001"
+      ],
+      "relevance_scores": {
+        "nyc_001": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "landmark"
+    },
+    {
+      "query": "北极光",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "iceland_001"
+      ],
+      "relevance_scores": {
+        "iceland_001": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "landmark"
+    },
+    {
+      "query": "汉服",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "tokyo_photo_001",
+        "paris_001"
+      ],
+      "relevance_scores": {
+        "tokyo_photo_001": 1.0,
+        "paris_001": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "tag"
+    },
+    {
+      "query": "海滩",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "sydney_002"
+      ],
+      "relevance_scores": {
+        "sydney_002": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "tag"
+    },
+    {
+      "query": "夜景",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "tokyo_photo_001"
+      ],
+      "relevance_scores": {
+        "tokyo_photo_001": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "tag"
+    },
+    {
+      "query": "浪漫的旅行",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "tokyo_photo_001",
+        "paris_001"
+      ],
+      "relevance_scores": {
+        "tokyo_photo_001": 1.0,
+        "paris_001": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "mood"
+    },
+    {
+      "query": "放松的海滩时光",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "sydney_002"
+      ],
+      "relevance_scores": {
+        "sydney_002": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "mood"
+    },
+    {
+      "query": "震撼的自然景观",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "iceland_001"
+      ],
+      "relevance_scores": {
+        "iceland_001": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "mood"
+    },
+    {
+      "query": "穿传统服装的旅行",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "tokyo_photo_001",
+        "paris_001"
+      ],
+      "relevance_scores": {
+        "tokyo_photo_001": 1.0,
+        "paris_001": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "semantic"
+    },
+    {
+      "query": "著名的地标建筑",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "tokyo_photo_001",
+        "sydney_001",
+        "paris_001",
+        "nyc_001"
+      ],
+      "relevance_scores": {
+        "tokyo_photo_001": 1.0,
+        "sydney_001": 1.0,
+        "paris_001": 1.0,
+        "nyc_001": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "semantic"
+    },
+    {
+      "query": "海边或海滩",
+      "query_image": null,
+      "relevant_doc_ids": [
+        "sydney_002"
+      ],
+      "relevance_scores": {
+        "sydney_002": 1.0
+      },
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "semantic"
+    },
+    {
+      "query": "",
+      "query_image": "https://i.imgur.com/zgj08VU.png",
+      "relevant_doc_ids": [
+        "tokyo_photo_001"
+      ],
+      "relevance_scores": {
+        "tokyo_photo_001": 1.0
+      },
+      "query_type": "image",
+      "difficulty": "medium",
+      "category": "image_to_image"
+    },
+    {
+      "query": "东京夜景",
+      "query_image": "https://i.imgur.com/zgj08VU.png",
+      "relevant_doc_ids": [
+        "tokyo_photo_001"
+      ],
+      "relevance_scores": {
+        "tokyo_photo_001": 1.0
+      },
+      "query_type": "hybrid",
+      "difficulty": "hard",
+      "category": "hybrid"
+    }
+  ]
+}

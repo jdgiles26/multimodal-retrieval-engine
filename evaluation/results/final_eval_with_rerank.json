@@ -1,0 +1,3920 @@
+{
+  "experiment_name": "final_eval_with_rerank",
+  "dataset": {
+    "name": "Duckyo Travel Memories Eval (Expanded)",
+    "description": "Duckyo 多模态旅行记忆检索引擎扩充版评测数据集",
+    "corpus_size": 7,
+    "query_count": 76
+  },
+  "summary": {
+    "overall": {
+      "recall_at_k": {
+        "1": {
+          "mean": 0.20833333333333334,
+          "std": 0.3978715467041689,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "3": {
+          "mean": 0.3787878787878788,
+          "std": 0.4671853669859572,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "5": {
+          "mean": 0.4090909090909091,
+          "std": 0.4819396645020886,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "10": {
+          "mean": 0.571969696969697,
+          "std": 0.4600830613314846,
+          "min": 0.0,
+          "max": 1.0
+        }
+      },
+      "precision_at_k": {
+        "1": {
+          "mean": 0.22727272727272727,
+          "std": 0.4190702026042222,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "3": {
+          "mean": 0.15151515151515152,
+          "std": 0.1851545735335693,
+          "min": 0.0,
+          "max": 0.6666666666666666
+        },
+        "5": {
+          "mean": 0.1,
+          "std": 0.12185435916898851,
+          "min": 0.0,
+          "max": 0.4
+        },
+        "10": {
+          "mean": 0.07424242424242423,
+          "std": 0.06585246609727495,
+          "min": 0.0,
+          "max": 0.3
+        }
+      },
+      "ndcg_at_k": {
+        "1": {
+          "mean": 0.22727272727272727,
+          "std": 0.4190702026042222,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "3": {
+          "mean": 0.32036601640061246,
+          "std": 0.4047537455252646,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "5": {
+          "mean": 0.33052073737152426,
+          "std": 0.4078338674493521,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "10": {
+          "mean": 0.3889395321749337,
+          "std": 0.3792667823475391,
+          "min": 0.0,
+          "max": 1.0
+        }
+      },
+      "mrr": {
+        "mean": 0.3454184704184704,
+        "std": 0.391313829985306
+      },
+      "map": {
+        "mean": 0.3191919191919192,
+        "std": 0.38035680497964536
+      },
+      "latency_ms": {
+        "mean": 3767.102675004439,
+        "std": 722.0361452338269,
+        "p50": 3530.6100845336914,
+        "p95": 5212.733805179596,
+        "p99": 6710.845112800598
+      }
+    },
+    "by_query_type": {
+      "text": {
+        "recall_at_k": {
+          "1": {
+            "mean": 0.17410714285714285,
+            "std": 0.3687564855880711,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "3": {
+            "mean": 0.35714285714285715,
+            "std": 0.45771448635629636,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "5": {
+            "mean": 0.39285714285714285,
+            "std": 0.47682249724352466,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "10": {
+            "mean": 0.5491071428571429,
+            "std": 0.4566464590034704,
+            "min": 0.0,
+            "max": 1.0
+          }
+        },
+        "precision_at_k": {
+          "1": {
+            "mean": 0.19642857142857142,
+            "std": 0.397296347522982,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "3": {
+            "mean": 0.14880952380952378,
+            "std": 0.1881366741580846,
+            "min": 0.0,
+            "max": 0.6666666666666666
+          },
+          "5": {
+            "mean": 0.09999999999999999,
+            "std": 0.12535663410560177,
+            "min": 0.0,
+            "max": 0.4
+          },
+          "10": {
+            "mean": 0.075,
+            "std": 0.06879057244377937,
+            "min": 0.0,
+            "max": 0.3
+          }
+        },
+        "ndcg_at_k": {
+          "1": {
+            "mean": 0.19642857142857142,
+            "std": 0.397296347522982,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "3": {
+            "mean": 0.29721709075786473,
+            "std": 0.3870545980911157,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "5": {
+            "mean": 0.3091851547592964,
+            "std": 0.391527093757546,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "10": {
+            "mean": 0.3665131626807092,
+            "std": 0.3658334486080402,
+            "min": 0.0,
+            "max": 1.0
+          }
+        },
+        "mrr": {
+          "mean": 0.3249574829931973,
+          "std": 0.3760396831032994
+        },
+        "map": {
+          "mean": 0.29404761904761906,
+          "std": 0.36059827491124613
+        },
+        "latency_ms": {
+          "mean": 3817.8980478218623,
+          "std": 763.088832526134,
+          "p50": 3629.9442052841187,
+          "p95": 5435.29337644577,
+          "p99": 6718.354105949402
+        }
+      },
+      "hybrid": {
+        "recall_at_k": {
+          "1": {
+            "mean": 0.4,
+            "std": 0.48989794855663565,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "3": {
+            "mean": 0.5,
+            "std": 0.5,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "5": {
+            "mean": 0.5,
+            "std": 0.5,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "10": {
+            "mean": 0.7,
+            "std": 0.45825756949558394,
+            "min": 0.0,
+            "max": 1.0
+          }
+        },
+        "precision_at_k": {
+          "1": {
+            "mean": 0.4,
+            "std": 0.48989794855663565,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "3": {
+            "mean": 0.16666666666666666,
+            "std": 0.16666666666666669,
+            "min": 0.0,
+            "max": 0.3333333333333333
+          },
+          "5": {
+            "mean": 0.1,
+            "std": 0.10000000000000002,
+            "min": 0.0,
+            "max": 0.2
+          },
+          "10": {
+            "mean": 0.06999999999999999,
+            "std": 0.045825756949558406,
+            "min": 0.0,
+            "max": 0.1
+          }
+        },
+        "ndcg_at_k": {
+          "1": {
+            "mean": 0.4,
+            "std": 0.48989794855663565,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "3": {
+            "mean": 0.45,
+            "std": 0.47169905660283024,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "5": {
+            "mean": 0.45,
+            "std": 0.47169905660283024,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "10": {
+            "mean": 0.514527201342591,
+            "std": 0.42580037866906695,
+            "min": 0.0,
+            "max": 1.0
+          }
+        },
+        "mrr": {
+          "mean": 0.4600000000000001,
+          "std": 0.45087569117095777
+        },
+        "map": {
+          "mean": 0.4600000000000001,
+          "std": 0.45087569117095777
+        },
+        "latency_ms": {
+          "mean": 3482.6485872268677,
+          "std": 290.7752331984217,
+          "p50": 3409.5306396484375,
+          "p95": 4013.5668754577637,
+          "p99": 4028.6775398254395
+        }
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "recall_at_k": {
+          "1": {
+            "mean": 0.3,
+            "std": 0.45825756949558394,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "3": {
+            "mean": 0.75,
+            "std": 0.4031128874149275,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "5": {
+            "mean": 0.8,
+            "std": 0.4,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "10": {
+            "mean": 0.9,
+            "std": 0.2,
+            "min": 0.5,
+            "max": 1.0
+          }
+        },
+        "precision_at_k": {
+          "1": {
+            "mean": 0.3,
+            "std": 0.45825756949558394,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "3": {
+            "mean": 0.3,
+            "std": 0.17950549357115014,
+            "min": 0.0,
+            "max": 0.6666666666666666
+          },
+          "5": {
+            "mean": 0.2,
+            "std": 0.1264911064067352,
+            "min": 0.0,
+            "max": 0.4
+          },
+          "10": {
+            "mean": 0.12000000000000002,
+            "std": 0.04,
+            "min": 0.1,
+            "max": 0.2
+          }
+        },
+        "ndcg_at_k": {
+          "1": {
+            "mean": 0.3,
+            "std": 0.45825756949558394,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "3": {
+            "mean": 0.5842138717994728,
+            "std": 0.35546891559642735,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "5": {
+            "mean": 0.6079336430764024,
+            "std": 0.3493695454375863,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "10": {
+            "mean": 0.6488101225940996,
+            "std": 0.2811445382212597,
+            "min": 0.20438239758848611,
+            "max": 1.0
+          }
+        },
+        "mrr": {
+          "mean": 0.5619047619047619,
+          "std": 0.31536610837711326
+        },
+        "map": {
+          "mean": 0.5509523809523809,
+          "std": 0.3359475717653823
+        },
+        "latency_ms": {
+          "mean": 3612.66872882843,
+          "std": 374.04639785144883,
+          "p50": 3512.0832920074463,
+          "p95": 4224.496412277222,
+          "p99": 4273.119840621948
+        }
+      },
+      "medium": {
+        "recall_at_k": {
+          "1": {
+            "mean": 0.23255813953488372,
+            "std": 0.42246284010662677,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "3": {
+            "mean": 0.37790697674418605,
+            "std": 0.4803465712961592,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "5": {
+            "mean": 0.4011627906976744,
+            "std": 0.4856652560571419,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "10": {
+            "mean": 0.5988372093023255,
+            "std": 0.47354285335574964,
+            "min": 0.0,
+            "max": 1.0
+          }
+        },
+        "precision_at_k": {
+          "1": {
+            "mean": 0.23255813953488372,
+            "std": 0.42246284010662677,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "3": {
+            "mean": 0.1317829457364341,
+            "std": 0.1629751631134003,
+            "min": 0.0,
+            "max": 0.3333333333333333
+          },
+          "5": {
+            "mean": 0.08372093023255815,
+            "std": 0.09866606249114616,
+            "min": 0.0,
+            "max": 0.2
+          },
+          "10": {
+            "mean": 0.06744186046511629,
+            "std": 0.05992604058941919,
+            "min": 0.0,
+            "max": 0.3
+          }
+        },
+        "ndcg_at_k": {
+          "1": {
+            "mean": 0.23255813953488372,
+            "std": 0.42246284010662677,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "3": {
+            "mean": 0.31834584120186604,
+            "std": 0.42245369504267216,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "5": {
+            "mean": 0.3261847548067359,
+            "std": 0.4198418242970894,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "10": {
+            "mean": 0.3935332581067787,
+            "std": 0.38845512474404437,
+            "min": 0.0,
+            "max": 1.0
+          }
+        },
+        "mrr": {
+          "mean": 0.33457918050941304,
+          "std": 0.3953855808201142
+        },
+        "map": {
+          "mean": 0.32642580287929124,
+          "std": 0.39641350498672057
+        },
+        "latency_ms": {
+          "mean": 3833.3201020262964,
+          "std": 848.9173289943344,
+          "p50": 3518.1832313537598,
+          "p95": 5572.778248786926,
+          "p99": 6728.115797042847
+        }
+      },
+      "hard": {
+        "recall_at_k": {
+          "1": {
+            "mean": 0.057692307692307696,
+            "std": 0.14390989949130542,
+            "min": 0.0,
+            "max": 0.5
+          },
+          "3": {
+            "mean": 0.09615384615384616,
+            "std": 0.18445505858895075,
+            "min": 0.0,
+            "max": 0.5
+          },
+          "5": {
+            "mean": 0.1346153846153846,
+            "std": 0.2878197989826109,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "10": {
+            "mean": 0.23076923076923078,
+            "std": 0.31716197120135853,
+            "min": 0.0,
+            "max": 1.0
+          }
+        },
+        "precision_at_k": {
+          "1": {
+            "mean": 0.15384615384615385,
+            "std": 0.36080121229410994,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "3": {
+            "mean": 0.10256410256410256,
+            "std": 0.2018976377951746,
+            "min": 0.0,
+            "max": 0.6666666666666666
+          },
+          "5": {
+            "mean": 0.07692307692307693,
+            "std": 0.14756404687116062,
+            "min": 0.0,
+            "max": 0.4
+          },
+          "10": {
+            "mean": 0.06153846153846154,
+            "std": 0.08355984993230936,
+            "min": 0.0,
+            "max": 0.2
+          }
+        },
+        "ndcg_at_k": {
+          "1": {
+            "mean": 0.15384615384615385,
+            "std": 0.36080121229410994,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "3": {
+            "mean": 0.12408824559734295,
+            "std": 0.22831564997493262,
+            "min": 0.0,
+            "max": 0.6131471927654584
+          },
+          "5": {
+            "mean": 0.1314682906974563,
+            "std": 0.2619641777208886,
+            "min": 0.0,
+            "max": 0.8772153153380493
+          },
+          "10": {
+            "mean": 0.17384444607793403,
+            "std": 0.2684651496387035,
+            "min": 0.0,
+            "max": 0.8772153153380493
+          }
+        },
+        "mrr": {
+          "mean": 0.21474358974358973,
+          "std": 0.36097200577695093
+        },
+        "map": {
+          "mean": 0.11698717948717949,
+          "std": 0.2133277088755607
+        },
+        "latency_ms": {
+          "mean": 3666.8711442213794,
+          "std": 335.4708950168961,
+          "p50": 3661.325454711914,
+          "p95": 4176.414442062378,
+          "p99": 4318.835248947144
+        }
+      }
+    }
+  },
+  "detailed_results": [
+    {
+      "query": "Tokyo",
+      "query_type": "text",
+      "difficulty": "easy",
+      "category": "city",
+      "expected_ids": [
+        "tokyo_photo_001",
+        "tokyo_002"
+      ],
+      "retrieved_ids": [
+        "special_001",
+        "tokyo_006",
+        "tokyo_001",
+        "tokyo_004",
+        "tokyo_003",
+        "tokyo_005",
+        "tokyo_002",
+        "special_003",
+        "nyc_003",
+        "nyc_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.5
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.20438239758848611
+        },
+        "mrr": 0.14285714285714285,
+        "map": 0.07142857142857142,
+        "latency_ms": 3381.9315433502197,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3381.9315433502197,
+      "success": true
+    },
+    {
+      "query": "Sydney",
+      "query_type": "text",
+      "difficulty": "easy",
+      "category": "city",
+      "expected_ids": [
+        "sydney_001",
+        "sydney_002"
+      ],
+      "retrieved_ids": [
+        "sydney_005",
+        "sydney_001",
+        "sydney_002",
+        "sydney_004",
+        "sydney_003",
+        "special_003",
+        "nyc_002",
+        "nyc_003",
+        "tokyo_006",
+        "capetown_004"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.6666666666666666,
+          "5": 0.4,
+          "10": 0.2
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.6934264036172708,
+          "5": 0.6934264036172708,
+          "10": 0.6934264036172708
+        },
+        "mrr": 0.5,
+        "map": 0.5833333333333333,
+        "latency_ms": 3864.7758960723877,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3864.7758960723877,
+      "success": true
+    },
+    {
+      "query": "Paris",
+      "query_type": "text",
+      "difficulty": "easy",
+      "category": "city",
+      "expected_ids": [
+        "paris_001"
+      ],
+      "retrieved_ids": [
+        "paris_002",
+        "paris_001",
+        "paris_003",
+        "special_003",
+        "special_002",
+        "nyc_003",
+        "nyc_001",
+        "tokyo_006",
+        "nyc_002",
+        "capetown_003"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.6309297535714575,
+          "5": 0.6309297535714575,
+          "10": 0.6309297535714575
+        },
+        "mrr": 0.5,
+        "map": 0.5,
+        "latency_ms": 3129.5011043548584,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3129.5011043548584,
+      "success": true
+    },
+    {
+      "query": "Reykjavik",
+      "query_type": "text",
+      "difficulty": "easy",
+      "category": "city",
+      "expected_ids": [
+        "iceland_001"
+      ],
+      "retrieved_ids": [
+        "iceland_001",
+        "iceland_002",
+        "iceland_003",
+        "nyc_003",
+        "nyc_001",
+        "nyc_002",
+        "tokyo_006",
+        "newyork_001",
+        "paris_002",
+        "nyc_005"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 1.0,
+        "map": 1.0,
+        "latency_ms": 3271.414041519165,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3271.414041519165,
+      "success": true
+    },
+    {
+      "query": "New York",
+      "query_type": "text",
+      "difficulty": "easy",
+      "category": "city",
+      "expected_ids": [
+        "nyc_001"
+      ],
+      "retrieved_ids": [
+        "newyork_003",
+        "nyc_001",
+        "newyork_002",
+        "nyc_003",
+        "newyork_004",
+        "newyork_005",
+        "nyc_005",
+        "nyc_004",
+        "nyc_002",
+        "newyork_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.6309297535714575,
+          "5": 0.6309297535714575,
+          "10": 0.6309297535714575
+        },
+        "mrr": 0.5,
+        "map": 0.5,
+        "latency_ms": 3238.1556034088135,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3238.1556034088135,
+      "success": true
+    },
+    {
+      "query": "日本东京",
+      "query_type": "text",
+      "difficulty": "easy",
+      "category": "city",
+      "expected_ids": [
+        "tokyo_photo_001",
+        "tokyo_002"
+      ],
+      "retrieved_ids": [
+        "special_001",
+        "tokyo_006",
+        "tokyo_004",
+        "tokyo_001",
+        "tokyo_005",
+        "tokyo_003",
+        "tokyo_002",
+        "nyc_003",
+        "special_003",
+        "nyc_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.5
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.20438239758848611
+        },
+        "mrr": 0.14285714285714285,
+        "map": 0.07142857142857142,
+        "latency_ms": 3479.4061183929443,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3479.4061183929443,
+      "success": true
+    },
+    {
+      "query": "澳大利亚悉尼",
+      "query_type": "text",
+      "difficulty": "easy",
+      "category": "city",
+      "expected_ids": [
+        "sydney_001",
+        "sydney_002"
+      ],
+      "retrieved_ids": [
+        "sydney_005",
+        "sydney_001",
+        "sydney_004",
+        "sydney_003",
+        "sydney_002",
+        "nyc_002",
+        "nyc_003",
+        "capetown_004",
+        "nyc_001",
+        "capetown_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.5,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.3333333333333333,
+          "5": 0.4,
+          "10": 0.2
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.38685280723454163,
+          "5": 0.6240505200038379,
+          "10": 0.6240505200038379
+        },
+        "mrr": 0.5,
+        "map": 0.45,
+        "latency_ms": 4150.210618972778,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 4150.210618972778,
+      "success": true
+    },
+    {
+      "query": "法国巴黎",
+      "query_type": "text",
+      "difficulty": "easy",
+      "category": "city",
+      "expected_ids": [
+        "paris_001"
+      ],
+      "retrieved_ids": [
+        "paris_001",
+        "paris_002",
+        "paris_003",
+        "nyc_003",
+        "nyc_001",
+        "nyc_002",
+        "capetown_003",
+        "tokyo_006",
+        "nyc_005",
+        "newyork_005"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 1.0,
+        "map": 1.0,
+        "latency_ms": 3781.2561988830566,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3781.2561988830566,
+      "success": true
+    },
+    {
+      "query": "冰岛雷克雅未克",
+      "query_type": "text",
+      "difficulty": "easy",
+      "category": "city",
+      "expected_ids": [
+        "iceland_001"
+      ],
+      "retrieved_ids": [
+        "iceland_001",
+        "iceland_003",
+        "iceland_002",
+        "nyc_001",
+        "tokyo_006",
+        "nyc_002",
+        "nyc_005",
+        "nyc_003",
+        "newyork_001",
+        "paris_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 1.0,
+        "map": 1.0,
+        "latency_ms": 3544.7604656219482,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3544.7604656219482,
+      "success": true
+    },
+    {
+      "query": "美国纽约",
+      "query_type": "text",
+      "difficulty": "easy",
+      "category": "city",
+      "expected_ids": [
+        "nyc_001"
+      ],
+      "retrieved_ids": [
+        "newyork_003",
+        "nyc_003",
+        "nyc_001",
+        "nyc_002",
+        "nyc_005",
+        "newyork_005",
+        "nyc_004",
+        "newyork_004",
+        "newyork_002",
+        "newyork_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.5,
+          "5": 0.5,
+          "10": 0.5
+        },
+        "mrr": 0.3333333333333333,
+        "map": 0.3333333333333333,
+        "latency_ms": 4285.27569770813,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 4285.27569770813,
+      "success": true
+    },
+    {
+      "query": "东京塔",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "landmark",
+      "expected_ids": [
+        "tokyo_photo_001"
+      ],
+      "retrieved_ids": [
+        "special_001",
+        "tokyo_006",
+        "tokyo_002",
+        "tokyo_001",
+        "special_003",
+        "tokyo_003",
+        "tokyo_005",
+        "tokyo_004",
+        "nyc_003",
+        "special_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3411.8306636810303,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3411.8306636810303,
+      "success": true
+    },
+    {
+      "query": "悉尼歌剧院",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "landmark",
+      "expected_ids": [
+        "sydney_001"
+      ],
+      "retrieved_ids": [
+        "sydney_001",
+        "sydney_002",
+        "sydney_005",
+        "sydney_004",
+        "sydney_003",
+        "capetown_004",
+        "nyc_001",
+        "nyc_002",
+        "tokyo_006",
+        "nyc_005"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 1.0,
+        "map": 1.0,
+        "latency_ms": 3400.6667137145996,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3400.6667137145996,
+      "success": true
+    },
+    {
+      "query": "埃菲尔铁塔",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "landmark",
+      "expected_ids": [
+        "paris_001"
+      ],
+      "retrieved_ids": [
+        "paris_001",
+        "paris_002",
+        "paris_003",
+        "nyc_001",
+        "nyc_005",
+        "nyc_002",
+        "special_002",
+        "tokyo_001",
+        "nyc_003",
+        "tokyo_006"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 1.0,
+        "map": 1.0,
+        "latency_ms": 3822.1065998077393,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3822.1065998077393,
+      "success": true
+    },
+    {
+      "query": "自由女神像",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "landmark",
+      "expected_ids": [
+        "nyc_001"
+      ],
+      "retrieved_ids": [
+        "nyc_005",
+        "newyork_005",
+        "nyc_001",
+        "nyc_002",
+        "nyc_004",
+        "newyork_001",
+        "nyc_003",
+        "newyork_003",
+        "paris_002",
+        "newyork_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.5,
+          "5": 0.5,
+          "10": 0.5
+        },
+        "mrr": 0.3333333333333333,
+        "map": 0.3333333333333333,
+        "latency_ms": 3145.5788612365723,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3145.5788612365723,
+      "success": true
+    },
+    {
+      "query": "北极光",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "landmark",
+      "expected_ids": [
+        "iceland_001"
+      ],
+      "retrieved_ids": [
+        "iceland_001",
+        "iceland_003",
+        "special_003",
+        "nyc_001",
+        "iceland_002",
+        "nyc_002",
+        "special_002",
+        "nyc_003",
+        "newyork_001",
+        "nyc_005"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 1.0,
+        "map": 1.0,
+        "latency_ms": 3678.466320037842,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3678.466320037842,
+      "success": true
+    },
+    {
+      "query": "海港大桥",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "landmark",
+      "expected_ids": [
+        "sydney_001"
+      ],
+      "retrieved_ids": [
+        "sydney_001",
+        "nyc_002",
+        "special_003",
+        "newyork_002",
+        "capetown_004",
+        "tokyo_002",
+        "nyc_001",
+        "nyc_003",
+        "nyc_005",
+        "capetown_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 1.0,
+        "map": 1.0,
+        "latency_ms": 3370.9139823913574,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3370.9139823913574,
+      "success": true
+    },
+    {
+      "query": "浅草寺",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "landmark",
+      "expected_ids": [
+        "tokyo_002"
+      ],
+      "retrieved_ids": [
+        "tokyo_004",
+        "special_001",
+        "special_003",
+        "tokyo_003",
+        "tokyo_006",
+        "tokyo_005",
+        "tokyo_002",
+        "special_002",
+        "nyc_003",
+        "tokyo_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.3333333333333333
+        },
+        "mrr": 0.14285714285714285,
+        "map": 0.14285714285714285,
+        "latency_ms": 3646.8708515167236,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3646.8708515167236,
+      "success": true
+    },
+    {
+      "query": "极光",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "landmark",
+      "expected_ids": [
+        "iceland_001"
+      ],
+      "retrieved_ids": [
+        "iceland_001",
+        "nyc_001",
+        "iceland_003",
+        "special_003",
+        "nyc_003",
+        "iceland_002",
+        "nyc_002",
+        "newyork_001",
+        "nyc_004",
+        "special_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 1.0,
+        "map": 1.0,
+        "latency_ms": 3198.1446743011475,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3198.1446743011475,
+      "success": true
+    },
+    {
+      "query": "汉服",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "tag",
+      "expected_ids": [
+        "tokyo_photo_001",
+        "paris_001"
+      ],
+      "retrieved_ids": [
+        "special_003",
+        "nyc_003",
+        "special_002",
+        "tokyo_004",
+        "nyc_001",
+        "nyc_005",
+        "special_001",
+        "nyc_002",
+        "tokyo_006",
+        "newyork_003"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 4307.12628364563,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 4307.12628364563,
+      "success": true
+    },
+    {
+      "query": "夜景",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "tag",
+      "expected_ids": [
+        "tokyo_photo_001"
+      ],
+      "retrieved_ids": [
+        "tokyo_005",
+        "nyc_001",
+        "tokyo_001",
+        "sydney_001",
+        "sydney_002",
+        "newyork_001",
+        "nyc_002",
+        "tokyo_002",
+        "paris_002",
+        "newyork_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3286.235570907593,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3286.235570907593,
+      "success": true
+    },
+    {
+      "query": "海滩",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "tag",
+      "expected_ids": [
+        "sydney_002"
+      ],
+      "retrieved_ids": [
+        "sydney_003",
+        "capetown_004",
+        "special_003",
+        "special_002",
+        "capetown_002",
+        "capetown_001",
+        "nyc_002",
+        "iceland_001",
+        "nyc_003",
+        "nyc_005"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 5382.4145793914795,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 5382.4145793914795,
+      "success": true
+    },
+    {
+      "query": "冲浪",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "tag",
+      "expected_ids": [
+        "sydney_002"
+      ],
+      "retrieved_ids": [
+        "special_003",
+        "sydney_003",
+        "capetown_004",
+        "nyc_002",
+        "capetown_002",
+        "nyc_001",
+        "capetown_001",
+        "special_002",
+        "nyc_003",
+        "nyc_005"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 6684.563636779785,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 6684.563636779785,
+      "success": true
+    },
+    {
+      "query": "寺庙",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "tag",
+      "expected_ids": [
+        "tokyo_002"
+      ],
+      "retrieved_ids": [
+        "tokyo_004",
+        "special_003",
+        "nyc_001",
+        "nyc_002",
+        "special_001",
+        "nyc_003",
+        "tokyo_006",
+        "special_002",
+        "tokyo_001",
+        "nyc_005"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 4703.691482543945,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 4703.691482543945,
+      "success": true
+    },
+    {
+      "query": "和服",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "tag",
+      "expected_ids": [
+        "tokyo_002"
+      ],
+      "retrieved_ids": [
+        "tokyo_004",
+        "special_001",
+        "special_003",
+        "special_002",
+        "tokyo_006",
+        "tokyo_005",
+        "tokyo_003",
+        "tokyo_001",
+        "nyc_003",
+        "tokyo_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.2890648263178879
+        },
+        "mrr": 0.1,
+        "map": 0.1,
+        "latency_ms": 5593.929767608643,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 5593.929767608643,
+      "success": true
+    },
+    {
+      "query": "极光",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "tag",
+      "expected_ids": [
+        "iceland_001"
+      ],
+      "retrieved_ids": [
+        "iceland_001",
+        "nyc_001",
+        "iceland_003",
+        "special_003",
+        "nyc_003",
+        "iceland_002",
+        "nyc_002",
+        "newyork_001",
+        "nyc_004",
+        "special_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 1.0,
+        "map": 1.0,
+        "latency_ms": 4405.771017074585,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 4405.771017074585,
+      "success": true
+    },
+    {
+      "query": "地标",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "tag",
+      "expected_ids": [
+        "tokyo_photo_001",
+        "sydney_001",
+        "paris_001",
+        "nyc_001"
+      ],
+      "retrieved_ids": [
+        "capetown_001",
+        "nyc_001",
+        "iceland_002",
+        "sydney_002",
+        "newyork_001",
+        "paris_001",
+        "capetown_004",
+        "capetown_002",
+        "nyc_002",
+        "sydney_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.25,
+          "5": 0.25,
+          "10": 0.75
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.3
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.2960819109658652,
+          "5": 0.24630238874073,
+          "10": 0.49820370960044086
+        },
+        "mrr": 0.5,
+        "map": 0.2833333333333333,
+        "latency_ms": 3832.296848297119,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3832.296848297119,
+      "success": true
+    },
+    {
+      "query": "浪漫",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "tag",
+      "expected_ids": [
+        "tokyo_photo_001",
+        "paris_001"
+      ],
+      "retrieved_ids": [
+        "sydney_005",
+        "nyc_002",
+        "nyc_001",
+        "special_001",
+        "sydney_002",
+        "sydney_001",
+        "paris_002",
+        "paris_001",
+        "nyc_005",
+        "newyork_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.5
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.19342640361727081
+        },
+        "mrr": 0.125,
+        "map": 0.0625,
+        "latency_ms": 3443.4943199157715,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3443.4943199157715,
+      "success": true
+    },
+    {
+      "query": "自拍",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "tag",
+      "expected_ids": [
+        "tokyo_photo_001"
+      ],
+      "retrieved_ids": [
+        "special_001",
+        "sydney_001",
+        "paris_001",
+        "nyc_003",
+        "capetown_004",
+        "newyork_003",
+        "sydney_005",
+        "sydney_003",
+        "special_003",
+        "special_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3284.083604812622,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3284.083604812622,
+      "success": true
+    },
+    {
+      "query": "阳光",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "tag",
+      "expected_ids": [
+        "sydney_002"
+      ],
+      "retrieved_ids": [
+        "sydney_003",
+        "sydney_005",
+        "special_003",
+        "nyc_003",
+        "nyc_002",
+        "nyc_004",
+        "special_002",
+        "newyork_003",
+        "newyork_004",
+        "nyc_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3235.41259765625,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3235.41259765625,
+      "success": true
+    },
+    {
+      "query": "自然奇观",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "tag",
+      "expected_ids": [
+        "iceland_001"
+      ],
+      "retrieved_ids": [
+        "capetown_001",
+        "iceland_002",
+        "capetown_002",
+        "sydney_004",
+        "iceland_001",
+        "nyc_002",
+        "sydney_005",
+        "capetown_004",
+        "nyc_005",
+        "tokyo_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.38685280723454163,
+          "10": 0.38685280723454163
+        },
+        "mrr": 0.2,
+        "map": 0.2,
+        "latency_ms": 3836.4174365997314,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3836.4174365997314,
+      "success": true
+    },
+    {
+      "query": "浪漫",
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "mood",
+      "expected_ids": [
+        "tokyo_photo_001",
+        "paris_001"
+      ],
+      "retrieved_ids": [
+        "sydney_005",
+        "nyc_002",
+        "nyc_001",
+        "special_001",
+        "sydney_002",
+        "sydney_001",
+        "paris_002",
+        "paris_001",
+        "nyc_005",
+        "newyork_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.5
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.19342640361727081
+        },
+        "mrr": 0.125,
+        "map": 0.0625,
+        "latency_ms": 4057.7304363250732,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 4057.7304363250732,
+      "success": true
+    },
+    {
+      "query": "放松",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "mood",
+      "expected_ids": [
+        "sydney_002"
+      ],
+      "retrieved_ids": [
+        "special_002",
+        "iceland_002",
+        "sydney_003",
+        "nyc_001",
+        "nyc_003",
+        "special_003",
+        "nyc_004",
+        "sydney_005",
+        "sydney_004",
+        "special_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 4280.094146728516,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 4280.094146728516,
+      "success": true
+    },
+    {
+      "query": "震撼",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "mood",
+      "expected_ids": [
+        "iceland_001"
+      ],
+      "retrieved_ids": [
+        "nyc_001",
+        "iceland_001",
+        "newyork_001",
+        "nyc_002",
+        "tokyo_002",
+        "sydney_002",
+        "paris_003",
+        "capetown_002",
+        "paris_002",
+        "sydney_005"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.6309297535714575,
+          "5": 0.6309297535714575,
+          "10": 0.6309297535714575
+        },
+        "mrr": 0.5,
+        "map": 0.5,
+        "latency_ms": 4040.076494216919,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 4040.076494216919,
+      "success": true
+    },
+    {
+      "query": "惊艳",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "mood",
+      "expected_ids": [
+        "sydney_001"
+      ],
+      "retrieved_ids": [
+        "nyc_001",
+        "special_001",
+        "nyc_002",
+        "iceland_001",
+        "sydney_002",
+        "newyork_001",
+        "sydney_001",
+        "nyc_004",
+        "capetown_004",
+        "tokyo_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.3333333333333333
+        },
+        "mrr": 0.14285714285714285,
+        "map": 0.14285714285714285,
+        "latency_ms": 3518.1832313537598,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3518.1832313537598,
+      "success": true
+    },
+    {
+      "query": "好奇",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "mood",
+      "expected_ids": [
+        "tokyo_002"
+      ],
+      "retrieved_ids": [
+        "nyc_001",
+        "special_003",
+        "nyc_003",
+        "nyc_004",
+        "special_001",
+        "tokyo_006",
+        "nyc_002",
+        "sydney_005",
+        "newyork_004",
+        "iceland_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 6759.653568267822,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 6759.653568267822,
+      "success": true
+    },
+    {
+      "query": "庄严",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "mood",
+      "expected_ids": [
+        "nyc_001"
+      ],
+      "retrieved_ids": [
+        "nyc_002",
+        "nyc_005",
+        "nyc_001",
+        "paris_003",
+        "newyork_005",
+        "sydney_002",
+        "tokyo_004",
+        "nyc_003",
+        "newyork_001",
+        "iceland_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.5,
+          "5": 0.5,
+          "10": 0.5
+        },
+        "mrr": 0.3333333333333333,
+        "map": 0.3333333333333333,
+        "latency_ms": 3311.2144470214844,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3311.2144470214844,
+      "success": true
+    },
+    {
+      "query": "浪漫的旅行",
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "mood",
+      "expected_ids": [
+        "tokyo_photo_001",
+        "paris_001"
+      ],
+      "retrieved_ids": [
+        "tokyo_005",
+        "nyc_005",
+        "sydney_005",
+        "nyc_002",
+        "paris_002",
+        "paris_001",
+        "sydney_001",
+        "tokyo_006",
+        "newyork_005",
+        "capetown_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.5
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.21840743681816419
+        },
+        "mrr": 0.16666666666666666,
+        "map": 0.08333333333333333,
+        "latency_ms": 3419.5873737335205,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3419.5873737335205,
+      "success": true
+    },
+    {
+      "query": "放松的海滩时光",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "mood",
+      "expected_ids": [
+        "sydney_002"
+      ],
+      "retrieved_ids": [
+        "sydney_003",
+        "special_003",
+        "capetown_004",
+        "sydney_005",
+        "tokyo_006",
+        "special_002",
+        "capetown_002",
+        "capetown_001",
+        "nyc_005",
+        "iceland_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3225.5876064300537,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3225.5876064300537,
+      "success": true
+    },
+    {
+      "query": "震撼的自然景观",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "mood",
+      "expected_ids": [
+        "iceland_001"
+      ],
+      "retrieved_ids": [
+        "capetown_002",
+        "iceland_001",
+        "capetown_001",
+        "sydney_004",
+        "iceland_002",
+        "capetown_004",
+        "nyc_002",
+        "sydney_005",
+        "iceland_003",
+        "newyork_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.6309297535714575,
+          "5": 0.6309297535714575,
+          "10": 0.6309297535714575
+        },
+        "mrr": 0.5,
+        "map": 0.5,
+        "latency_ms": 3161.449193954468,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3161.449193954468,
+      "success": true
+    },
+    {
+      "query": "美丽的海港",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "mood",
+      "expected_ids": [
+        "sydney_001"
+      ],
+      "retrieved_ids": [
+        "capetown_004",
+        "sydney_001",
+        "nyc_002",
+        "special_003",
+        "capetown_002",
+        "sydney_002",
+        "iceland_001",
+        "capetown_001",
+        "newyork_002",
+        "sydney_003"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.6309297535714575,
+          "5": 0.6309297535714575,
+          "10": 0.6309297535714575
+        },
+        "mrr": 0.5,
+        "map": 0.5,
+        "latency_ms": 3853.055477142334,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3853.055477142334,
+      "success": true
+    },
+    {
+      "query": "汉服",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "outfit",
+      "expected_ids": [
+        "tokyo_photo_001",
+        "paris_001"
+      ],
+      "retrieved_ids": [
+        "special_003",
+        "nyc_003",
+        "special_002",
+        "tokyo_004",
+        "nyc_001",
+        "nyc_005",
+        "special_001",
+        "nyc_002",
+        "tokyo_006",
+        "newyork_003"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3253.0484199523926,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3253.0484199523926,
+      "success": true
+    },
+    {
+      "query": "和服",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "outfit",
+      "expected_ids": [
+        "tokyo_002"
+      ],
+      "retrieved_ids": [
+        "tokyo_004",
+        "special_001",
+        "special_003",
+        "special_002",
+        "tokyo_006",
+        "tokyo_005",
+        "tokyo_003",
+        "tokyo_001",
+        "nyc_003",
+        "tokyo_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.2890648263178879
+        },
+        "mrr": 0.1,
+        "map": 0.1,
+        "latency_ms": 3250.6446838378906,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3250.6446838378906,
+      "success": true
+    },
+    {
+      "query": "休闲",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "outfit",
+      "expected_ids": [
+        "sydney_001",
+        "nyc_001"
+      ],
+      "retrieved_ids": [
+        "special_002",
+        "nyc_003",
+        "nyc_005",
+        "nyc_004",
+        "sydney_003",
+        "sydney_005",
+        "nyc_001",
+        "capetown_003",
+        "tokyo_003",
+        "nyc_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.5
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.20438239758848611
+        },
+        "mrr": 0.14285714285714285,
+        "map": 0.07142857142857142,
+        "latency_ms": 3891.66259765625,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3891.66259765625,
+      "success": true
+    },
+    {
+      "query": "泳装",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "outfit",
+      "expected_ids": [
+        "sydney_002"
+      ],
+      "retrieved_ids": [
+        "special_003",
+        "sydney_003",
+        "nyc_003",
+        "capetown_004",
+        "special_002",
+        "tokyo_006",
+        "nyc_002",
+        "nyc_005",
+        "newyork_003",
+        "nyc_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3662.6343727111816,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3662.6343727111816,
+      "success": true
+    },
+    {
+      "query": "保暖",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "outfit",
+      "expected_ids": [
+        "iceland_001"
+      ],
+      "retrieved_ids": [
+        "special_002",
+        "iceland_002",
+        "nyc_003",
+        "iceland_003",
+        "special_003",
+        "iceland_001",
+        "newyork_003",
+        "nyc_001",
+        "nyc_004",
+        "nyc_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.3562071871080222
+        },
+        "mrr": 0.16666666666666666,
+        "map": 0.16666666666666666,
+        "latency_ms": 3528.3865928649902,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3528.3865928649902,
+      "success": true
+    },
+    {
+      "query": "穿传统服装",
+      "query_type": "text",
+      "difficulty": "medium",
+      "category": "outfit",
+      "expected_ids": [
+        "tokyo_photo_001",
+        "paris_001",
+        "tokyo_002"
+      ],
+      "retrieved_ids": [
+        "tokyo_004",
+        "special_001",
+        "tokyo_005",
+        "special_003",
+        "sydney_005",
+        "nyc_001",
+        "nyc_005",
+        "nyc_003",
+        "newyork_005",
+        "iceland_003"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 4591.053009033203,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 4591.053009033203,
+      "success": true
+    },
+    {
+      "query": "穿传统服装的旅行",
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "semantic",
+      "expected_ids": [
+        "tokyo_photo_001",
+        "paris_001",
+        "tokyo_002"
+      ],
+      "retrieved_ids": [
+        "tokyo_004",
+        "nyc_005",
+        "special_003",
+        "nyc_002",
+        "special_001",
+        "tokyo_005",
+        "sydney_005",
+        "iceland_001",
+        "newyork_005",
+        "tokyo_006"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3217.6618576049805,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3217.6618576049805,
+      "success": true
+    },
+    {
+      "query": "著名的地标建筑",
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "semantic",
+      "expected_ids": [
+        "tokyo_photo_001",
+        "sydney_001",
+        "paris_001",
+        "nyc_001"
+      ],
+      "retrieved_ids": [
+        "capetown_001",
+        "nyc_001",
+        "paris_001",
+        "nyc_002",
+        "nyc_005",
+        "newyork_002",
+        "newyork_001",
+        "capetown_004",
+        "sydney_002",
+        "capetown_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.5,
+          "5": 0.5,
+          "10": 0.5
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.6666666666666666,
+          "5": 0.4,
+          "10": 0.2
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.5307212739772434,
+          "5": 0.44149241373678083,
+          "10": 0.44149241373678083
+        },
+        "mrr": 0.5,
+        "map": 0.29166666666666663,
+        "latency_ms": 3473.700523376465,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3473.700523376465,
+      "success": true
+    },
+    {
+      "query": "海边或海滩",
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "semantic",
+      "expected_ids": [
+        "sydney_002"
+      ],
+      "retrieved_ids": [
+        "capetown_004",
+        "sydney_003",
+        "capetown_002",
+        "special_003",
+        "special_002",
+        "capetown_001",
+        "sydney_005",
+        "nyc_002",
+        "nyc_005",
+        "tokyo_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3242.5858974456787,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3242.5858974456787,
+      "success": true
+    },
+    {
+      "query": "夜晚的城市风景",
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "semantic",
+      "expected_ids": [
+        "tokyo_photo_001"
+      ],
+      "retrieved_ids": [
+        "nyc_001",
+        "tokyo_001",
+        "tokyo_005",
+        "newyork_001",
+        "nyc_002",
+        "sydney_002",
+        "newyork_002",
+        "paris_002",
+        "tokyo_002",
+        "sydney_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3831.3381671905518,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3831.3381671905518,
+      "success": true
+    },
+    {
+      "query": "中西合璧的旅行照片",
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "semantic",
+      "expected_ids": [
+        "tokyo_photo_001",
+        "paris_001"
+      ],
+      "retrieved_ids": [
+        "nyc_001",
+        "nyc_005",
+        "nyc_002",
+        "sydney_005",
+        "newyork_001",
+        "newyork_005",
+        "capetown_004",
+        "newyork_002",
+        "sydney_001",
+        "special_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3228.262424468994,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3228.262424468994,
+      "success": true
+    },
+    {
+      "query": "标志性的城市景点",
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "semantic",
+      "expected_ids": [
+        "tokyo_photo_001",
+        "sydney_001",
+        "paris_001",
+        "nyc_001"
+      ],
+      "retrieved_ids": [
+        "nyc_001",
+        "capetown_001",
+        "newyork_001",
+        "capetown_004",
+        "tokyo_002",
+        "paris_001",
+        "nyc_002",
+        "sydney_002",
+        "newyork_002",
+        "nyc_005"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.25,
+          "3": 0.25,
+          "5": 0.25,
+          "10": 0.5
+        },
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.2
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 0.46927872602275644,
+          "5": 0.3903800499921017,
+          "10": 0.5294362295028773
+        },
+        "mrr": 1.0,
+        "map": 0.3333333333333333,
+        "latency_ms": 4354.440450668335,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 4354.440450668335,
+      "success": true
+    },
+    {
+      "query": "户外活动",
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "semantic",
+      "expected_ids": [
+        "sydney_002"
+      ],
+      "retrieved_ids": [
+        "sydney_005",
+        "nyc_003",
+        "nyc_005",
+        "nyc_004",
+        "paris_002",
+        "iceland_003",
+        "newyork_004",
+        "newyork_003",
+        "sydney_004",
+        "sydney_003"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3661.325454711914,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3661.325454711914,
+      "success": true
+    },
+    {
+      "query": "文化体验",
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "semantic",
+      "expected_ids": [
+        "tokyo_002"
+      ],
+      "retrieved_ids": [
+        "tokyo_004",
+        "tokyo_003",
+        "nyc_001",
+        "tokyo_005",
+        "nyc_005",
+        "capetown_003",
+        "special_001",
+        "newyork_005",
+        "sydney_002",
+        "paris_003"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3785.649538040161,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3785.649538040161,
+      "success": true
+    },
+    {
+      "query": "自然与城市结合",
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "semantic",
+      "expected_ids": [
+        "sydney_001"
+      ],
+      "retrieved_ids": [
+        "nyc_004",
+        "nyc_003",
+        "nyc_002",
+        "capetown_004",
+        "newyork_004",
+        "special_001",
+        "nyc_001",
+        "newyork_003",
+        "capetown_001",
+        "newyork_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3793.544054031372,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3793.544054031372,
+      "success": true
+    },
+    {
+      "query": "历史与现代",
+      "query_type": "text",
+      "difficulty": "hard",
+      "category": "semantic",
+      "expected_ids": [
+        "tokyo_002",
+        "nyc_001"
+      ],
+      "retrieved_ids": [
+        "nyc_001",
+        "newyork_001",
+        "nyc_002",
+        "tokyo_002",
+        "capetown_004",
+        "nyc_005",
+        "paris_003",
+        "newyork_005",
+        "newyork_002",
+        "paris_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.5,
+          "3": 0.5,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.4,
+          "10": 0.2
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 0.6131471927654584,
+          "5": 0.8772153153380493,
+          "10": 0.8772153153380493
+        },
+        "mrr": 1.0,
+        "map": 0.75,
+        "latency_ms": 3613.0175590515137,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3613.0175590515137,
+      "success": true
+    },
+    {
+      "query": "",
+      "query_type": "image",
+      "difficulty": "medium",
+      "category": "image_to_image",
+      "expected_ids": [
+        "tokyo_photo_001"
+      ],
+      "retrieved_ids": [],
+      "metrics": {},
+      "latency_ms": 6.260871887207031,
+      "success": false,
+      "error": "<ParamError: (code=1, message=`search_data` value [None] is illegal)>"
+    },
+    {
+      "query": "",
+      "query_type": "image",
+      "difficulty": "medium",
+      "category": "image_to_image",
+      "expected_ids": [
+        "sydney_001"
+      ],
+      "retrieved_ids": [],
+      "metrics": {},
+      "latency_ms": 1.0027885437011719,
+      "success": false,
+      "error": "<ParamError: (code=1, message=`search_data` value [None] is illegal)>"
+    },
+    {
+      "query": "",
+      "query_type": "image",
+      "difficulty": "medium",
+      "category": "image_to_image",
+      "expected_ids": [
+        "paris_001"
+      ],
+      "retrieved_ids": [],
+      "metrics": {},
+      "latency_ms": 0.8220672607421875,
+      "success": false,
+      "error": "<ParamError: (code=1, message=`search_data` value [None] is illegal)>"
+    },
+    {
+      "query": "",
+      "query_type": "image",
+      "difficulty": "medium",
+      "category": "image_to_image",
+      "expected_ids": [
+        "nyc_001"
+      ],
+      "retrieved_ids": [],
+      "metrics": {},
+      "latency_ms": 0.7708072662353516,
+      "success": false,
+      "error": "<ParamError: (code=1, message=`search_data` value [None] is illegal)>"
+    },
+    {
+      "query": "",
+      "query_type": "image",
+      "difficulty": "medium",
+      "category": "image_to_image",
+      "expected_ids": [
+        "iceland_001"
+      ],
+      "retrieved_ids": [],
+      "metrics": {},
+      "latency_ms": 0.7407665252685547,
+      "success": false,
+      "error": "<ParamError: (code=1, message=`search_data` value [None] is illegal)>"
+    },
+    {
+      "query": "",
+      "query_type": "image",
+      "difficulty": "medium",
+      "category": "image_to_image",
+      "expected_ids": [
+        "capetown_001"
+      ],
+      "retrieved_ids": [],
+      "metrics": {},
+      "latency_ms": 0.762939453125,
+      "success": false,
+      "error": "<ParamError: (code=1, message=`search_data` value [None] is illegal)>"
+    },
+    {
+      "query": "",
+      "query_type": "image",
+      "difficulty": "medium",
+      "category": "image_to_image",
+      "expected_ids": [
+        "tokyo_002"
+      ],
+      "retrieved_ids": [],
+      "metrics": {},
+      "latency_ms": 1.0006427764892578,
+      "success": false,
+      "error": "<ParamError: (code=1, message=`search_data` value [None] is illegal)>"
+    },
+    {
+      "query": "",
+      "query_type": "image",
+      "difficulty": "medium",
+      "category": "image_to_image",
+      "expected_ids": [
+        "sydney_002"
+      ],
+      "retrieved_ids": [],
+      "metrics": {},
+      "latency_ms": 0.7970333099365234,
+      "success": false,
+      "error": "<ParamError: (code=1, message=`search_data` value [None] is illegal)>"
+    },
+    {
+      "query": "",
+      "query_type": "image",
+      "difficulty": "medium",
+      "category": "image_to_image",
+      "expected_ids": [
+        "capetown_002"
+      ],
+      "retrieved_ids": [],
+      "metrics": {},
+      "latency_ms": 0.7216930389404297,
+      "success": false,
+      "error": "<ParamError: (code=1, message=`search_data` value [None] is illegal)>"
+    },
+    {
+      "query": "",
+      "query_type": "image",
+      "difficulty": "medium",
+      "category": "image_to_image",
+      "expected_ids": [
+        "nyc_002"
+      ],
+      "retrieved_ids": [],
+      "metrics": {},
+      "latency_ms": 0.7491111755371094,
+      "success": false,
+      "error": "<ParamError: (code=1, message=`search_data` value [None] is illegal)>"
+    },
+    {
+      "query": "东京夜景",
+      "query_type": "hybrid",
+      "difficulty": "hard",
+      "category": "hybrid",
+      "expected_ids": [
+        "tokyo_photo_001"
+      ],
+      "retrieved_ids": [
+        "tokyo_001",
+        "tokyo_005",
+        "tokyo_003",
+        "tokyo_002",
+        "tokyo_006",
+        "tokyo_004",
+        "special_003",
+        "nyc_001",
+        "special_002",
+        "special_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3990.48113822937,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3990.48113822937,
+      "success": true
+    },
+    {
+      "query": "悉尼歌剧院",
+      "query_type": "hybrid",
+      "difficulty": "medium",
+      "category": "hybrid",
+      "expected_ids": [
+        "sydney_001"
+      ],
+      "retrieved_ids": [
+        "sydney_001",
+        "sydney_002",
+        "sydney_005",
+        "sydney_004",
+        "sydney_003",
+        "capetown_004",
+        "nyc_001",
+        "nyc_002",
+        "tokyo_006",
+        "nyc_005"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 1.0,
+        "map": 1.0,
+        "latency_ms": 4032.4552059173584,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 4032.4552059173584,
+      "success": true
+    },
+    {
+      "query": "埃菲尔铁塔",
+      "query_type": "hybrid",
+      "difficulty": "medium",
+      "category": "hybrid",
+      "expected_ids": [
+        "paris_001"
+      ],
+      "retrieved_ids": [
+        "paris_001",
+        "paris_002",
+        "paris_003",
+        "nyc_001",
+        "nyc_005",
+        "nyc_002",
+        "special_002",
+        "tokyo_001",
+        "nyc_003",
+        "tokyo_006"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 1.0,
+        "map": 1.0,
+        "latency_ms": 3308.488130569458,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3308.488130569458,
+      "success": true
+    },
+    {
+      "query": "自由女神像",
+      "query_type": "hybrid",
+      "difficulty": "medium",
+      "category": "hybrid",
+      "expected_ids": [
+        "nyc_001"
+      ],
+      "retrieved_ids": [
+        "nyc_005",
+        "newyork_005",
+        "nyc_001",
+        "nyc_002",
+        "nyc_004",
+        "newyork_001",
+        "nyc_003",
+        "newyork_003",
+        "paris_002",
+        "newyork_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.5,
+          "5": 0.5,
+          "10": 0.5
+        },
+        "mrr": 0.3333333333333333,
+        "map": 0.3333333333333333,
+        "latency_ms": 3452.566146850586,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3452.566146850586,
+      "success": true
+    },
+    {
+      "query": "温泉",
+      "query_type": "hybrid",
+      "difficulty": "medium",
+      "category": "hybrid",
+      "expected_ids": [
+        "iceland_001"
+      ],
+      "retrieved_ids": [
+        "iceland_002",
+        "special_003",
+        "special_002",
+        "tokyo_006",
+        "special_001",
+        "tokyo_003",
+        "nyc_002",
+        "nyc_003",
+        "tokyo_004",
+        "nyc_001"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3202.2132873535156,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3202.2132873535156,
+      "success": true
+    },
+    {
+      "query": "桌山",
+      "query_type": "hybrid",
+      "difficulty": "medium",
+      "category": "hybrid",
+      "expected_ids": [
+        "capetown_001"
+      ],
+      "retrieved_ids": [
+        "capetown_001",
+        "capetown_003",
+        "capetown_002",
+        "paris_002",
+        "capetown_004",
+        "special_003",
+        "sydney_005",
+        "sydney_004",
+        "nyc_002",
+        "nyc_003"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 1.0,
+        "map": 1.0,
+        "latency_ms": 3532.8335762023926,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3532.8335762023926,
+      "success": true
+    },
+    {
+      "query": "和服",
+      "query_type": "hybrid",
+      "difficulty": "medium",
+      "category": "hybrid",
+      "expected_ids": [
+        "tokyo_002"
+      ],
+      "retrieved_ids": [
+        "tokyo_004",
+        "special_001",
+        "special_003",
+        "special_002",
+        "tokyo_006",
+        "tokyo_005",
+        "tokyo_003",
+        "tokyo_001",
+        "nyc_003",
+        "tokyo_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.2890648263178879
+        },
+        "mrr": 0.1,
+        "map": 0.1,
+        "latency_ms": 3409.1923236846924,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3409.1923236846924,
+      "success": true
+    },
+    {
+      "query": "海滩",
+      "query_type": "hybrid",
+      "difficulty": "medium",
+      "category": "hybrid",
+      "expected_ids": [
+        "sydney_002"
+      ],
+      "retrieved_ids": [
+        "sydney_003",
+        "capetown_004",
+        "special_003",
+        "special_002",
+        "capetown_002",
+        "capetown_001",
+        "nyc_002",
+        "iceland_001",
+        "nyc_003",
+        "nyc_005"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.0
+        },
+        "mrr": 0.0,
+        "map": 0.0,
+        "latency_ms": 3409.8689556121826,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3409.8689556121826,
+      "success": true
+    },
+    {
+      "query": "好望角",
+      "query_type": "hybrid",
+      "difficulty": "medium",
+      "category": "hybrid",
+      "expected_ids": [
+        "capetown_002"
+      ],
+      "retrieved_ids": [
+        "capetown_002",
+        "capetown_003",
+        "capetown_001",
+        "special_003",
+        "capetown_004",
+        "nyc_001",
+        "special_002",
+        "sydney_005",
+        "nyc_002",
+        "paris_002"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333333333333333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 1.0,
+        "map": 1.0,
+        "latency_ms": 3088.4573459625244,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3088.4573459625244,
+      "success": true
+    },
+    {
+      "query": "时代广场",
+      "query_type": "hybrid",
+      "difficulty": "medium",
+      "category": "hybrid",
+      "expected_ids": [
+        "nyc_002"
+      ],
+      "retrieved_ids": [
+        "nyc_001",
+        "newyork_001",
+        "special_003",
+        "nyc_005",
+        "newyork_005",
+        "nyc_002",
+        "newyork_003",
+        "nyc_004",
+        "special_002",
+        "nyc_003"
+      ],
+      "metrics": {
+        "recall_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 1.0
+        },
+        "precision_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.1
+        },
+        "ndcg_at_k": {
+          "1": 0.0,
+          "3": 0.0,
+          "5": 0.0,
+          "10": 0.3562071871080222
+        },
+        "mrr": 0.16666666666666666,
+        "map": 0.16666666666666666,
+        "latency_ms": 3399.9297618865967,
+        "throughput_qps": null,
+        "cross_modal_accuracy": null
+      },
+      "latency_ms": 3399.9297618865967,
+      "success": true
+    }
+  ]
+}

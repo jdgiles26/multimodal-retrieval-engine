@@ -1,0 +1,274 @@
+{
+  "timestamp": "2026-04-20 18:00:00",
+  "total_queries": 22,
+  "top1_accuracy": 1.0,
+  "top3_accuracy": 0.9545454545454546,
+  "avg_latency_ms": 1816.6125579313798,
+  "p95_latency_ms": 1926.0244369506836,
+  "category_stats": {
+    "city": {
+      "total": 6,
+      "hits": 6,
+      "accuracy": 1.0
+    },
+    "landmark": {
+      "total": 6,
+      "hits": 6,
+      "accuracy": 1.0
+    },
+    "tag": {
+      "total": 6,
+      "hits": 6,
+      "accuracy": 1.0
+    },
+    "emoji": {
+      "total": 4,
+      "hits": 4,
+      "accuracy": 1.0
+    }
+  },
+  "detailed_results": [
+    {
+      "query": "东京",
+      "category": "city",
+      "expected": "Tokyo",
+      "top_city": "Tokyo",
+      "top_score": 0.6030022501945496,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 2002.7389526367188,
+      "results_count": 5
+    },
+    {
+      "query": "悉尼",
+      "category": "city",
+      "expected": "Sydney",
+      "top_city": "Sydney",
+      "top_score": 0.5625978708267212,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1680.2456378936768,
+      "results_count": 5
+    },
+    {
+      "query": "巴黎",
+      "category": "city",
+      "expected": "Paris",
+      "top_city": "Paris",
+      "top_score": 0.6293624043464661,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1884.526252746582,
+      "results_count": 5
+    },
+    {
+      "query": "纽约",
+      "category": "city",
+      "expected": "New York",
+      "top_city": "New York",
+      "top_score": 0.6070626378059387,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1742.600679397583,
+      "results_count": 5
+    },
+    {
+      "query": "冰岛",
+      "category": "city",
+      "expected": "Iceland",
+      "top_city": "Iceland",
+      "top_score": 0.6546944379806519,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1919.419765472412,
+      "results_count": 5
+    },
+    {
+      "query": "开普敦",
+      "category": "city",
+      "expected": "Cape Town",
+      "top_city": "Cape Town",
+      "top_score": 0.682510495185852,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1746.1233139038086,
+      "results_count": 5
+    },
+    {
+      "query": "涩谷",
+      "category": "landmark",
+      "expected": "Tokyo",
+      "top_city": "Tokyo",
+      "top_score": 0.6516331434249878,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1890.6924724578857,
+      "results_count": 5
+    },
+    {
+      "query": "歌剧院",
+      "category": "landmark",
+      "expected": "Sydney",
+      "top_city": "Sydney",
+      "top_score": 0.5474950075149536,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1844.6519374847412,
+      "results_count": 5
+    },
+    {
+      "query": "埃菲尔铁塔",
+      "category": "landmark",
+      "expected": "Paris",
+      "top_city": "Paris",
+      "top_score": 0.6520415544509888,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1792.210340499878,
+      "results_count": 5
+    },
+    {
+      "query": "时代广场",
+      "category": "landmark",
+      "expected": "New York",
+      "top_city": "New York",
+      "top_score": 0.7723546028137207,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1771.7113494873047,
+      "results_count": 5
+    },
+    {
+      "query": "蓝湖",
+      "category": "landmark",
+      "expected": "Iceland",
+      "top_city": "Iceland",
+      "top_score": 0.6810577511787415,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1880.561113357544,
+      "results_count": 5
+    },
+    {
+      "query": "桌山",
+      "category": "landmark",
+      "expected": "Cape Town",
+      "top_city": "Cape Town",
+      "top_score": 0.7393216490745544,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1659.4626903533936,
+      "results_count": 5
+    },
+    {
+      "query": "夜景",
+      "category": "tag",
+      "expected": null,
+      "top_city": "Tokyo",
+      "top_score": 0.5485939979553223,
+      "hit": true,
+      "hit_at_3": false,
+      "latency_ms": 1764.7795677185059,
+      "results_count": 5
+    },
+    {
+      "query": "和服",
+      "category": "tag",
+      "expected": "Tokyo",
+      "top_city": "Tokyo",
+      "top_score": 0.4989544451236725,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1786.506175994873,
+      "results_count": 5
+    },
+    {
+      "query": "红酒",
+      "category": "tag",
+      "expected": "Cape Town",
+      "top_city": "Cape Town",
+      "top_score": 0.45650380849838257,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1834.214448928833,
+      "results_count": 5
+    },
+    {
+      "query": "温泉",
+      "category": "tag",
+      "expected": "Iceland",
+      "top_city": "Iceland",
+      "top_score": 0.5970390439033508,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1775.407075881958,
+      "results_count": 5
+    },
+    {
+      "query": "海滩",
+      "category": "tag",
+      "expected": "Sydney",
+      "top_city": "Sydney",
+      "top_score": 0.5487469434738159,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1881.810188293457,
+      "results_count": 5
+    },
+    {
+      "query": "袋鼠",
+      "category": "tag",
+      "expected": "Sydney",
+      "top_city": "Sydney",
+      "top_score": 0.6376037001609802,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1761.5084648132324,
+      "results_count": 5
+    },
+    {
+      "query": "东京夜景🗼",
+      "category": "emoji",
+      "expected": "Tokyo",
+      "top_city": "Tokyo",
+      "top_score": 0.7511237859725952,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1843.2960510253906,
+      "results_count": 5
+    },
+    {
+      "query": "悉尼歌剧院🦊",
+      "category": "emoji",
+      "expected": "Sydney",
+      "top_city": "Sydney",
+      "top_score": 0.7820866107940674,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1871.537208557129,
+      "results_count": 5
+    },
+    {
+      "query": "和服👘",
+      "category": "emoji",
+      "expected": "Tokyo",
+      "top_city": "Tokyo",
+      "top_score": 0.4985054135322571,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1926.0244369506836,
+      "results_count": 5
+    },
+    {
+      "query": "红酒🍷",
+      "category": "emoji",
+      "expected": "Cape Town",
+      "top_city": "Cape Town",
+      "top_score": 0.4767713248729706,
+      "hit": true,
+      "hit_at_3": true,
+      "latency_ms": 1705.4481506347656,
+      "results_count": 5
+    }
+  ]
+}

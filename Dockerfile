@@ -1,27 +1,27 @@
-# 基础镜像
+# Base image
 FROM python:3.11-slim
 
-# 设置工作目录
+# Set working directory
 WORKDIR /app
 
-# 安装系统依赖
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     gcc \
     g++ \
     libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
-# 复制依赖文件
+# Copy requirements file
 COPY requirements.txt .
 
-# 安装 Python 依赖
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 复制代码
+# Copy code
 COPY . .
 
-# 暴露端口
+# Expose port
 EXPOSE 8000
 
-# 启动命令
+# Startup command
 CMD ["python", "-m", "api.main"]

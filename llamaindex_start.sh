@@ -1,27 +1,27 @@
 #!/bin/bash
-# LlamaIndex 多模态检索系统 - 快速启动
+# LlamaIndex Multimodal Retrieval System - Quick Start
 
-echo "🦊 LlamaIndex 多模态检索系统 - 快速启动"
+echo "[INFO] LlamaIndex Multimodal Retrieval System - Quick Start"
 echo "=========================================="
 
-# 检查 Milvus
+# Check Milvus
 echo ""
-echo "📦 检查 Milvus 服务..."
+echo "[INFO] Checking Milvus service..."
 if ! curl -s http://localhost:9091/healthz > /dev/null 2>&1; then
-    echo "⚠️  Milvus 未运行，正在启动..."
+    echo "[WARN] Milvus not running, starting..."
     docker-compose up -d
     sleep 15
 fi
 
-echo "✅ Milvus 服务正常"
+echo "[OK] Milvus service normal"
 
-# 启动 API
+# Start API
 echo ""
-echo "🚀 启动 LlamaIndex API 服务..."
+echo "[INFO] Starting LlamaIndex API service..."
 echo ""
 echo "=========================================="
-echo "📡 API 地址：http://localhost:8001"
-echo "📖 API 文档：http://localhost:8001/docs"
+echo "[INFO] API URL: http://localhost:8001"
+echo "[INFO] API Docs: http://localhost:8001/docs"
 echo "=========================================="
 echo ""
 

@@ -1,4 +1,4 @@
-# 忽略文件
+# Ignore files
 
 # Python
 __pycache__/
@@ -22,7 +22,7 @@ wheels/
 .installed.cfg
 *.egg
 
-# 虚拟环境
+# Virtual environments
 venv/
 ENV/
 env/
@@ -35,16 +35,16 @@ env/
 *.swo
 *~
 
-# 环境变量
+# Environment variables
 .env
 .env.local
 .env.*.local
 
-# 日志
+# Logs
 logs/
 *.log
 
-# 数据
+# Data
 data/
 milvus_data/
 minio_data/
@@ -52,12 +52,12 @@ minio_data/
 # Docker
 .docker/
 
-# 测试
+# Tests
 .pytest_cache/
 .coverage
 htmlcov/
 
-# 临时文件
+# Temp files
 *.tmp
 *.bak
 .DS_Store

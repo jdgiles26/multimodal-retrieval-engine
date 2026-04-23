@@ -1,5 +1,5 @@
 """
-Duckyo 多模态检索引擎评测模块
+Duckyo Multimodal Retrieval Engine Evaluation Module
 """
 from evaluation.eval_dataset import EvalDataset, QueryRelevance, DuckyoEvalDatasetBuilder
 from evaluation.eval_metrics import MetricsCalculator, AggregatedMetrics, RetrievalMetrics

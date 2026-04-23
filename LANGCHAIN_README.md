@@ -1,33 +1,33 @@
-# 🦊 Duckyo 多模态检索系统 - LangChain 版本
+# Multimodal Retrieval System - LangChain Version
 
-基于 **LangChain + Milvus + Qwen3-VL** 的多模态检索引擎
+A multimodal retrieval engine based on **LangChain + Milvus + Qwen3-VL**.
 
-## 🏗️ 架构
+## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    LangChain 多模态 RAG                      │
-├─────────────────────────────────────────────────────────────┤
-│  输入层                                                      │
-│  ├── Document Loaders (图片/文本)                           │
-│  └── MultiVectorRetriever                                    │
-├─────────────────────────────────────────────────────────────┤
-│  处理层                                                      │
-│  ├── Qwen3VLEmbeddings (2560维)                            │
-│  │   └── 统一编码文本+图片                                  │
-│  └── Milvus VectorStore                                      │
-│      └── HNSW索引 + 余弦相似度                              │
-├─────────────────────────────────────────────────────────────┤
-│  检索层                                                      │
-│  ├── VectorStoreRetriever                                    │
-│  └── Reranker (gte-rerank)                                  │
-├─────────────────────────────────────────────────────────────┤
-│  API 层 (FastAPI)                                           │
-│  └── RESTful 接口                                           │
-└─────────────────────────────────────────────────────────────┘
++-------------------------------------------------------------+
+|              LangChain Multimodal RAG                       |
++-------------------------------------------------------------+
+|  Input Layer                                                |
+|  |-- Document Loaders (image / text)                        |
+|  \-- MultiVectorRetriever                                   |
++-------------------------------------------------------------+
+|  Processing Layer                                           |
+|  |-- Qwen3VLEmbeddings (2560-dim)                           |
+|  |   \-- Unified text + image encoding                      |
+|  \-- Milvus VectorStore                                     |
+|      \-- HNSW index + cosine similarity                     |
++-------------------------------------------------------------+
+|  Retrieval Layer                                            |
+|  |-- VectorStoreRetriever                                   |
+|  \-- Reranker (gte-rerank)                                  |
++-------------------------------------------------------------+
+|  API Layer (FastAPI)                                        |
+|  \-- RESTful endpoints                                      |
++-------------------------------------------------------------+
 ```
 
-## 📦 核心组件
+## Core Components
 
 ### 1. Qwen3VLEmbeddings
 
@@ -40,15 +40,15 @@ embeddings = Qwen3VLEmbeddings(
     dimension=2560
 )
 
-# 文本编码
-vec = embeddings.embed_query("东京塔夜景")
+# Text embedding
+vec = embeddings.embed_query("Tokyo tower night view")
 
-# 图片编码
+# Image embedding
 vec = embeddings.embed_image("https://.../photo.jpg")
 
-# 图文融合
+# Text-image fusion
 vec = embeddings.embed_fusion(
-    text="东京塔夜景",
+    text="Tokyo tower night view",
     image_url="https://.../photo.jpg"
 )
 ```
@@ -64,47 +64,47 @@ retriever = MultimodalRetriever(
     collection_name="duckyo_travel_memories"
 )
 
-# 添加数据
+# Add data
 memories = [
     {
-        "content": "东京塔夜景, 穿着汉服",
+        "content": "Tokyo tower night view, wearing Hanfu",
         "city": "Tokyo",
         "date": "2026-03-06",
-        "tags": ["汉服", "夜景"]
+        "tags": ["Hanfu", "night view"]
     }
 ]
 retriever.add_travel_memories(memories)
 
-# 文搜图
-results = retriever.search_by_text("东京塔夜景汉服", top_k=5)
+# Text-to-image search
+results = retriever.search_by_text("Tokyo tower night view Hanfu", top_k=5)
 
-# 图搜图
+# Image-to-image search
 results = retriever.search_by_image("https://.../query.jpg", top_k=5)
 
-# 图文混合搜索
+# Text-image hybrid search
 results = retriever.search_by_fusion(
-    text="汉服",
+    text="Hanfu",
     image_url="https://.../ref.jpg",
     top_k=5
 )
 ```
 
-## 🚀 快速开始
+## Quick Start
 
-### 安装依赖
+### Install Dependencies
 
 ```bash
 pip install langchain langchain-milvus
 pip install pymilvus dashscope
 ```
 
-### 启动 Milvus
+### Start Milvus
 
 ```bash
 docker-compose up -d
 ```
 
-### 运行测试
+### Run Tests
 
 ```bash
 python -c "
@@ -113,40 +113,40 @@ import os
 
 retriever = MultimodalRetriever(api_key=os.getenv('DASHSCOPE_API_KEY'))
 
-# 添加测试数据
+# Add test data
 retriever.add_travel_memories([
-    {'content': '东京塔夜景', 'city': 'Tokyo', 'date': '2026-03-06'},
-    {'content': '悉尼歌剧院', 'city': 'Sydney', 'date': '2026-03-09'},
+    {'content': 'Tokyo tower night view', 'city': 'Tokyo', 'date': '2026-03-06'},
+    {'content': 'Sydney Opera House', 'city': 'Sydney', 'date': '2026-03-09'},
 ])
 
-# 搜索
-results = retriever.search_by_text('东京塔')
+# Search
+results = retriever.search_by_text('Tokyo')
 for r in results:
     print(f'{r.metadata[\"city\"]}: {r.page_content}')
 "
 ```
 
-## 📊 对比：自定义 vs LangChain
+## Comparison: Custom vs LangChain
 
-| 特性 | 自定义版本 | LangChain 版本 |
-|------|-----------|---------------|
-| 代码量 | 较多 | 较少 |
-| 灵活性 | 高 | 中 |
-| 生态集成 | 需自行开发 | 丰富 |
-| 维护成本 | 高 | 低 |
-| 生产就绪 | 需额外工作 | 更接近生产 |
-| 学习曲线 | 低 | 中 |
+| Feature | Custom Version | LangChain Version |
+|---------|---------------|-------------------|
+| Code volume | More | Less |
+| Flexibility | High | Medium |
+| Ecosystem integration | Custom development needed | Rich |
+| Maintenance cost | High | Low |
+| Production ready | Extra work needed | Closer to production |
+| Learning curve | Low | Medium |
 
-## 🔧 两种方案并存
+## Two Approaches Coexist
 
-当前项目提供两种实现：
+The project provides two implementations:
 
-1. **自定义版本** (`core/engine.py`)
-   - 完全控制所有细节
-   - 适合深度定制
+1. **Custom version** (`core/engine.py`)
+   - Full control over all details
+   - Suitable for deep customization
 
-2. **LangChain 版本** (`core/langchain_engine.py`)
-   - 标准化接口
-   - 易于集成其他工具
+2. **LangChain version** (`core/langchain_engine.py`)
+   - Standardized interfaces
+   - Easy integration with other tools
 
-你可以根据需求选择或混合使用！
+Choose or mix based on your needs!

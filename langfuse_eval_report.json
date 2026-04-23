@@ -29,7 +29,7 @@
   },
   "detailed_results": [
     {
-      "query": "东京",
+      "query": "Tokyo",
       "category": "city",
       "expected": "Tokyo",
       "top_city": "Tokyo",
@@ -40,7 +40,7 @@
       "results_count": 5
     },
     {
-      "query": "悉尼",
+      "query": "Sydney",
       "category": "city",
       "expected": "Sydney",
       "top_city": "Sydney",
@@ -51,7 +51,7 @@
       "results_count": 5
     },
     {
-      "query": "巴黎",
+      "query": "Paris",
       "category": "city",
       "expected": "Paris",
       "top_city": "Paris",
@@ -62,7 +62,7 @@
       "results_count": 5
     },
     {
-      "query": "纽约",
+      "query": "New York",
       "category": "city",
       "expected": "New York",
       "top_city": "New York",
@@ -73,7 +73,7 @@
       "results_count": 5
     },
     {
-      "query": "冰岛",
+      "query": "Iceland",
       "category": "city",
       "expected": "Iceland",
       "top_city": "Iceland",
@@ -84,7 +84,7 @@
       "results_count": 5
     },
     {
-      "query": "开普敦",
+      "query": "Cape Town",
       "category": "city",
       "expected": "Cape Town",
       "top_city": "Cape Town",
@@ -95,7 +95,7 @@
       "results_count": 5
     },
     {
-      "query": "涩谷",
+      "query": "Shibuya",
       "category": "landmark",
       "expected": "Tokyo",
       "top_city": "Tokyo",
@@ -106,7 +106,7 @@
       "results_count": 5
     },
     {
-      "query": "歌剧院",
+      "query": "Opera House",
       "category": "landmark",
       "expected": "Sydney",
       "top_city": "Sydney",
@@ -117,7 +117,7 @@
       "results_count": 5
     },
     {
-      "query": "埃菲尔铁塔",
+      "query": "Eiffel Tower",
       "category": "landmark",
       "expected": "Paris",
       "top_city": "Paris",
@@ -128,7 +128,7 @@
       "results_count": 5
     },
     {
-      "query": "时代广场",
+      "query": "Times Square",
       "category": "landmark",
       "expected": "New York",
       "top_city": "New York",
@@ -139,7 +139,7 @@
       "results_count": 5
     },
     {
-      "query": "蓝湖",
+      "query": "Blue Lagoon",
       "category": "landmark",
       "expected": "Iceland",
       "top_city": "Iceland",
@@ -150,7 +150,7 @@
       "results_count": 5
     },
     {
-      "query": "桌山",
+      "query": "Table Mountain",
       "category": "landmark",
       "expected": "Cape Town",
       "top_city": "Cape Town",
@@ -161,7 +161,7 @@
       "results_count": 5
     },
     {
-      "query": "夜景",
+      "query": "Night View",
       "category": "tag",
       "expected": null,
       "top_city": "Tokyo",
@@ -172,7 +172,7 @@
       "results_count": 5
     },
     {
-      "query": "和服",
+      "query": "Kimono",
       "category": "tag",
       "expected": "Tokyo",
       "top_city": "Tokyo",
@@ -183,7 +183,7 @@
       "results_count": 5
     },
     {
-      "query": "红酒",
+      "query": "Wine",
       "category": "tag",
       "expected": "Cape Town",
       "top_city": "Cape Town",
@@ -194,7 +194,7 @@
       "results_count": 5
     },
     {
-      "query": "温泉",
+      "query": "Hot Spring",
       "category": "tag",
       "expected": "Iceland",
       "top_city": "Iceland",
@@ -205,7 +205,7 @@
       "results_count": 5
     },
     {
-      "query": "海滩",
+      "query": "Beach",
       "category": "tag",
       "expected": "Sydney",
       "top_city": "Sydney",
@@ -216,7 +216,7 @@
       "results_count": 5
     },
     {
-      "query": "袋鼠",
+      "query": "Kangaroo",
       "category": "tag",
       "expected": "Sydney",
       "top_city": "Sydney",
@@ -227,7 +227,7 @@
       "results_count": 5
     },
     {
-      "query": "东京夜景🗼",
+      "query": "TokyoNight View",
       "category": "emoji",
       "expected": "Tokyo",
       "top_city": "Tokyo",
@@ -238,7 +238,7 @@
       "results_count": 5
     },
     {
-      "query": "悉尼歌剧院🦊",
+      "query": "SydneyOpera House",
       "category": "emoji",
       "expected": "Sydney",
       "top_city": "Sydney",
@@ -249,7 +249,7 @@
       "results_count": 5
     },
     {
-      "query": "和服👘",
+      "query": "Kimono",
       "category": "emoji",
       "expected": "Tokyo",
       "top_city": "Tokyo",
@@ -260,7 +260,7 @@
       "results_count": 5
     },
     {
-      "query": "红酒🍷",
+      "query": "Wine",
       "category": "emoji",
       "expected": "Cape Town",
       "top_city": "Cape Town",

@@ -1,58 +1,58 @@
-# 多模态检索引擎优化报告
+# Multimodal Retrieval Engine Optimization Report
 
-## 📊 当前状态概览
+## Current Status Overview
 
-### 数据规模
-- **总记录数**: 4 条（严重不足）
-- **媒体类型分布**:
-  - Image: 2 条
-  - Video: 1 条
-  - Test: 1 条（测试数据）
-- **城市覆盖**: 悉尼、巴黎、Tokyo、test
+### Data Scale
+- **Total records**: 4 (critically insufficient)
+- **Media type distribution**:
+  - Image: 2
+  - Video: 1
+  - Test: 1 (test data)
+- **City coverage**: Sydney, Paris, Tokyo, test
 
-### 性能指标（基于 76 个查询的评测）
-| 指标 | 数值 | 评价 |
-|------|------|------|
-| Recall@5 | 28.9% | ⚠️ 偏低 |
-| Recall@10 | 40.5% | ⚠️ 偏低 |
-| Precision@5 | 7.4% | ❌ 很低 |
-| NDCG@5 | 22.8% | ⚠️ 偏低 |
-| MRR | 23.9% | ⚠️ 偏低 |
-| MAP | 21.7% | ⚠️ 偏低 |
-| P50 延迟 | 3.3s | ⚠️ 较慢 |
-| P95 延迟 | 5.7s | ❌ 很慢 |
+### Performance Metrics (based on 76 query evaluation)
+| Metric | Value | Assessment |
+|--------|-------|------------|
+| Recall@5 | 28.9% | Low |
+| Recall@10 | 40.5% | Low |
+| Precision@5 | 7.4% | Very low |
+| NDCG@5 | 22.8% | Low |
+| MRR | 23.9% | Low |
+| MAP | 21.7% | Low |
+| P50 Latency | 3.3s | Slow |
+| P95 Latency | 5.7s | Very slow |
 
 ---
 
-## 🔴 关键问题
+## Critical Issues
 
-### 1. 数据量严重不足
-**问题**: 只有 4 条记录，无法支撑有效的多模态检索
-**影响**: 任何查询都几乎无法召回相关结果
-**解决**: 需要导入大量真实旅行数据
+### 1. Insufficient Data Volume
+**Problem**: Only 4 records, unable to support effective multimodal retrieval
+**Impact**: Almost no queries can recall relevant results
+**Solution**: Import large volumes of real travel data
 
-### 2. Rerank API 频繁失败
-**错误信息**: `Input should be a valid string: input.query & input.documents.0`
-**原因**: 
-- 查询文本包含特殊字符（如表情符号 🗼）
-- 文档格式不符合 qwen3-rerank API 要求
-**解决**: 清理输入文本，转义特殊字符
+### 2. Frequent Rerank API Failures
+**Error**: `Input should be a valid string: input.query & input.documents.0`
+**Root cause**:
+- Query text contains special characters (emoji)
+- Document format does not meet qwen3-rerank API requirements
+**Solution**: Sanitize input text, escape special characters
 
-### 3. Milvus 查询表达式错误
-**错误信息**: `cannot parse expression: text like "涩谷夜景太绝了🗼..."`
-**原因**: 文本中包含引号和特殊字符，导致 SQL-like 查询失败
-**解决**: 使用参数化查询或转义特殊字符
+### 3. Milvus Query Expression Errors
+**Error**: `cannot parse expression: text like "Shibuya night view..."`
+**Root cause**: Text contains quotes and special characters, causing SQL-like query failures
+**Solution**: Use parameterized queries or escape special characters
 
-### 4. 延迟过高
-**P95 延迟 5.7 秒**，用户体验差
-**原因**:
-- 多模态 embedding API 调用耗时
-- Rerank 步骤增加额外延迟
-- 网络往返时间
+### 4. High Latency
+**P95 latency 5.7 seconds**, poor user experience
+**Root causes**:
+- Multimodal embedding API call overhead
+- Rerank step adds extra latency
+- Network round-trip time
 
-### 5. 空字段率高
-| 字段 | 空值率 |
-|------|--------|
+### 5. High Empty Field Rate
+| Field | Empty Rate |
+|-------|------------|
 | video_url | 75% |
 | outfit | 75% |
 | image_url | 25% |
@@ -61,74 +61,67 @@
 
 ---
 
-## 🟡 可优化项
+## Optimization Opportunities
 
-### 1. 数据质量提升
-- **标准化城市名称**: Tokyo → 东京，保持中英文一致
-- **填充缺失字段**: 补充 tags、mood、outfit 等元数据
-- **删除测试数据**: 移除 `test_record`
-- **数据验证**: 入库前检查必填字段
+### 1. Data Quality Improvement
+- **Standardize city names**: Keep English consistent (Tokyo, Sydney, Paris)
+- **Fill missing fields**: Supplement tags, mood, outfit metadata
+- **Remove test data**: Delete `test_record`
+- **Data validation**: Check required fields before ingestion
 
-### 2. 召回率优化
-- **增加数据量**: 至少 100+ 条记录才能有效检索
-- **数据增强**: 为每条记录生成多个视角的描述
-- **同义词扩展**: "东京" ↔ "Tokyo" ↔ "日本首都"
+### 2. Recall Rate Optimization
+- **Increase data volume**: At least 100+ records for effective retrieval
+- **Data augmentation**: Generate multi-perspective descriptions per record
+- **Synonym expansion**: "Tokyo" <-> "Tokyo" <-> "capital of Japan"
 
-### 3. 延迟优化
-- **异步处理**: embedding 和 rerank 并行执行
-- **缓存机制**: 缓存热门查询的 embedding
-- **连接池**: 复用 Milvus 和 DashScope 连接
-- **提前返回**: 如果粗筛结果很少，跳过 rerank
+### 3. Latency Optimization
+- **Async processing**: Execute embedding and rerank in parallel
+- **Caching**: Cache embeddings for popular queries
+- **Connection pooling**: Reuse Milvus and DashScope connections
+- **Early return**: Skip rerank if coarse filter returns few results
 
-### 4. 视频检索增强
-- **视频预览图**: 为视频生成首帧缩略图
-- **视频分段**: 长视频切分后分段编码
-- **视频元数据**: 提取视频时长、分辨率等信息
+### 4. Video Retrieval Enhancement
+- **Video preview thumbnails**: Generate first-frame thumbnails for videos
+- **Video segmentation**: Split long videos and encode segments
+- **Video metadata**: Extract duration, resolution, and other info
 
-### 5. 图搜图优化
-- **本地图片支持**: 完善 base64 转换逻辑
-- **图片预处理**: 统一图片尺寸和格式
-- **相似度阈值**: 添加过滤低相似度结果的逻辑
+### 5. Image-to-Image Optimization
+- **Local image support**: Improve base64 conversion logic
+- **Image preprocessing**: Standardize image sizes and formats
+- **Similarity threshold**: Add filtering logic for low-similarity results
 
 ---
 
-## 🟢 建议的优化方案
+## Recommended Optimization Plan
 
-### 短期（1-2 天）
+### Short-term (1-2 days)
 
-1. **修复 Rerank API 错误**
+1. **Fix Rerank API errors**
    ```python
-   # 清理查询文本，移除特殊字符
    import re
-   clean_query = re.sub(r'[^\w\s]', '', query)  # 只保留字母数字和空格
+   clean_query = re.sub(r'[^\w\s]', '', query)
    ```
 
-2. **修复 Milvus 查询错误**
+2. **Fix Milvus query errors**
    ```python
-   # 使用参数化查询或转义
    safe_text = text.replace('"', '\\"').replace("'", "\\'")
    ```
 
-3. **删除测试数据**
+3. **Delete test data**
    ```python
    collection.delete('doc_id == "test_record"')
    ```
 
-4. **标准化城市名称**
-   ```python
-   # Tokyo → 东京
-   # Sydney → 悉尼
-   # Paris → 巴黎
-   ```
+4. **Standardize city names**
 
-### 中期（1 周）
+### Medium-term (1 week)
 
-1. **批量导入真实数据**
-   - 从 Duckyo 的小红书笔记导入
-   - 从旅行照片库导入
-   - 目标：100+ 条记录
+1. **Batch import real data**
+   - Import from social media notes
+   - Import from travel photo libraries
+   - Target: 100+ records
 
-2. **实现查询缓存**
+2. **Implement query caching**
    ```python
    from functools import lru_cache
    
@@ -137,7 +130,7 @@
        return embedding_api(text)
    ```
 
-3. **添加数据验证**
+3. **Add data validation**
    ```python
    def validate_memory(mem):
        required = ['id', 'content', 'city']
@@ -146,41 +139,41 @@
                raise ValueError(f"Missing {field}")
    ```
 
-### 长期（1 月）
+### Long-term (1 month)
 
-1. **实现混合索引**
-   - 向量索引 + 倒排索引
-   - 支持关键词过滤
+1. **Implement hybrid index**
+   - Vector index + inverted index
+   - Support keyword filtering
 
-2. **多模态融合策略优化**
-   - 文本权重 vs 图片权重动态调整
-   - 视频关键帧提取
+2. **Multimodal fusion strategy optimization**
+   - Dynamic text weight vs image weight adjustment
+   - Video keyframe extraction
 
-3. **A/B 测试框架**
-   - 对比不同 embedding 模型
-   - 对比不同 rerank 策略
-
----
-
-## 📈 预期收益
-
-| 优化项 | 预期提升 |
-|--------|----------|
-| 数据量增加到 100+ | Recall@5: 28% → 60%+ |
-| 修复 Rerank 错误 | 成功率: 当前失败率 → 100% |
-| 延迟优化 | P95: 5.7s → 2s |
-| 查询缓存 | 热门查询: 3s → 0.1s |
+3. **A/B testing framework**
+   - Compare different embedding models
+   - Compare different rerank strategies
 
 ---
 
-## 🎯 优先级排序
+## Expected Improvements
 
-1. **P0（紧急）**: 修复 Rerank 和 Milvus 查询错误
-2. **P1（重要）**: 批量导入真实数据（100+ 条）
-3. **P2（推荐）**: 实现查询缓存
-4. **P3（可选）**: 数据验证和标准化
+| Optimization | Expected Gain |
+|--------------|---------------|
+| Data volume to 100+ | Recall@5: 28% -> 60%+ |
+| Fix Rerank errors | Success rate: current failure rate -> 100% |
+| Latency optimization | P95: 5.7s -> 2s |
+| Query caching | Hot queries: 3s -> 0.1s |
 
 ---
 
-*报告生成时间: 2026-04-20*
-*引擎版本: LlamaIndex + Qwen3-VL + Milvus*
+## Priority Ranking
+
+1. **P0 (Urgent)**: Fix Rerank and Milvus query errors
+2. **P1 (Important)**: Batch import real data (100+ records)
+3. **P2 (Recommended)**: Implement query caching
+4. **P3 (Optional)**: Data validation and standardization
+
+---
+
+*Report generated: 2026-04-20*
+*Engine version: LlamaIndex + Qwen3-VL + Milvus*

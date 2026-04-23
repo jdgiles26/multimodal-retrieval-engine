@@ -1,6 +1,6 @@
 """
-基准测试脚本
-快速运行基准测试，对比不同配置的性能
+Benchmark Script
+Quickly run benchmarks to compare performance across different configurations
 """
 import asyncio
 import time
@@ -12,7 +12,7 @@ from dataclasses import dataclass, asdict
 
 @dataclass
 class BenchmarkResult:
-    """基准测试结果"""
+    """Benchmark Result"""
     name: str
     config: Dict
     avg_latency_ms: float
@@ -35,8 +35,8 @@ class BenchmarkResult:
 
 class BenchmarkRunner:
     """
-    基准测试运行器
-    对比不同配置的性能表现
+    Benchmark Runner
+    Compare performance across different configurations
     """
     
     def __init__(self, retriever):
@@ -51,10 +51,10 @@ class BenchmarkRunner:
         iterations: int = 5
     ) -> BenchmarkResult:
         """
-        测试单个配置
+        Test a single configuration
         """
-        print(f"\n🔧 测试配置: {name}")
-        print(f"   配置: {config}")
+        print(f"\n Testing config: {name}")
+        print(f"   Config: {config}")
         
         latencies = []
         all_results = []
@@ -63,7 +63,7 @@ class BenchmarkRunner:
             for query in test_queries:
                 start = time.time()
                 
-                # 根据配置执行搜索
+                # Execute search according to config
                 if config.get("search_type") == "text":
                     results = await self.retriever.search(
                         query_text=query,
@@ -81,35 +81,35 @@ class BenchmarkRunner:
                 latencies.append(latency)
                 all_results.append(results)
         
-        # 计算指标
+        # Calculate metrics
         avg_latency = sum(latencies) / len(latencies)
-        total_time = sum(latencies) / 1000  # 转换为秒
+        total_time = sum(latencies) / 1000  # Convert to seconds
         throughput = len(test_queries) * iterations / total_time if total_time > 0 else 0
         
-        # 简化指标（实际应该使用评测数据集）
+        # Simplified metrics (should use evaluation dataset in practice)
         result = BenchmarkResult(
             name=name,
             config=config,
             avg_latency_ms=avg_latency,
             throughput_qps=throughput,
-            recall_at_5=0.0,  # 需要真实标签
+            recall_at_5=0.0,  # Need real labels
             ndcg_at_5=0.0,
             mrr=0.0,
         )
         
-        print(f"   ✅ 平均延迟: {avg_latency:.2f}ms")
-        print(f"   ✅ 吞吐量: {throughput:.2f} QPS")
+        print(f"    Average latency: {avg_latency:.2f}ms")
+        print(f"    Throughput: {throughput:.2f} QPS")
         
         return result
     
     async def run_benchmarks(self):
-        """运行所有基准测试"""
+        """Run all benchmarks"""
         test_queries = [
-            "东京塔夜景",
-            "悉尼歌剧院",
-            "汉服旅行",
-            "海滩度假",
-            "埃菲尔铁塔",
+            "Tokyo Tower night view",
+            "Sydney Opera House",
+            "Hanfu travel",
+            "Beach vacation",
+            "Eiffel Tower",
         ]
         
         configs = [
@@ -157,14 +157,14 @@ class BenchmarkRunner:
             self.results.append(result)
     
     def generate_report(self) -> str:
-        """生成基准测试报告"""
+        """Generate benchmark report"""
         lines = [
-            "# Duckyo 多模态检索引擎基准测试报告",
+            "# Duckyo Multimodal Retrieval Engine Benchmark Report",
             "",
-            "## 性能对比",
+            "## Performance Comparison",
             "",
-            "| 配置 | 平均延迟 (ms) | 吞吐量 (QPS) |",
-            "|------|--------------|-------------|",
+            "| Config | Avg Latency (ms) | Throughput (QPS) |",
+            "|------|------------------|------------------|",
         ]
         
         for r in self.results:
@@ -172,7 +172,7 @@ class BenchmarkRunner:
         
         lines.extend([
             "",
-            "## 详细结果",
+            "## Detailed Results",
             "",
             "```json",
             json.dumps([r.to_dict() for r in self.results], indent=2),
@@ -182,7 +182,7 @@ class BenchmarkRunner:
         return "\n".join(lines)
     
     def save_results(self, output_path: str = "evaluation/results/benchmark.json"):
-        """保存结果"""
+        """Save results"""
         output_path = Path(output_path)
         output_path.parent.mkdir(parents=True, exist_ok=True)
         
@@ -194,11 +194,11 @@ class BenchmarkRunner:
                 indent=2
             )
         
-        print(f"\n✅ 基准测试结果已保存: {output_path}")
+        print(f"\n Benchmark results saved: {output_path}")
 
 
 async def main():
-    """主函数"""
+    """Main function"""
     from core.llamaindex_engine import LlamaIndexMultimodalRetriever
     
     retriever = LlamaIndexMultimodalRetriever()
@@ -206,16 +206,16 @@ async def main():
     
     await runner.run_benchmarks()
     
-    # 保存结果
+    # Save results
     runner.save_results()
     
-    # 生成并保存报告
+    # Generate and save report
     report = runner.generate_report()
     report_path = Path("evaluation/results/benchmark_report.md")
     with open(report_path, 'w', encoding='utf-8') as f:
         f.write(report)
     
-    print(f"✅ 报告已保存: {report_path}")
+    print(f" Report saved: {report_path}")
 
 
 if __name__ == "__main__":

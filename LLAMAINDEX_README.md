@@ -1,126 +1,126 @@
-# 🦊 LlamaIndex 多模态检索系统 - 完整指南
+# LlamaIndex Multimodal Retrieval System - Complete Guide
 
-基于 **LlamaIndex + Qwen3-VL + Milvus** 的原生多模态检索系统。
+A native multimodal retrieval system based on **LlamaIndex + Qwen3-VL + Milvus**.
 
-## 🎯 核心特性
+## Core Features
 
-- ✅ **原生多模态支持** - LlamaIndex 的 `ImageDocument`
-- ✅ **Qwen3-VL Embedding** - 2560 维高质量向量
-- ✅ **Milvus 向量库** - 高性能 ANN 检索
-- ✅ **文搜图/图搜图** - 完整的多模态检索
-- ✅ **简洁 API** - 最少的代码实现最多的功能
+- **Native multimodal support** - LlamaIndex `ImageDocument`
+- **Qwen3-VL Embedding** - 2560-dimensional high-quality vectors
+- **Milvus vector store** - High-performance ANN retrieval
+- **Text-to-image / Image-to-image** - Complete multimodal retrieval
+- **Concise API** - Maximum functionality with minimum code
 
-## 📦 架构
+## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    LlamaIndex 多模态 RAG                     │
-├─────────────────────────────────────────────────────────────┤
-│  输入层                                                      │
-│  ├── Document (文本)                                        │
-│  └── ImageDocument (图片+文本)                               │
-├─────────────────────────────────────────────────────────────┤
-│  处理层                                                      │
-│  ├── Qwen3VLEmbedding (2560 维)                             │
-│  │   └── 统一编码文本+图片                                  │
-│  └── MilvusVectorStore                                      │
-│      └── HNSW索引 + 余弦相似度                              │
-├─────────────────────────────────────────────────────────────┤
-│  检索层                                                      │
-│  └── VectorIndexRetriever                                   │
-│      └── similarity_search                                  │
-└─────────────────────────────────────────────────────────────┘
++-------------------------------------------------------------+
+|              LlamaIndex Multimodal RAG                      |
++-------------------------------------------------------------+
+|  Input Layer                                                |
+|  |-- Document (text)                                        |
+|  \-- ImageDocument (image + text)                           |
++-------------------------------------------------------------+
+|  Processing Layer                                           |
+|  |-- Qwen3VLEmbedding (2560-dim)                            |
+|  |   \-- Unified text + image encoding                      |
+|  \-- MilvusVectorStore                                      |
+|      \-- HNSW index + cosine similarity                     |
++-------------------------------------------------------------+
+|  Retrieval Layer                                            |
+|  \-- VectorIndexRetriever                                   |
+|      \-- similarity_search                                  |
++-------------------------------------------------------------+
 ```
 
-## 🚀 快速开始
+## Quick Start
 
-### 1. 安装依赖
+### 1. Install Dependencies
 
 ```bash
 pip install llama-index llama-index-vector-stores-milvus
 pip install dashscope fastapi uvicorn
 ```
 
-### 2. 配置环境变量
+### 2. Configure Environment Variables
 
 ```bash
-export DASHSCOPE_API_KEY=sk-a766f04fac884533995ce54b5fe54979
+export DASHSCOPE_API_KEY=your_api_key_here
 ```
 
-### 3. 启动 Milvus
+### 3. Start Milvus
 
 ```bash
-cd /root/.openclaw/workspace/duckyo/projects/multimodal-retrieval
+cd .
 docker-compose up -d
 ```
 
-### 4. 使用 CLI 工具
+### 4. Use CLI Tools
 
 ```bash
-# 初始化
+# Initialize
 python llamaindex_app.py --action init
 
-# 添加数据
+# Add data
 python llamaindex_app.py --action add --data memories.json
 
-# 搜索
-python llamaindex_app.py --action search --query "东京塔夜景"
+# Search
+python llamaindex_app.py --action search --query "Tokyo tower night view"
 
-# 图搜图
+# Image-to-image search
 python llamaindex_app.py --action search-image --image "https://..."
 
-# 查看统计
+# View statistics
 python llamaindex_app.py --action stats
 ```
 
-### 5. 启动 API 服务
+### 5. Start API Service
 
 ```bash
 python api/llamaindex_api.py
-# 访问 http://localhost:8001/docs
+# Access http://localhost:8001/docs
 ```
 
-## 📝 使用示例
+## Usage Examples
 
-### 示例 1: 基础检索
+### Example 1: Basic Retrieval
 
 ```python
 from llamaindex_app import create_retriever
 
-# 创建检索器
+# Create retriever
 retriever = create_retriever()
 
-# 添加旅途记忆
+# Add travel memories
 memories = [
     {
-        "content": "东京塔夜景，穿着汉服的 fox girl",
+        "content": "Tokyo tower night view, fox girl wearing Hanfu",
         "city": "Tokyo",
         "date": "2026-03-06",
-        "tags": ["汉服", "夜景"],
-        "mood": "兴奋"
+        "tags": ["Hanfu", "night view"],
+        "mood": "excited"
     },
     {
-        "content": "悉尼歌剧院，海港大桥",
+        "content": "Sydney Opera House, Harbour Bridge",
         "city": "Sydney",
         "date": "2026-03-09",
-        "tags": ["海港", "歌剧院"],
-        "mood": "惊艳"
+        "tags": ["harbour", "opera house"],
+        "mood": "amazed"
     }
 ]
 
 retriever.add_travel_memories(memories)
 
-# 搜索
-results = retriever.search("东京塔夜景", top_k=5)
+# Search
+results = retriever.search("Tokyo tower night view", top_k=5)
 
 for r in results:
     print(f"{r['score']:.3f} | {r['content']}")
 ```
 
-### 示例 2: 图搜图
+### Example 2: Image-to-Image Search
 
 ```python
-# 使用图片 URL 搜索
+# Search using image URL
 results = retriever.search_by_image(
     image_url="https://example.com/tokyo.jpg",
     top_k=5
@@ -130,52 +130,52 @@ for r in results:
     print(f"{r['score']:.3f} | {r['content']}")
 ```
 
-### 示例 3: 带图片的多模态文档
+### Example 3: Multimodal Documents with Images
 
 ```python
 from llamaindex_app import LlamaIndexMultimodalRetriever, ImageDocument
 
 retriever = LlamaIndexMultimodalRetriever(api_key="sk-xxx")
 
-# 创建带图片的文档
+# Create document with image
 doc = ImageDocument(
-    text="东京塔夜景，穿着汉服",
+    text="Tokyo tower night view, wearing Hanfu",
     image_url="https://example.com/tokyo.jpg",
     metadata={
         "city": "Tokyo",
         "date": "2026-03-06",
-        "tags": ["汉服", "夜景"]
+        "tags": ["Hanfu", "night view"]
     }
 )
 
-# 添加到索引
+# Add to index
 retriever.create_index([doc])
 
-# 搜索 (会自动检索文本和图片)
-results = retriever.search("汉服 夜景")
+# Search (automatically searches text and images)
+results = retriever.search("Hanfu night view")
 ```
 
-### 示例 4: API 调用
+### Example 4: API Calls
 
 ```bash
-# 文搜图
+# Text-to-image search
 curl -X POST http://localhost:8001/search \
   -H "Content-Type: application/json" \
   -d '{
-    "query": "东京塔夜景汉服",
+    "query": "Tokyo tower night view Hanfu",
     "top_k": 10
   }'
 
-# 图搜图
+# Image-to-image search
 curl -X GET "http://localhost:8001/search/image?image_url=https://...&top_k=10"
 
-# 添加数据
+# Add data
 curl -X POST http://localhost:8001/memories/add \
   -H "Content-Type: application/json" \
   -d '{
     "memories": [
       {
-        "content": "东京塔夜景",
+        "content": "Tokyo tower night view",
         "city": "Tokyo",
         "date": "2026-03-06"
       }
@@ -183,73 +183,73 @@ curl -X POST http://localhost:8001/memories/add \
   }'
 ```
 
-## 📊 数据格式
+## Data Format
 
-### 记忆数据结构
+### Memory Data Structure
 
 ```json
 {
-  "content": "文本描述",
-  "city": "城市",
-  "country": "国家",
-  "date": "日期 (YYYY-MM-DD)",
-  "image_url": "图片URL (可选)",
-  "tags": ["标签1", "标签2"],
-  "mood": "心情",
-  "outfit": "服装",
-  "source": "来源"
+  "content": "Text description",
+  "city": "City",
+  "country": "Country",
+  "date": "Date (YYYY-MM-DD)",
+  "image_url": "Image URL (optional)",
+  "tags": ["tag1", "tag2"],
+  "mood": "Mood",
+  "outfit": "Outfit",
+  "source": "Source"
 }
 ```
 
-### 批量导入示例
+### Batch Import Example
 
 ```json
 [
   {
-    "content": "东京塔夜景，穿着汉服的 fox girl",
+    "content": "Tokyo tower night view, fox girl wearing Hanfu",
     "city": "Tokyo",
     "country": "Japan",
     "date": "2026-03-06",
     "image_url": "https://example.com/tokyo.jpg",
-    "tags": ["汉服", "夜景", "自拍"],
-    "mood": "兴奋",
-    "outfit": "汉服",
+    "tags": ["Hanfu", "night view", "selfie"],
+    "mood": "excited",
+    "outfit": "Hanfu",
     "source": "xiaohongshu"
   },
   {
-    "content": "悉尼歌剧院，海港大桥",
+    "content": "Sydney Opera House, Harbour Bridge",
     "city": "Sydney",
     "country": "Australia",
     "date": "2026-03-09",
-    "tags": ["海港", "歌剧院", "地标"],
-    "mood": "惊艳",
-    "outfit": "休闲",
+    "tags": ["harbour", "opera house", "landmark"],
+    "mood": "amazed",
+    "outfit": "casual",
     "source": "camera"
   }
 ]
 ```
 
-## 🔧 高级功能
+## Advanced Features
 
-### 1. 自定义 Embedding 维度
+### 1. Custom Embedding Dimension
 
 ```python
 retriever = LlamaIndexMultimodalRetriever(
     api_key="sk-xxx",
     embedding_model="qwen3-vl-embedding",
-    embedding_dim=2560  # 可调整：256-4096
+    embedding_dim=2560  # Adjustable: 256-4096
 )
 ```
 
-### 2. 批量编码优化
+### 2. Batch Encoding Optimization
 
 ```python
-# LlamaIndex 自动处理批量编码
-documents = [Document(text=f"文档{i}") for i in range(100)]
-retriever.create_index(documents)  # 自动批量处理
+# LlamaIndex automatically handles batch encoding
+documents = [Document(text=f"Document {i}") for i in range(100)]
+retriever.create_index(documents)  # Auto batch processing
 ```
 
-### 3. 索引配置
+### 3. Index Configuration
 
 ```python
 from llama_index.vector_stores.milvus import MilvusVectorStore
@@ -266,57 +266,57 @@ vector_store = MilvusVectorStore(
 )
 ```
 
-## 📁 项目文件
+## Project Files
 
 ```
 multimodal-retrieval/
-├── llamaindex_app.py          # 主应用 (CLI + 核心逻辑)
-├── api/
-│   └── llamaindex_api.py      # FastAPI 服务
-├── core/
-│   └── llamaindex_engine.py   # 引擎实现
-├── docker-compose.yml         # Milvus 部署
-└── LLAMAINDEX_README.md       # 本文档
+|-- llamaindex_app.py          # Main app (CLI + core logic)
+|-- api/
+|   \-- llamaindex_api.py      # FastAPI service
+|-- core/
+|   \-- llamaindex_engine.py   # Engine implementation
+|-- docker-compose.yml         # Milvus deployment
+\-- LLAMAINDEX_README.md       # This documentation
 ```
 
-## 💰 成本估算
+## Cost Estimation
 
-| 项目 | 单价 | 月用量 | 月费用 |
-|-----|------|--------|--------|
-| qwen3-vl-embedding | ¥0.258/千图 | 1万张 | ¥2.58 |
-| Milvus | 免费 | - | ¥0 |
-| **总计** | | | **~¥3/月** |
+| Service | Unit Price | Monthly Usage | Monthly Cost |
+|---------|-----------|---------------|--------------|
+| qwen3-vl-embedding | $0.258 / 1K images | 10K images | $2.58 |
+| Milvus | Free | - | $0 |
+| **Total** | | | **~$3/month** |
 
-## 🐛 常见问题
+## FAQ
 
-### Q: 如何查看 Collection 统计？
+### Q: How do I view collection statistics?
 
 ```bash
 python llamaindex_app.py --action stats
 ```
 
-### Q: 如何删除 Collection？
+### Q: How do I delete a collection?
 
 ```python
 from pymilvus import utility
 utility.drop_collection("duckyo_travel_memories")
 ```
 
-### Q: 如何备份数据？
+### Q: How do I back up data?
 
 ```python
-# 导出所有文档
+# Export all documents
 from llama_index.vector_stores.milvus import MilvusVectorStore
 vector_store = MilvusVectorStore(...)
 docs = vector_store.query()
 ```
 
-## 📚 参考资料
+## References
 
-- [LlamaIndex 多模态文档](https://developers.llamaindex.ai/python/framework/use_cases/multimodal/)
+- [LlamaIndex Multimodal Documentation](https://developers.llamaindex.ai/python/framework/use_cases/multimodal/)
 - [Qwen3-VL-Embedding](https://github.com/QwenLM/Qwen3-VL-Embedding)
-- [Milvus 文档](https://milvus.io/docs)
+- [Milvus Documentation](https://milvus.io/docs)
 
 ---
 
-_Built with ❤️ by Duckyo 🦊 using LlamaIndex_
+_Built with care by Duckyo using LlamaIndex_

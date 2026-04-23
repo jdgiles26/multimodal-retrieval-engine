@@ -1,4 +1,4 @@
 """
-Scripts 模块
+Scripts module
 """
 __all__ = []

@@ -1,8 +1,8 @@
-# 多模态检索引擎 - 精简版（仅保留核心服务）
-# API 服务已移除，使用直接脚本调用
+# Multimodal Retrieval Engine - Lite (core services only)
+# API service removed, use direct script calls
 
 services:
-  # Milvus 向量数据库
+  # Milvus Vector Database
   milvus-etcd:
     image: quay.io/coreos/etcd:v3.5.5
     environment:

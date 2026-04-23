@@ -1,6 +1,6 @@
 """
-评测指标计算模块
-实现多模态检索引擎的标准评测指标
+Evaluation metrics calculation module
+Implement standard evaluation metrics for multimodal retrieval engine
 """
 from typing import List, Dict, Any, Optional, Tuple
 import numpy as np
@@ -9,20 +9,20 @@ from dataclasses import dataclass
 
 @dataclass
 class RetrievalMetrics:
-    """检索评测指标"""
-    # 准确性指标
+    """Retrieval evaluation metrics"""
+    # Accuracy metrics
     recall_at_k: Dict[int, float]  # Recall@K
     precision_at_k: Dict[int, float]  # Precision@K
     ndcg_at_k: Dict[int, float]  # NDCG@K
     mrr: float  # Mean Reciprocal Rank
     map_score: float  # Mean Average Precision
     
-    # 效率指标
-    latency_ms: float  # 延迟（毫秒）
-    throughput_qps: Optional[float] = None  # 吞吐量（QPS）
+    # Efficiency metrics
+    latency_ms: float  # Latency (milliseconds)
+    throughput_qps: Optional[float] = None  # Throughput (QPS)
     
-    # 多模态特定指标
-    cross_modal_accuracy: Optional[float] = None  # 跨模态检索准确率
+    # Multimodal-specific metrics
+    cross_modal_accuracy: Optional[float] = None  # Cross-modal retrieval accuracy
     
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -38,7 +38,7 @@ class RetrievalMetrics:
     
     def __str__(self) -> str:
         lines = [
-            "📊 检索评测指标",
+            " Retrieval evaluation metrics",
             "=" * 40,
             f"Recall@K: {self.recall_at_k}",
             f"Precision@K: {self.precision_at_k}",
@@ -55,7 +55,7 @@ class RetrievalMetrics:
 
 
 class MetricsCalculator:
-    """评测指标计算器"""
+    """Evaluation metrics calculator"""
     
     @staticmethod
     def calculate_recall_at_k(
@@ -64,8 +64,8 @@ class MetricsCalculator:
         k_values: List[int] = [1, 3, 5, 10]
     ) -> Dict[int, float]:
         """
-        计算 Recall@K
-        Recall@K = (前K个结果中相关文档数) / (相关文档总数)
+        Calculate Recall@K
+        Recall@K = (number of relevant documents in top K) / (total number of relevant documents)
         """
         if not relevant_ids:
             return {k: 0.0 for k in k_values}
@@ -84,8 +84,8 @@ class MetricsCalculator:
         k_values: List[int] = [1, 3, 5, 10]
     ) -> Dict[int, float]:
         """
-        计算 Precision@K
-        Precision@K = (前K个结果中相关文档数) / K
+        Calculate Precision@K
+        Precision@K = (number of relevant documents in top K) / K
         """
         if not retrieved_ids:
             return {k: 0.0 for k in k_values}
@@ -104,7 +104,7 @@ class MetricsCalculator:
         k: int
     ) -> float:
         """
-        计算 DCG@K (Discounted Cumulative Gain)
+        Calculate DCG@K (Discounted Cumulative Gain)
         DCG = sum(rel_i / log2(i + 1))
         """
         dcg = 0.0
@@ -121,12 +121,12 @@ class MetricsCalculator:
         k_values: List[int] = [1, 3, 5, 10]
     ) -> Dict[int, float]:
         """
-        计算 NDCG@K (Normalized DCG)
+        Calculate NDCG@K (Normalized DCG)
         NDCG = DCG / IDCG (Ideal DCG)
         """
         results = {}
         
-        # 计算理想排序（按相关性分数降序）
+        # Calculate ideal ordering (sorted by relevance score descending)
         ideal_ordering = sorted(
             relevant_ids,
             key=lambda x: relevance_scores.get(x, 0.0),
@@ -154,7 +154,7 @@ class MetricsCalculator:
         relevant_ids: List[str]
     ) -> float:
         """
-        计算 MRR (Mean Reciprocal Rank)
+        Calculate MRR (Mean Reciprocal Rank)
         MRR = 1 / rank_of_first_relevant
         """
         if not relevant_ids:
@@ -171,7 +171,7 @@ class MetricsCalculator:
         relevant_ids: List[str]
     ) -> float:
         """
-        计算 MAP (Mean Average Precision)
+        Calculate MAP (Mean Average Precision)
         AP = average of precision@k for each relevant document
         """
         if not relevant_ids:
@@ -199,7 +199,7 @@ class MetricsCalculator:
         latency_ms: float,
         k_values: List[int] = [1, 3, 5, 10]
     ) -> RetrievalMetrics:
-        """计算所有指标"""
+        """Calculate all metrics"""
         return RetrievalMetrics(
             recall_at_k=MetricsCalculator.calculate_recall_at_k(
                 retrieved_ids, relevant_ids, k_values
@@ -217,7 +217,7 @@ class MetricsCalculator:
 
 
 class AggregatedMetrics:
-    """聚合多个查询的评测结果"""
+    """Aggregate evaluation results from multiple queries"""
     
     def __init__(self):
         self.query_metrics: List[RetrievalMetrics] = []
@@ -238,7 +238,7 @@ class AggregatedMetrics:
         query_type: str,
         difficulty: str
     ):
-        """添加单个查询的评测结果"""
+        """Add evaluation result for a single query"""
         self.query_metrics.append(metrics)
         
         if query_type in self.query_types:
@@ -251,11 +251,11 @@ class AggregatedMetrics:
         self,
         metrics_list: List[RetrievalMetrics]
     ) -> Dict[str, Any]:
-        """聚合指标列表"""
+        """Aggregate metrics list"""
         if not metrics_list:
             return {}
         
-        # 聚合 Recall@K
+        # Aggregate Recall@K
         recall_at_k = {}
         for k in [1, 3, 5, 10]:
             values = [m.recall_at_k.get(k, 0.0) for m in metrics_list]
@@ -266,7 +266,7 @@ class AggregatedMetrics:
                 "max": np.max(values),
             }
         
-        # 聚合 Precision@K
+        # Aggregate Precision@K
         precision_at_k = {}
         for k in [1, 3, 5, 10]:
             values = [m.precision_at_k.get(k, 0.0) for m in metrics_list]
@@ -277,7 +277,7 @@ class AggregatedMetrics:
                 "max": np.max(values),
             }
         
-        # 聚合 NDCG@K
+        # Aggregate NDCG@K
         ndcg_at_k = {}
         for k in [1, 3, 5, 10]:
             values = [m.ndcg_at_k.get(k, 0.0) for m in metrics_list]
@@ -288,7 +288,7 @@ class AggregatedMetrics:
                 "max": np.max(values),
             }
         
-        # 聚合其他指标
+        # Aggregate other metrics
         mrr_values = [m.mrr for m in metrics_list]
         map_values = [m.map_score for m in metrics_list]
         latency_values = [m.latency_ms for m in metrics_list]
@@ -315,7 +315,7 @@ class AggregatedMetrics:
         }
     
     def get_summary(self) -> Dict[str, Any]:
-        """获取评测汇总结果"""
+        """Get evaluation summary"""
         summary = {
             "overall": self._aggregate_metrics(self.query_metrics),
             "by_query_type": {},
@@ -333,35 +333,35 @@ class AggregatedMetrics:
         return summary
     
     def print_summary(self):
-        """打印评测汇总"""
+        """Print evaluation summary"""
         summary = self.get_summary()
         
         print("\n" + "=" * 60)
-        print("📊 Duckyo 多模态检索引擎评测结果")
+        print(" Duckyo Multimodal Retrieval Engine Evaluation Results")
         print("=" * 60)
         
-        # 总体指标
+        # Overall metrics
         overall = summary["overall"]
-        print("\n🎯 总体指标")
+        print("\n Overall metrics")
         print("-" * 40)
         self._print_metrics(overall)
         
-        # 按查询类型
-        print("\n🔍 按查询类型")
+        # By query type
+        print("\n By query type")
         print("-" * 40)
         for query_type, metrics in summary["by_query_type"].items():
             print(f"\n  [{query_type.upper()}]")
             self._print_metrics(metrics, indent=4)
         
-        # 按难度
-        print("\n📈 按难度级别")
+        # By difficulty
+        print("\n By difficulty level")
         print("-" * 40)
         for difficulty, metrics in summary["by_difficulty"].items():
             print(f"\n  [{difficulty.upper()}]")
             self._print_metrics(metrics, indent=4)
     
     def _print_metrics(self, metrics: Dict, indent: int = 0):
-        """打印指标"""
+        """Print metrics"""
         prefix = " " * indent
         
         print(f"{prefix}Recall@5: {metrics['recall_at_k'][5]['mean']:.4f}")

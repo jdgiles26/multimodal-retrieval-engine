@@ -1,5 +1,5 @@
 """
-测试脚本
+Test script
 """
 import asyncio
 import sys
@@ -12,113 +12,113 @@ from config.settings import settings
 
 
 async def test_embedder():
-    """测试 Embedding"""
-    print("\n=== 测试 Qwen3-VL Embedding ===")
+    """Test Embedding"""
+    print("\n=== Test Qwen3-VL Embedding ===")
     
     embedder = Qwen3VLEmbedder()
     
-    # 测试文本编码
-    print("\n1. 文本编码...")
-    text_emb = await embedder.embed_text("东京塔夜景汉服照片")
-    print(f"   向量维度: {text_emb.shape}")
-    print(f"   前5个值: {text_emb[:5]}")
+    # Test text encoding
+    print("\n1. Text encoding...")
+    text_emb = await embedder.embed_text("Tokyo Tower night view Hanfu photo")
+    print(f"   Vector dimension: {text_emb.shape}")
+    print(f"   First 5 values: {text_emb[:5]}")
     
-    # 测试图片编码 (使用示例URL)
-    print("\n2. 单图编码...")
+    # Test image encoding (using sample URL)
+    print("\n2. Single image encoding...")
     try:
         image_emb = await embedder.embed_image(
             "https://img.alicdn.com/imgextra/i3/O1CN01rdstgY1uiZWt8gqSL_!!6000000006071-0-tps-1970-356.jpg"
         )
-        print(f"   向量维度: {image_emb.shape}")
-        print(f"   前5个值: {image_emb[:5]}")
+        print(f"   Vector dimension: {image_emb.shape}")
+        print(f"   First 5 values: {image_emb[:5]}")
     except Exception as e:
-        print(f"   图片编码失败 (网络问题): {e}")
+        print(f"   Image encoding failed (network issue): {e}")
     
-    # 测试融合编码
-    print("\n3. 融合编码 (文本+图片)...")
+    # Test fusion encoding
+    print("\n3. Fusion encoding (text + image)...")
     try:
         fusion_emb = await embedder.embed_fusion(
-            text="东京塔夜景",
+            text="Tokyo Tower night view",
             images=["https://img.alicdn.com/imgextra/i3/O1CN01rdstgY1uiZWt8gqSL_!!6000000006071-0-tps-1970-356.jpg"]
         )
-        print(f"   向量维度: {fusion_emb.shape}")
-        print(f"   前5个值: {fusion_emb[:5]}")
+        print(f"   Vector dimension: {fusion_emb.shape}")
+        print(f"   First 5 values: {fusion_emb[:5]}")
     except Exception as e:
-        print(f"   融合编码失败 (网络问题): {e}")
+        print(f"   Fusion encoding failed (network issue): {e}")
     
-    print("\n✅ Embedding 测试完成")
+    print("\n[OK] Embedding test complete")
 
 
 async def test_reranker():
-    """测试 Reranker"""
-    print("\n=== 测试 Qwen3-VL Reranker ===")
+    """Test Reranker"""
+    print("\n=== Test Qwen3-VL Reranker ===")
     
     reranker = Qwen3VLReranker()
     
-    query = {"text": "东京塔夜景汉服"}
+    query = {"text": "Tokyo Tower night view Hanfu"}
     
     candidates = [
-        {"id": "1", "content": "东京塔夜景, 穿着汉服的女生", "image": ""},
-        {"id": "2", "content": "悉尼歌剧院, 海边日落", "image": ""},
-        {"id": "3", "content": "巴黎埃菲尔铁塔, 夜景", "image": ""},
-        {"id": "4", "content": "东京浅草寺, 传统建筑", "image": ""},
+        {"id": "1", "content": "Tokyo Tower night view, girl wearing Hanfu", "image": ""},
+        {"id": "2", "content": "Sydney Opera House, seaside sunset", "image": ""},
+        {"id": "3", "content": "Paris Eiffel Tower, night view", "image": ""},
+        {"id": "4", "content": "Tokyo Sensoji Temple, traditional architecture", "image": ""},
     ]
     
     try:
         results = await reranker.rerank(query, candidates, top_k=3)
         
-        print("\n重排序结果:")
+        print("\nReranking results:")
         for r in results:
             print(f"  {r['id']}: score={r['score']:.4f}")
             
     except Exception as e:
-        print(f"Reranker 测试失败 (网络问题): {e}")
+        print(f"Reranker test failed (network issue): {e}")
     
-    print("\n✅ Reranker 测试完成")
+    print("\n[OK] Reranker test complete")
 
 
 async def test_similarity():
-    """测试相似度计算"""
-    print("\n=== 测试相似度计算 ===")
+    """Test similarity computation"""
+    print("\n=== Test Similarity Computation ===")
     
     embedder = Qwen3VLEmbedder()
     
-    # 编码两个相似文本
-    text1 = "东京塔夜景"
-    text2 = "东京塔夜晚的景色"
+    # Encode two similar texts
+    text1 = "Tokyo Tower night view"
+    text2 = "Tokyo Tower night scenery"
     
     try:
         emb1 = await embedder.embed_text(text1)
         emb2 = await embedder.embed_text(text2)
         
         sim = await embedder.compute_similarity(emb1, emb2)
-        print(f"\n文本1: {text1}")
-        print(f"文本2: {text2}")
-        print(f"相似度: {sim:.4f}")
+        print(f"\nText 1: {text1}")
+        print(f"Text 2: {text2}")
+        print(f"Similarity: {sim:.4f}")
         
     except Exception as e:
-        print(f"相似度测试失败 (网络问题): {e}")
+        print(f"Similarity test failed (network issue): {e}")
     
-    print("\n✅ 相似度测试完成")
+    print("\n[OK] Similarity test complete")
 
 
 async def main():
     print("=" * 50)
-    print("Duckyo 多模态检索系统测试")
+    print("Duckyo Multimodal Retrieval System Test")
     print("=" * 50)
     
-    print(f"\n配置信息:")
+    print(f"\nConfig info:")
     print(f"  Embedding Model: {settings.EMBEDDING_MODEL}")
     print(f"  Embedding Dim: {settings.EMBEDDING_DIMENSION}")
     print(f"  Rerank Model: {settings.RERANK_MODEL}")
     
-    # 运行测试
+    # Run tests
     await test_embedder()
     await test_reranker()
     await test_similarity()
     
     print("\n" + "=" * 50)
-    print("所有测试完成!")
+    print("All tests complete!")
     print("=" * 50)
 
 

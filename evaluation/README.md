@@ -1,145 +1,145 @@
-# Duckyo 多模态检索引擎评测体系
+# Duckyo Multimodal Retrieval Engine Evaluation System
 
-基于 Langfuse + LlamaIndex 的端到端评测框架
+End-to-end evaluation framework based on Langfuse + LlamaIndex
 
-## 架构
+## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                        Evaluation Framework                      │
-├─────────────────────────────────────────────────────────────────┤
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐             │
-│  │ EvalDataset │  │   Metrics   │  │ EvalRunner  │             │
-│  │   Builder   │  │ Calculator  │  │             │             │
-│  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘             │
-│         │                │                │                      │
-│         ▼                ▼                ▼                      │
-│  ┌──────────────────────────────────────────────────┐           │
-│  │              LlamaIndex Retriever                │           │
-│  │  (Embedding + VectorStore + Rerank + Summary)    │           │
-│  └──────────────────────────────────────────────────┘           │
-│         │                                                        │
-│         ▼                                                        │
-│  ┌──────────────────────────────────────────────────┐           │
-│  │                  Langfuse                         │           │
-│  │  (Traces, Scores, Datasets, Experiments)         │           │
-│  └──────────────────────────────────────────────────┘           │
-└─────────────────────────────────────────────────────────────────┘
++-----------------------------------------------------------------+
+|                        Evaluation Framework                      |
++-----------------------------------------------------------------+
+|  +-------------+  +-------------+  +-------------+             |
+|  | EvalDataset |  |   Metrics   |  | EvalRunner  |             |
+|  |   Builder   |  | Calculator  |  |             |             |
+|  +------+------+  +------+------+  +------+------+             |
+|         |                |                |                      |
+|         v                v                v                      |
+|  +--------------------------------------------------+           |
+|  |              LlamaIndex Retriever                |           |
+|  |  (Embedding + VectorStore + Rerank + Summary)    |           |
+|  +--------------------------------------------------+           |
+|         |                                                        |
+|         v                                                        |
+|  +--------------------------------------------------+           |
+|  |                  Langfuse                         |           |
+|  |  (Traces, Scores, Datasets, Experiments)         |           |
+|  +--------------------------------------------------+           |
++-----------------------------------------------------------------+
 ```
 
-## 评测指标
+## Evaluation Metrics
 
-### 准确性指标
+### Accuracy Metrics
 
-| 指标 | 说明 | 公式 |
+| Metric | Description | Formula |
 |------|------|------|
-| **Recall@K** | 前K个结果中召回的相关文档比例 | `R@K = 相关文档在前K中的数量 / 相关文档总数` |
-| **Precision@K** | 前K个结果的精确率 | `P@K = 相关文档在前K中的数量 / K` |
-| **NDCG@K** | 归一化折损累积增益 | 考虑排序位置的相关性加权 |
-| **MRR** | 平均倒数排名 | `MRR = 1 / 第一个相关文档的排名` |
-| **MAP** | 平均精度均值 | 所有查询AP的平均值 |
+| **Recall@K** | Proportion of relevant documents recalled in top K results | `R@K = relevant in top K / total relevant` |
+| **Precision@K** | Precision of top K results | `P@K = relevant in top K / K` |
+| **NDCG@K** | Normalized Discounted Cumulative Gain | Relevance weighting considering ranking position |
+| **MRR** | Mean Reciprocal Rank | `MRR = 1 / rank of first relevant` |
+| **MAP** | Mean Average Precision | Average of AP across all queries |
 
-### 效率指标
+### Efficiency Metrics
 
-| 指标 | 说明 |
+| Metric | Description |
 |------|------|
-| **Latency (p50/p95/p99)** | 延迟分位数 |
-| **Throughput (QPS)** | 每秒查询数 |
+| **Latency (p50/p95/p99)** | Latency percentiles |
+| **Throughput (QPS)** | Queries per second |
 
-## 评测数据集
+## Evaluation Dataset
 
-### 查询类型分布
+### Query Type Distribution
 
-- **Text Search**: 纯文本查询
-- **Image Search**: 图搜图查询
-- **Hybrid Search**: 图文混合查询
+- **Text Search**: Pure text queries
+- **Image Search**: Image-to-image queries
+- **Hybrid Search**: Text-image hybrid queries
 
-### 难度级别
+### Difficulty Levels
 
-- **Easy**: 城市名称、标签等精确匹配
-- **Medium**: 地标、服装等概念匹配
-- **Hard**: 心情、氛围等语义匹配
+- **Easy**: Exact match for city names, tags, etc.
+- **Medium**: Concept matching for landmarks, clothing, etc.
+- **Hard**: Semantic matching for mood, atmosphere, etc.
 
-## 使用方法
+## Usage
 
-### 1. 构建评测数据集
+### 1. Build Evaluation Dataset
 
 ```bash
-cd /root/.openclaw/workspace/duckyo/projects/multimodal-retrieval
+cd .
 python evaluation/eval_dataset.py
 ```
 
-### 2. 运行完整评测
+### 2. Run Full Evaluation
 
 ```bash
 python evaluation/eval_runner.py
 ```
 
-### 3. 运行基准测试
+### 3. Run Benchmark
 
 ```bash
 python evaluation/benchmark.py
 ```
 
-### 4. 生成可视化报告
+### 4. Generate Visualization Report
 
 ```bash
 python evaluation/visualize.py evaluation/results/duckyo_baseline_v1.json
 ```
 
-## 文件结构
+## File Structure
 
 ```
 evaluation/
-├── __init__.py          # 模块初始化
-├── eval_dataset.py      # 评测数据集构建
-├── eval_metrics.py      # 评测指标计算
-├── eval_runner.py       # 评测执行器
-├── benchmark.py         # 基准测试
-├── visualize.py         # 结果可视化
-├── README.md            # 本文件
-├── eval_dataset.json    # 生成的评测数据集
-└── results/             # 评测结果
-    ├── duckyo_baseline_v1.json
-    ├── duckyo_baseline_v1_report.md
-    ├── benchmark.json
-    └── benchmark_report.md
++-- __init__.py          # Module initialization
++-- eval_dataset.py      # Evaluation dataset construction
++-- eval_metrics.py      # Evaluation metrics calculation
++-- eval_runner.py       # Evaluation runner
++-- benchmark.py         # Benchmark
++-- visualize.py         # Result visualization
++-- README.md            # This file
++-- eval_dataset.json    # Generated evaluation dataset
++-- results/             # Evaluation results
+    +-- duckyo_baseline_v1.json
+    +-- duckyo_baseline_v1_report.md
+    +-- benchmark.json
+    +-- benchmark_report.md
 ```
 
-## Langfuse 集成
+## Langfuse Integration
 
-评测结果会自动记录到 Langfuse：
+Evaluation results are automatically recorded to Langfuse:
 
-- **Traces**: 每个查询的执行追踪
-- **Scores**: 各项指标分数
-- **Datasets**: 评测数据集版本管理
-- **Experiments**: 不同实验对比
+- **Traces**: Execution trace for each query
+- **Scores**: Scores for each metric
+- **Datasets**: Evaluation dataset version management
+- **Experiments**: Comparison of different experiments
 
-## 扩展指南
+## Extension Guide
 
-### 添加新的评测查询
+### Add New Evaluation Queries
 
-编辑 `eval_dataset.py` 中的 `DuckyoEvalDatasetBuilder` 类：
+Edit `eval_dataset.py` and find the `DuckyoEvalDatasetBuilder` class:
 
 ```python
 def build_custom_queries(self) -> List[QueryRelevance]:
     queries = []
-    # 添加自定义查询...
+    # Add custom queries...
     return queries
 ```
 
-### 添加新的指标
+### Add New Metrics
 
-编辑 `eval_metrics.py` 中的 `MetricsCalculator` 类：
+Edit `eval_metrics.py` and find the `MetricsCalculator` class:
 
 ```python
 @staticmethod
 def calculate_custom_metric(...) -> float:
-    # 实现自定义指标
+    # Implement custom metrics
     pass
 ```
 
-## 参考
+## References
 
 - [LlamaIndex Evaluation](https://docs.llamaindex.ai/en/latest/optimizing/evaluation/evaluation/)
 - [Langfuse Evaluation](https://langfuse.com/docs/evaluation)

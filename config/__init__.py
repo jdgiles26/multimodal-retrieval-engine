@@ -1,5 +1,5 @@
 """
-配置模块
+Configuration module
 """
 from config.settings import settings, Settings
 

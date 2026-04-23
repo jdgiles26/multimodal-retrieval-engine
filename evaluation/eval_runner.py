@@ -1,6 +1,6 @@
 """
-评测执行器
-集成 LlamaIndex 检索引擎和 Langfuse 进行端到端评测
+Evaluation runner
+Integrate LlamaIndex retriever and Langfuse for end-to-end evaluation
 """
 import asyncio
 import time
@@ -9,11 +9,11 @@ from typing import List, Dict, Any, Optional
 from pathlib import Path
 from loguru import logger
 
-# 导入评测相关模块
+# Import evaluation modules
 from evaluation.eval_dataset import EvalDataset, QueryRelevance
 from evaluation.eval_metrics import MetricsCalculator, AggregatedMetrics, RetrievalMetrics
 
-# 导入检索引擎
+# Import retriever engine
 try:
     from core.llamaindex_engine import LlamaIndexMultimodalRetriever
     LLAMAINDEX_AVAILABLE = True
@@ -22,7 +22,7 @@ except ImportError:
     LLAMAINDEX_AVAILABLE = False
     logger.warning("LlamaIndex engine not available")
 
-# Langfuse 集成
+# Langfuse integration
 try:
     from langfuse import Langfuse
     LANGFUSE_AVAILABLE = True
@@ -33,8 +33,8 @@ except ImportError:
 
 class EvalRunner:
     """
-    评测执行器
-    运行评测数据集并计算指标
+    Evaluation runner
+    Run evaluation dataset and calculate metrics
     """
     
     def __init__(
@@ -47,12 +47,12 @@ class EvalRunner:
         self.retriever = retriever
         self.enable_langfuse = enable_langfuse and LANGFUSE_AVAILABLE
         
-        # 加载评测数据集
+        # Load evaluation dataset
         with open(dataset_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         self.dataset = EvalDataset.from_dict(data)
         
-        # 初始化 Langfuse
+        # Initialize Langfuse
         self.langfuse = None
         if self.enable_langfuse:
             try:
@@ -67,7 +67,7 @@ class EvalRunner:
             except Exception as e:
                 logger.warning(f"Failed to initialize Langfuse: {e}")
         
-        # 评测结果
+        # Evaluation results
         self.aggregated_metrics = AggregatedMetrics()
         self.detailed_results: List[Dict] = []
     
@@ -77,11 +77,11 @@ class EvalRunner:
         experiment_id: Optional[str] = None
     ) -> Dict[str, Any]:
         """
-        执行单个查询评测
+        Execute single query evaluation
         """
         start_time = time.time()
         
-        # 构建 Langfuse trace
+        # Build Langfuse trace
         trace = None
         if self.langfuse:
             trace = self.langfuse.trace(
@@ -98,7 +98,7 @@ class EvalRunner:
                 }
             )
         
-        # 执行检索
+        # Execute retrieval
         try:
             if query.query_type == "text":
                 results = await self.retriever.search(
@@ -124,10 +124,10 @@ class EvalRunner:
             
             latency_ms = (time.time() - start_time) * 1000
             
-            # 提取检索到的文档ID
+            # Extract retrieved document IDs
             retrieved_ids = [r["id"] for r in results]
             
-            # 计算指标
+            # Calculate metrics
             metrics = MetricsCalculator.calculate_all_metrics(
                 retrieved_ids=retrieved_ids,
                 relevant_ids=query.relevant_doc_ids,
@@ -135,7 +135,7 @@ class EvalRunner:
                 latency_ms=latency_ms,
             )
             
-            # 记录到 Langfuse
+            # Record to Langfuse
             if trace:
                 trace.score(name="recall@5", value=metrics.recall_at_k.get(5, 0.0))
                 trace.score(name="ndcg@5", value=metrics.ndcg_at_k.get(5, 0.0))
@@ -146,7 +146,7 @@ class EvalRunner:
                     "results_count": len(results),
                 })
             
-            # 构建详细结果
+            # Build detailed results
             result_detail = {
                 "query": query.query,
                 "query_type": query.query_type,
@@ -159,7 +159,7 @@ class EvalRunner:
                 "success": True,
             }
             
-            # 添加到聚合器
+            # Add to aggregator
             self.aggregated_metrics.add_query_result(
                 metrics, query.query_type, query.difficulty
             )
@@ -193,17 +193,17 @@ class EvalRunner:
         max_queries: Optional[int] = None
     ) -> Dict[str, Any]:
         """
-        运行完整评测
+        Run full evaluation
         """
         logger.info(f"Starting evaluation: {experiment_name}")
         logger.info(f"Dataset: {self.dataset.name}")
         logger.info(f"Total queries: {len(self.dataset.queries)}")
         
-        # 创建 Langfuse dataset run
+        # Create Langfuse dataset run
         dataset_run = None
         if self.langfuse:
             try:
-                # 创建或获取 dataset
+                # Create or get dataset
                 dataset = self.langfuse.create_dataset(
                     name=self.dataset.name,
                     description=self.dataset.description,
@@ -212,12 +212,12 @@ class EvalRunner:
             except Exception as e:
                 logger.warning(f"Failed to create Langfuse dataset: {e}")
         
-        # 选择查询子集
+        # Select query subset
         queries = self.dataset.queries
         if max_queries:
             queries = queries[:max_queries]
         
-        # 执行所有查询
+        # Execute all queries
         for i, query in enumerate(queries):
             logger.info(f"Evaluating query {i+1}/{len(queries)}: {query.query[:50]}...")
             
@@ -227,10 +227,10 @@ class EvalRunner:
             )
             self.detailed_results.append(result)
         
-        # 获取汇总结果
+        # Get summary results
         summary = self.aggregated_metrics.get_summary()
         
-        # 保存评测结果
+        # Save evaluation results
         output = {
             "experiment_name": experiment_name,
             "dataset": {
@@ -243,7 +243,7 @@ class EvalRunner:
             "detailed_results": self.detailed_results,
         }
         
-        # 保存到文件
+        # Save to file
         output_path = Path(f"evaluation/results/{experiment_name}.json")
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, 'w', encoding='utf-8') as f:
@@ -251,27 +251,27 @@ class EvalRunner:
         
         logger.info(f"Evaluation results saved: {output_path}")
         
-        # 打印汇总
+        # Print summary
         self.aggregated_metrics.print_summary()
         
         return output
     
     def generate_report(self, experiment_name: str) -> str:
-        """生成评测报告"""
+        """Generate evaluation report"""
         summary = self.aggregated_metrics.get_summary()
         overall = summary["overall"]
         
         report_lines = [
-            "# Duckyo 多模态检索引擎评测报告",
+            "# Duckyo Multimodal Retrieval Engine Evaluation Report",
             "",
-            f"**实验名称**: {experiment_name}",
-            f"**数据集**: {self.dataset.name}",
-            f"**语料库大小**: {self.dataset.corpus_size}",
-            f"**查询数量**: {len(self.detailed_results)}",
+            f"**Experiment name**: {experiment_name}",
+            f"**Dataset**: {self.dataset.name}",
+            f"**Corpus size**: {self.dataset.corpus_size}",
+            f"**Query count**: {len(self.detailed_results)}",
             "",
-            "## 总体指标",
+            "## Overall metrics",
             "",
-            "| 指标 | 均值 | 标准差 |",
+            "| Metric | Mean | Std |",
             "|------|------|--------|",
             f"| Recall@5 | {overall['recall_at_k'][5]['mean']:.4f} | {overall['recall_at_k'][5]['std']:.4f} |",
             f"| Precision@5 | {overall['precision_at_k'][5]['mean']:.4f} | {overall['precision_at_k'][5]['std']:.4f} |",
@@ -281,7 +281,7 @@ class EvalRunner:
             f"| Latency (p50) | {overall['latency_ms']['p50']:.1f}ms | - |",
             f"| Latency (p95) | {overall['latency_ms']['p95']:.1f}ms | - |",
             "",
-            "## 按查询类型",
+            "## By query type",
             "",
         ]
         
@@ -296,7 +296,7 @@ class EvalRunner:
             ])
         
         report_lines.extend([
-            "## 按难度级别",
+            "## By difficulty level",
             "",
         ])
         
@@ -314,37 +314,37 @@ class EvalRunner:
 
 
 async def main():
-    """主函数 - 运行评测"""
+    """Main function - run evaluation"""
     from core.llamaindex_engine import LlamaIndexMultimodalRetriever
     
-    # 初始化检索引擎
+    # Initialize retriever
     retriever = LlamaIndexMultimodalRetriever()
     
-    # 创建评测执行器
+    # Create evaluation runner
     runner = EvalRunner(
         retriever=retriever,
         dataset_path="evaluation/eval_dataset.json",
         enable_langfuse=True,
     )
     
-    # 运行评测
+    # Run evaluation
     results = await runner.run_evaluation(
         experiment_name="duckyo_baseline_v1",
-        max_queries=None,  # 运行所有查询
+        max_queries=None,  # Run all queries
     )
     
-    # 生成报告
+    # Generate report
     report = runner.generate_report("duckyo_baseline_v1")
     
-    # 保存报告
+    # Save report
     report_path = Path("evaluation/results/duckyo_baseline_v1_report.md")
     report_path.parent.mkdir(parents=True, exist_ok=True)
     with open(report_path, 'w', encoding='utf-8') as f:
         f.write(report)
     
-    print(f"\n✅ 评测完成！")
-    print(f"   结果文件: evaluation/results/duckyo_baseline_v1.json")
-    print(f"   报告文件: {report_path}")
+    print(f"\n Evaluation complete!")
+    print(f"   Result file: evaluation/results/duckyo_baseline_v1.json")
+    print(f"   Report file: {report_path}")
 
 
 if __name__ == "__main__":

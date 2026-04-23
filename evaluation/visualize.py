@@ -1,6 +1,6 @@
 """
-评测结果可视化
-生成图表展示评测结果
+Evaluation result visualization
+Generate charts to display evaluation results
 """
 import json
 from pathlib import Path
@@ -11,7 +11,7 @@ def generate_markdown_table(
     headers: List[str],
     rows: List[List[str]]
 ) -> str:
-    """生成 Markdown 表格"""
+    """Generate Markdown table"""
     lines = [
         "| " + " | ".join(headers) + " |",
         "|" + "|".join([" --- " for _ in headers]) + "|",
@@ -26,21 +26,21 @@ def generate_metrics_comparison(
     output_path: str = "evaluation/results/comparison.md"
 ) -> str:
     """
-    生成指标对比报告
+    Generate metrics comparison report
     """
     summary = results.get("summary", {})
     overall = summary.get("overall", {})
     
     lines = [
-        "# 评测结果对比",
+        "# Evaluation Results Comparison",
         "",
-        "## 总体指标",
+        "## Overall metrics",
         "",
     ]
     
-    # 总体指标表格
+    # Overall metrics table
     metrics_table = [
-        ["指标", "均值", "标准差", "最小值", "最大值"],
+        ["Metric", "Mean", "Std", "Min", "Max"],
     ]
     
     for k in [1, 3, 5, 10]:
@@ -111,10 +111,10 @@ def generate_metrics_comparison(
         metrics_table[1:]
     ))
     
-    # 按查询类型
+    # By query type
     lines.extend([
         "",
-        "## 按查询类型",
+        "## By query type",
         "",
     ])
     
@@ -125,7 +125,7 @@ def generate_metrics_comparison(
         ])
         
         type_table = [
-            ["指标", "均值", "标准差"],
+            ["Metric", "Mean", "Std"],
         ]
         
         for k in [1, 3, 5, 10]:
@@ -144,9 +144,9 @@ def generate_metrics_comparison(
         lines.append(generate_markdown_table(type_table[0], type_table[1:]))
         lines.append("")
     
-    # 按难度
+    # By difficulty
     lines.extend([
-        "## 按难度级别",
+        "## By difficulty level",
         "",
     ])
     
@@ -157,7 +157,7 @@ def generate_metrics_comparison(
         ])
         
         diff_table = [
-            ["指标", "均值", "标准差"],
+            ["Metric", "Mean", "Std"],
         ]
         
         for k in [1, 3, 5, 10]:
@@ -174,13 +174,13 @@ def generate_metrics_comparison(
     
     content = "\n".join(lines)
     
-    # 保存
+    # Save
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(content)
     
-    print(f"✅ 对比报告已生成: {output_path}")
+    print(f" Comparison report generated: {output_path}")
     return content
 
 
@@ -189,82 +189,82 @@ def generate_failure_analysis(
     output_path: str = "evaluation/results/failure_analysis.md"
 ) -> str:
     """
-    生成失败案例分析
+    Generate failure case analysis
     """
     detailed = results.get("detailed_results", [])
     
-    # 找出失败的查询
+    # Find failed queries
     failures = [r for r in detailed if not r.get("success", True)]
     low_recall = [r for r in detailed if r.get("metrics", {}).get("recall_at_k", {}).get(5, 1.0) < 0.5]
     
     lines = [
-        "# 失败案例分析",
+        "# Failure Case Analysis",
         "",
-        f"**总查询数**: {len(detailed)}",
-        f"**失败查询**: {len(failures)}",
-        f"**低召回查询 (Recall@5 < 0.5)**: {len(low_recall)}",
+        f"**Total queries**: {len(detailed)}",
+        f"**Failed queries**: {len(failures)}",
+        f"**Low recall queries (Recall@5 < 0.5)**: {len(low_recall)}",
         "",
     ]
     
     if failures:
         lines.extend([
-            "## 执行失败的查询",
+            "## Failed queries",
             "",
         ])
         for r in failures:
             lines.extend([
                 f"### Query: {r.get('query', 'N/A')}",
                 "",
-                f"- **类型**: {r.get('query_type', 'N/A')}",
-                f"- **难度**: {r.get('difficulty', 'N/A')}",
-                f"- **错误**: {r.get('error', 'Unknown')}",
+                f"- **Type**: {r.get('query_type', 'N/A')}",
+                f"- **Difficulty**: {r.get('difficulty', 'N/A')}",
+                f"- **Error**: {r.get('error', 'Unknown')}",
                 "",
             ])
     
     if low_recall:
         lines.extend([
-            "## 低召回查询分析",
+            "## Low recall query analysis",
             "",
         ])
         for r in sorted(low_recall, key=lambda x: x.get("metrics", {}).get("recall_at_k", {}).get(5, 0)):
             lines.extend([
                 f"### Query: {r.get('query', 'N/A')}",
                 "",
-                f"- **类型**: {r.get('query_type', 'N/A')}",
-                f"- **难度**: {r.get('difficulty', 'N/A')}",
-                f"- **期望结果**: {r.get('expected_ids', [])}",
-                f"- **实际结果**: {r.get('retrieved_ids', [])[:5]}",
+                f"- **Type**: {r.get('query_type', 'N/A')}",
+                f"- **Difficulty**: {r.get('difficulty', 'N/A')}",
+                f"- **Expected results**: {r.get('expected_ids', [])}",
+                f"- **Actual results**: {r.get('retrieved_ids', [])[:5]}",
                 f"- **Recall@5**: {r.get('metrics', {}).get('recall_at_k', {}).get(5, 0):.4f}",
                 "",
             ])
     
     content = "\n".join(lines)
     
-    # 保存
+    # Save
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(content)
     
-    print(f"✅ 失败分析已生成: {output_path}")
+    print(f" Failure analysis generated: {output_path}")
     return content
 
 
 def main():
-    """主函数"""
+    """Main function"""
     import sys
     
-    # 读取评测结果
+    # Read evaluation results
     result_file = sys.argv[1] if len(sys.argv) > 1 else "evaluation/results/duckyo_baseline_v1.json"
     
     with open(result_file, 'r', encoding='utf-8') as f:
         results = json.load(f)
     
-    # 生成报告
+    # Generate report
     generate_metrics_comparison(results)
     generate_failure_analysis(results)
     
-    print("\n✅ 所有可视化报告已生成！")
+    print("\n All visualization reports generated!")
 
 
 if __name__ == "__main__":

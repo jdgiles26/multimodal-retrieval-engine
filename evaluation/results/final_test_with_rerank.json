@@ -2,7 +2,7 @@
   "experiment_name": "final_test_with_rerank",
   "dataset": {
     "name": "Duckyo Travel Memories Eval (Expanded)",
-    "description": "Duckyo 多模态旅行记忆检索引擎扩充版评测数据集",
+    "description": "Duckyo Multimodal Travel Memory Retrieval Engine Expanded Evaluation Dataset",
     "corpus_size": 7,
     "query_count": 76
   },
@@ -921,7 +921,7 @@
       "success": true
     },
     {
-      "query": "日本东京",
+      "query": "Tokyo, Japan",
       "query_type": "text",
       "difficulty": "easy",
       "category": "city",
@@ -970,7 +970,7 @@
       "success": true
     },
     {
-      "query": "澳大利亚悉尼",
+      "query": "Sydney, Australia",
       "query_type": "text",
       "difficulty": "easy",
       "category": "city",
@@ -1019,7 +1019,7 @@
       "success": true
     },
     {
-      "query": "法国巴黎",
+      "query": "Paris, France",
       "query_type": "text",
       "difficulty": "easy",
       "category": "city",
@@ -1067,7 +1067,7 @@
       "success": true
     },
     {
-      "query": "冰岛雷克雅未克",
+      "query": "Reykjavik, Iceland",
       "query_type": "text",
       "difficulty": "easy",
       "category": "city",
@@ -1115,7 +1115,7 @@
       "success": true
     },
     {
-      "query": "美国纽约",
+      "query": "New York, USA",
       "query_type": "text",
       "difficulty": "easy",
       "category": "city",
@@ -1163,7 +1163,7 @@
       "success": true
     },
     {
-      "query": "东京塔",
+      "query": "Tokyo Tower",
       "query_type": "text",
       "difficulty": "medium",
       "category": "landmark",
@@ -1211,7 +1211,7 @@
       "success": true
     },
     {
-      "query": "悉尼歌剧院",
+      "query": "Sydney Opera House",
       "query_type": "text",
       "difficulty": "medium",
       "category": "landmark",
@@ -1259,7 +1259,7 @@
       "success": true
     },
     {
-      "query": "埃菲尔铁塔",
+      "query": "Eiffel Tower",
       "query_type": "text",
       "difficulty": "medium",
       "category": "landmark",
@@ -1307,7 +1307,7 @@
       "success": true
     },
     {
-      "query": "自由女神像",
+      "query": "Statue of Liberty",
       "query_type": "text",
       "difficulty": "medium",
       "category": "landmark",
@@ -1355,7 +1355,7 @@
       "success": true
     },
     {
-      "query": "北极光",
+      "query": "Northern Lights",
       "query_type": "text",
       "difficulty": "medium",
       "category": "landmark",
@@ -1403,7 +1403,7 @@
       "success": true
     },
     {
-      "query": "海港大桥",
+      "query": "Harbour Bridge",
       "query_type": "text",
       "difficulty": "medium",
       "category": "landmark",
@@ -1451,7 +1451,7 @@
       "success": true
     },
     {
-      "query": "浅草寺",
+      "query": "Sensoji Temple",
       "query_type": "text",
       "difficulty": "medium",
       "category": "landmark",
@@ -1499,7 +1499,7 @@
       "success": true
     },
     {
-      "query": "极光",
+      "query": "Aurora",
       "query_type": "text",
       "difficulty": "medium",
       "category": "landmark",
@@ -1547,7 +1547,7 @@
       "success": true
     },
     {
-      "query": "汉服",
+      "query": "Hanfu",
       "query_type": "text",
       "difficulty": "medium",
       "category": "tag",
@@ -1596,7 +1596,7 @@
       "success": true
     },
     {
-      "query": "夜景",
+      "query": "night view",
       "query_type": "text",
       "difficulty": "medium",
       "category": "tag",
@@ -1644,7 +1644,7 @@
       "success": true
     },
     {
-      "query": "海滩",
+      "query": "beach",
       "query_type": "text",
       "difficulty": "medium",
       "category": "tag",
@@ -1692,7 +1692,7 @@
       "success": true
     },
     {
-      "query": "冲浪",
+      "query": "surfing",
       "query_type": "text",
       "difficulty": "medium",
       "category": "tag",
@@ -1740,7 +1740,7 @@
       "success": true
     },
     {
-      "query": "寺庙",
+      "query": "temple",
       "query_type": "text",
       "difficulty": "medium",
       "category": "tag",
@@ -1788,7 +1788,7 @@
       "success": true
     },
     {
-      "query": "和服",
+      "query": "Kimono",
       "query_type": "text",
       "difficulty": "medium",
       "category": "tag",
@@ -1836,7 +1836,7 @@
       "success": true
     },
     {
-      "query": "极光",
+      "query": "Aurora",
       "query_type": "text",
       "difficulty": "medium",
       "category": "tag",
@@ -1884,7 +1884,7 @@
       "success": true
     },
     {
-      "query": "地标",
+      "query": "landmark",
       "query_type": "text",
       "difficulty": "medium",
       "category": "tag",
@@ -1935,7 +1935,7 @@
       "success": true
     },
     {
-      "query": "浪漫",
+      "query": "romantic",
       "query_type": "text",
       "difficulty": "medium",
       "category": "tag",
@@ -1984,7 +1984,7 @@
       "success": true
     },
     {
-      "query": "自拍",
+      "query": "selfie",
       "query_type": "text",
       "difficulty": "medium",
       "category": "tag",
@@ -2032,7 +2032,7 @@
       "success": true
     },
     {
-      "query": "阳光",
+      "query": "sunshine",
       "query_type": "text",
       "difficulty": "medium",
       "category": "tag",
@@ -2080,7 +2080,7 @@
       "success": true
     },
     {
-      "query": "自然奇观",
+      "query": "natural wonders",
       "query_type": "text",
       "difficulty": "medium",
       "category": "tag",
@@ -2128,7 +2128,7 @@
       "success": true
     },
     {
-      "query": "浪漫",
+      "query": "romantic",
       "query_type": "text",
       "difficulty": "hard",
       "category": "mood",
@@ -2177,7 +2177,7 @@
       "success": true
     },
     {
-      "query": "放松",
+      "query": "relaxing",
       "query_type": "text",
       "difficulty": "medium",
       "category": "mood",
@@ -2225,7 +2225,7 @@
       "success": true
     },
     {
-      "query": "震撼",
+      "query": "breathtaking",
       "query_type": "text",
       "difficulty": "medium",
       "category": "mood",
@@ -2273,7 +2273,7 @@
       "success": true
     },
     {
-      "query": "惊艳",
+      "query": "stunning",
       "query_type": "text",
       "difficulty": "medium",
       "category": "mood",
@@ -2321,7 +2321,7 @@
       "success": true
     },
     {
-      "query": "好奇",
+      "query": "curious",
       "query_type": "text",
       "difficulty": "medium",
       "category": "mood",
@@ -2369,7 +2369,7 @@
       "success": true
     },
     {
-      "query": "庄严",
+      "query": "solemn",
       "query_type": "text",
       "difficulty": "medium",
       "category": "mood",
@@ -2417,7 +2417,7 @@
       "success": true
     },
     {
-      "query": "浪漫的旅行",
+      "query": "romantic travel",
       "query_type": "text",
       "difficulty": "hard",
       "category": "mood",
@@ -2466,7 +2466,7 @@
       "success": true
     },
     {
-      "query": "放松的海滩时光",
+      "query": "relaxing beach time",
       "query_type": "text",
       "difficulty": "medium",
       "category": "mood",
@@ -2514,7 +2514,7 @@
       "success": true
     },
     {
-      "query": "震撼的自然景观",
+      "query": "breathtaking natural scenery",
       "query_type": "text",
       "difficulty": "medium",
       "category": "mood",
@@ -2562,7 +2562,7 @@
       "success": true
     },
     {
-      "query": "美丽的海港",
+      "query": "beautiful harbor",
       "query_type": "text",
       "difficulty": "medium",
       "category": "mood",
@@ -2610,7 +2610,7 @@
       "success": true
     },
     {
-      "query": "汉服",
+      "query": "Hanfu",
       "query_type": "text",
       "difficulty": "medium",
       "category": "outfit",
@@ -2659,7 +2659,7 @@
       "success": true
     },
     {
-      "query": "和服",
+      "query": "Kimono",
       "query_type": "text",
       "difficulty": "medium",
       "category": "outfit",
@@ -2707,7 +2707,7 @@
       "success": true
     },
     {
-      "query": "休闲",
+      "query": "casual",
       "query_type": "text",
       "difficulty": "medium",
       "category": "outfit",
@@ -2756,7 +2756,7 @@
       "success": true
     },
     {
-      "query": "泳装",
+      "query": "swimwear",
       "query_type": "text",
       "difficulty": "medium",
       "category": "outfit",
@@ -2804,7 +2804,7 @@
       "success": true
     },
     {
-      "query": "保暖",
+      "query": "warm clothing",
       "query_type": "text",
       "difficulty": "medium",
       "category": "outfit",
@@ -2852,7 +2852,7 @@
       "success": true
     },
     {
-      "query": "穿传统服装",
+      "query": "wearing traditional clothing",
       "query_type": "text",
       "difficulty": "medium",
       "category": "outfit",
@@ -2902,7 +2902,7 @@
       "success": true
     },
     {
-      "query": "穿传统服装的旅行",
+      "query": "travel in traditional clothing",
       "query_type": "text",
       "difficulty": "hard",
       "category": "semantic",
@@ -2952,7 +2952,7 @@
       "success": true
     },
     {
-      "query": "著名的地标建筑",
+      "query": "famous landmark buildings",
       "query_type": "text",
       "difficulty": "hard",
       "category": "semantic",
@@ -3003,7 +3003,7 @@
       "success": true
     },
     {
-      "query": "海边或海滩",
+      "query": "seaside or beach",
       "query_type": "text",
       "difficulty": "hard",
       "category": "semantic",
@@ -3051,7 +3051,7 @@
       "success": true
     },
     {
-      "query": "夜晚的城市风景",
+      "query": "night city scenery",
       "query_type": "text",
       "difficulty": "hard",
       "category": "semantic",
@@ -3099,7 +3099,7 @@
       "success": true
     },
     {
-      "query": "中西合璧的旅行照片",
+      "query": "travel photos blending East and West",
       "query_type": "text",
       "difficulty": "hard",
       "category": "semantic",
@@ -3148,7 +3148,7 @@
       "success": true
     },
     {
-      "query": "标志性的城市景点",
+      "query": "iconic city attractions",
       "query_type": "text",
       "difficulty": "hard",
       "category": "semantic",
@@ -3199,7 +3199,7 @@
       "success": true
     },
     {
-      "query": "户外活动",
+      "query": "outdoor activities",
       "query_type": "text",
       "difficulty": "hard",
       "category": "semantic",
@@ -3247,7 +3247,7 @@
       "success": true
     },
     {
-      "query": "文化体验",
+      "query": "cultural experience",
       "query_type": "text",
       "difficulty": "hard",
       "category": "semantic",
@@ -3295,7 +3295,7 @@
       "success": true
     },
     {
-      "query": "自然与城市结合",
+      "query": "nature and city combined",
       "query_type": "text",
       "difficulty": "hard",
       "category": "semantic",
@@ -3343,7 +3343,7 @@
       "success": true
     },
     {
-      "query": "历史与现代",
+      "query": "history and modernity",
       "query_type": "text",
       "difficulty": "hard",
       "category": "semantic",
@@ -3872,7 +3872,7 @@
       "success": true
     },
     {
-      "query": "东京夜景",
+      "query": "Tokyo night view",
       "query_type": "hybrid",
       "difficulty": "hard",
       "category": "hybrid",
@@ -3920,7 +3920,7 @@
       "success": true
     },
     {
-      "query": "悉尼歌剧院",
+      "query": "Sydney Opera House",
       "query_type": "hybrid",
       "difficulty": "medium",
       "category": "hybrid",
@@ -3968,7 +3968,7 @@
       "success": true
     },
     {
-      "query": "埃菲尔铁塔",
+      "query": "Eiffel Tower",
       "query_type": "hybrid",
       "difficulty": "medium",
       "category": "hybrid",
@@ -4016,7 +4016,7 @@
       "success": true
     },
     {
-      "query": "自由女神像",
+      "query": "Statue of Liberty",
       "query_type": "hybrid",
       "difficulty": "medium",
       "category": "hybrid",
@@ -4064,7 +4064,7 @@
       "success": true
     },
     {
-      "query": "温泉",
+      "query": "hot spring",
       "query_type": "hybrid",
       "difficulty": "medium",
       "category": "hybrid",
@@ -4112,7 +4112,7 @@
       "success": true
     },
     {
-      "query": "桌山",
+      "query": "Table Mountain",
       "query_type": "hybrid",
       "difficulty": "medium",
       "category": "hybrid",
@@ -4160,7 +4160,7 @@
       "success": true
     },
     {
-      "query": "和服",
+      "query": "Kimono",
       "query_type": "hybrid",
       "difficulty": "medium",
       "category": "hybrid",
@@ -4208,7 +4208,7 @@
       "success": true
     },
     {
-      "query": "海滩",
+      "query": "beach",
       "query_type": "hybrid",
       "difficulty": "medium",
       "category": "hybrid",
@@ -4256,7 +4256,7 @@
       "success": true
     },
     {
-      "query": "好望角",
+      "query": "Cape of Good Hope",
       "query_type": "hybrid",
       "difficulty": "medium",
       "category": "hybrid",
@@ -4304,7 +4304,7 @@
       "success": true
     },
     {
-      "query": "时代广场",
+      "query": "Times Square",
       "query_type": "hybrid",
       "difficulty": "medium",
       "category": "hybrid",

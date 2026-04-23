@@ -1,6 +1,6 @@
 {
   "name": "Duckyo Travel Memories Eval (Expanded)",
-  "description": "Duckyo 多模态旅行记忆检索引擎扩充版评测数据集",
+  "description": "Duckyo Multimodal Travel Memory Retrieval Engine Expanded Evaluation Dataset",
   "corpus_size": 7,
   "created_at": "2026-04-09T22:45:00.000000",
   "queries": [
@@ -74,7 +74,7 @@
       "category": "city"
     },
     {
-      "query": "日本东京",
+      "query": "Tokyo, Japan",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -89,7 +89,7 @@
       "category": "city"
     },
     {
-      "query": "澳大利亚悉尼",
+      "query": "Sydney, Australia",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_001",
@@ -104,7 +104,7 @@
       "category": "city"
     },
     {
-      "query": "法国巴黎",
+      "query": "Paris, France",
       "query_image": null,
       "relevant_doc_ids": [
         "paris_001"
@@ -117,7 +117,7 @@
       "category": "city"
     },
     {
-      "query": "冰岛雷克雅未克",
+      "query": "Reykjavik, Iceland",
       "query_image": null,
       "relevant_doc_ids": [
         "iceland_001"
@@ -130,7 +130,7 @@
       "category": "city"
     },
     {
-      "query": "美国纽约",
+      "query": "New York, USA",
       "query_image": null,
       "relevant_doc_ids": [
         "nyc_001"
@@ -143,7 +143,7 @@
       "category": "city"
     },
     {
-      "query": "东京塔",
+      "query": "Tokyo Tower",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001"
@@ -156,7 +156,7 @@
       "category": "landmark"
     },
     {
-      "query": "悉尼歌剧院",
+      "query": "Sydney Opera House",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_001"
@@ -169,7 +169,7 @@
       "category": "landmark"
     },
     {
-      "query": "埃菲尔铁塔",
+      "query": "Eiffel Tower",
       "query_image": null,
       "relevant_doc_ids": [
         "paris_001"
@@ -182,7 +182,7 @@
       "category": "landmark"
     },
     {
-      "query": "自由女神像",
+      "query": "Statue of Liberty",
       "query_image": null,
       "relevant_doc_ids": [
         "nyc_001"
@@ -195,7 +195,7 @@
       "category": "landmark"
     },
     {
-      "query": "北极光",
+      "query": "Northern Lights",
       "query_image": null,
       "relevant_doc_ids": [
         "iceland_001"
@@ -208,7 +208,7 @@
       "category": "landmark"
     },
     {
-      "query": "海港大桥",
+      "query": "Harbour Bridge",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_001"
@@ -221,7 +221,7 @@
       "category": "landmark"
     },
     {
-      "query": "浅草寺",
+      "query": "Sensoji Temple",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_002"
@@ -234,7 +234,7 @@
       "category": "landmark"
     },
     {
-      "query": "极光",
+      "query": "Aurora",
       "query_image": null,
       "relevant_doc_ids": [
         "iceland_001"
@@ -247,7 +247,7 @@
       "category": "landmark"
     },
     {
-      "query": "汉服",
+      "query": "Hanfu",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -262,7 +262,7 @@
       "category": "tag"
     },
     {
-      "query": "夜景",
+      "query": "night view",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001"
@@ -275,7 +275,7 @@
       "category": "tag"
     },
     {
-      "query": "海滩",
+      "query": "beach",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_002"
@@ -288,7 +288,7 @@
       "category": "tag"
     },
     {
-      "query": "冲浪",
+      "query": "surfing",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_002"
@@ -301,7 +301,7 @@
       "category": "tag"
     },
     {
-      "query": "寺庙",
+      "query": "temple",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_002"
@@ -314,7 +314,7 @@
       "category": "tag"
     },
     {
-      "query": "和服",
+      "query": "Kimono",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_002"
@@ -327,7 +327,7 @@
       "category": "tag"
     },
     {
-      "query": "极光",
+      "query": "Aurora",
       "query_image": null,
       "relevant_doc_ids": [
         "iceland_001"
@@ -340,7 +340,7 @@
       "category": "tag"
     },
     {
-      "query": "地标",
+      "query": "landmark",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -359,7 +359,7 @@
       "category": "tag"
     },
     {
-      "query": "浪漫",
+      "query": "romantic",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -374,7 +374,7 @@
       "category": "tag"
     },
     {
-      "query": "自拍",
+      "query": "selfie",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001"
@@ -387,7 +387,7 @@
       "category": "tag"
     },
     {
-      "query": "阳光",
+      "query": "sunshine",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_002"
@@ -400,7 +400,7 @@
       "category": "tag"
     },
     {
-      "query": "自然奇观",
+      "query": "natural wonders",
       "query_image": null,
       "relevant_doc_ids": [
         "iceland_001"
@@ -413,7 +413,7 @@
       "category": "tag"
     },
     {
-      "query": "浪漫",
+      "query": "romantic",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -428,7 +428,7 @@
       "category": "mood"
     },
     {
-      "query": "放松",
+      "query": "relaxing",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_002"
@@ -441,7 +441,7 @@
       "category": "mood"
     },
     {
-      "query": "震撼",
+      "query": "breathtaking",
       "query_image": null,
       "relevant_doc_ids": [
         "iceland_001"
@@ -454,7 +454,7 @@
       "category": "mood"
     },
     {
-      "query": "惊艳",
+      "query": "stunning",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_001"
@@ -467,7 +467,7 @@
       "category": "mood"
     },
     {
-      "query": "好奇",
+      "query": "curious",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_002"
@@ -480,7 +480,7 @@
       "category": "mood"
     },
     {
-      "query": "庄严",
+      "query": "solemn",
       "query_image": null,
       "relevant_doc_ids": [
         "nyc_001"
@@ -493,7 +493,7 @@
       "category": "mood"
     },
     {
-      "query": "浪漫的旅行",
+      "query": "romantic travel",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -508,7 +508,7 @@
       "category": "mood"
     },
     {
-      "query": "放松的海滩时光",
+      "query": "relaxing beach time",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_002"
@@ -521,7 +521,7 @@
       "category": "mood"
     },
     {
-      "query": "震撼的自然景观",
+      "query": "breathtaking natural scenery",
       "query_image": null,
       "relevant_doc_ids": [
         "iceland_001"
@@ -534,7 +534,7 @@
       "category": "mood"
     },
     {
-      "query": "美丽的海港",
+      "query": "beautiful harbor",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_001"
@@ -547,7 +547,7 @@
       "category": "mood"
     },
     {
-      "query": "汉服",
+      "query": "Hanfu",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -562,7 +562,7 @@
       "category": "outfit"
     },
     {
-      "query": "和服",
+      "query": "Kimono",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_002"
@@ -575,7 +575,7 @@
       "category": "outfit"
     },
     {
-      "query": "休闲",
+      "query": "casual",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_001",
@@ -590,7 +590,7 @@
       "category": "outfit"
     },
     {
-      "query": "泳装",
+      "query": "swimwear",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_002"
@@ -603,7 +603,7 @@
       "category": "outfit"
     },
     {
-      "query": "保暖",
+      "query": "warm clothing",
       "query_image": null,
       "relevant_doc_ids": [
         "iceland_001"
@@ -616,7 +616,7 @@
       "category": "outfit"
     },
     {
-      "query": "穿传统服装",
+      "query": "wearing traditional clothing",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -633,7 +633,7 @@
       "category": "outfit"
     },
     {
-      "query": "穿传统服装的旅行",
+      "query": "travel in traditional clothing",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -650,7 +650,7 @@
       "category": "semantic"
     },
     {
-      "query": "著名的地标建筑",
+      "query": "famous landmark buildings",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -669,7 +669,7 @@
       "category": "semantic"
     },
     {
-      "query": "海边或海滩",
+      "query": "seaside or beach",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_002"
@@ -682,7 +682,7 @@
       "category": "semantic"
     },
     {
-      "query": "夜晚的城市风景",
+      "query": "night city scenery",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001"
@@ -695,7 +695,7 @@
       "category": "semantic"
     },
     {
-      "query": "中西合璧的旅行照片",
+      "query": "travel photos blending East and West",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -710,7 +710,7 @@
       "category": "semantic"
     },
     {
-      "query": "标志性的城市景点",
+      "query": "iconic city attractions",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -729,7 +729,7 @@
       "category": "semantic"
     },
     {
-      "query": "户外活动",
+      "query": "outdoor activities",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_002"
@@ -742,7 +742,7 @@
       "category": "semantic"
     },
     {
-      "query": "文化体验",
+      "query": "cultural experience",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_002"
@@ -755,7 +755,7 @@
       "category": "semantic"
     },
     {
-      "query": "自然与城市结合",
+      "query": "nature and city combined",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_001"
@@ -768,7 +768,7 @@
       "category": "semantic"
     },
     {
-      "query": "历史与现代",
+      "query": "history and modernity",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_002",
@@ -913,7 +913,7 @@
       "category": "image_to_image"
     },
     {
-      "query": "东京夜景",
+      "query": "Tokyo night view",
       "query_image": "http://150.40.177.181:9002/duckyo-memories/Tokyo_Shibuya_Night.png",
       "relevant_doc_ids": [
         "tokyo_photo_001"
@@ -926,7 +926,7 @@
       "category": "hybrid"
     },
     {
-      "query": "悉尼歌剧院",
+      "query": "Sydney Opera House",
       "query_image": "http://150.40.177.181:9002/duckyo-memories/Sydney_OperaHouse_Night_1.png",
       "relevant_doc_ids": [
         "sydney_001"
@@ -939,7 +939,7 @@
       "category": "hybrid"
     },
     {
-      "query": "埃菲尔铁塔",
+      "query": "Eiffel Tower",
       "query_image": "http://150.40.177.181:9002/duckyo-memories/Paris_Eiffel_Tower.png",
       "relevant_doc_ids": [
         "paris_001"
@@ -952,7 +952,7 @@
       "category": "hybrid"
     },
     {
-      "query": "自由女神像",
+      "query": "Statue of Liberty",
       "query_image": "http://150.40.177.181:9002/duckyo-memories/NewYork_Liberty.png",
       "relevant_doc_ids": [
         "nyc_001"
@@ -965,7 +965,7 @@
       "category": "hybrid"
     },
     {
-      "query": "温泉",
+      "query": "hot spring",
       "query_image": "http://150.40.177.181:9002/duckyo-memories/Iceland_Blue_Lagoon.png",
       "relevant_doc_ids": [
         "iceland_001"
@@ -978,7 +978,7 @@
       "category": "hybrid"
     },
     {
-      "query": "桌山",
+      "query": "Table Mountain",
       "query_image": "http://150.40.177.181:9002/duckyo-memories/CapeTown_Table_Mountain.png",
       "relevant_doc_ids": [
         "capetown_001"
@@ -991,7 +991,7 @@
       "category": "hybrid"
     },
     {
-      "query": "和服",
+      "query": "Kimono",
       "query_image": "http://150.40.177.181:9002/duckyo-memories/Tokyo_Asakusa_Kimono.png",
       "relevant_doc_ids": [
         "tokyo_002"
@@ -1004,7 +1004,7 @@
       "category": "hybrid"
     },
     {
-      "query": "海滩",
+      "query": "beach",
       "query_image": "http://150.40.177.181:9002/duckyo-memories/Sydney_Bondi_Beach.png",
       "relevant_doc_ids": [
         "sydney_002"
@@ -1017,7 +1017,7 @@
       "category": "hybrid"
     },
     {
-      "query": "好望角",
+      "query": "Cape of Good Hope",
       "query_image": "http://150.40.177.181:9002/duckyo-memories/CapeTown_Cape_of_Good_Hope.png",
       "relevant_doc_ids": [
         "capetown_002"
@@ -1030,7 +1030,7 @@
       "category": "hybrid"
     },
     {
-      "query": "时代广场",
+      "query": "Times Square",
       "query_image": "http://150.40.177.181:9002/duckyo-memories/NewYork_Times_Square.png",
       "relevant_doc_ids": [
         "nyc_002"

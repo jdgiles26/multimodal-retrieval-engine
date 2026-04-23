@@ -1,11 +1,11 @@
 {
   "name": "Duckyo Travel Memories Eval",
-  "description": "Duckyo 多模态旅行记忆检索引擎评测数据集",
+  "description": "Duckyo Multimodal Travel Memory Retrieval Engine Evaluation Dataset",
   "corpus_size": 7,
   "created_at": "2026-04-09T22:26:12.802570",
   "queries": [
     {
-      "query": "Tokyo的照片",
+      "query": "Tokyo photos",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -20,7 +20,7 @@
       "category": "city"
     },
     {
-      "query": "Sydney的照片",
+      "query": "Sydney photos",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_001",
@@ -35,7 +35,7 @@
       "category": "city"
     },
     {
-      "query": "Paris的照片",
+      "query": "Paris photos",
       "query_image": null,
       "relevant_doc_ids": [
         "paris_001"
@@ -48,7 +48,7 @@
       "category": "city"
     },
     {
-      "query": "Reykjavik的照片",
+      "query": "Reykjavik photos",
       "query_image": null,
       "relevant_doc_ids": [
         "iceland_001"
@@ -61,7 +61,7 @@
       "category": "city"
     },
     {
-      "query": "New York的照片",
+      "query": "New York photos",
       "query_image": null,
       "relevant_doc_ids": [
         "nyc_001"
@@ -74,7 +74,7 @@
       "category": "city"
     },
     {
-      "query": "东京塔",
+      "query": "Tokyo Tower",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001"
@@ -87,7 +87,7 @@
       "category": "landmark"
     },
     {
-      "query": "悉尼歌剧院",
+      "query": "Sydney Opera House",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_001"
@@ -100,7 +100,7 @@
       "category": "landmark"
     },
     {
-      "query": "埃菲尔铁塔",
+      "query": "Eiffel Tower",
       "query_image": null,
       "relevant_doc_ids": [
         "paris_001"
@@ -113,7 +113,7 @@
       "category": "landmark"
     },
     {
-      "query": "自由女神像",
+      "query": "Statue of Liberty",
       "query_image": null,
       "relevant_doc_ids": [
         "nyc_001"
@@ -126,7 +126,7 @@
       "category": "landmark"
     },
     {
-      "query": "北极光",
+      "query": "Northern Lights",
       "query_image": null,
       "relevant_doc_ids": [
         "iceland_001"
@@ -139,7 +139,7 @@
       "category": "landmark"
     },
     {
-      "query": "汉服",
+      "query": "Hanfu",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -154,7 +154,7 @@
       "category": "tag"
     },
     {
-      "query": "海滩",
+      "query": "beach",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_002"
@@ -167,7 +167,7 @@
       "category": "tag"
     },
     {
-      "query": "夜景",
+      "query": "night view",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001"
@@ -180,7 +180,7 @@
       "category": "tag"
     },
     {
-      "query": "浪漫的旅行",
+      "query": "romantic travel",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -195,7 +195,7 @@
       "category": "mood"
     },
     {
-      "query": "放松的海滩时光",
+      "query": "relaxing beach time",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_002"
@@ -208,7 +208,7 @@
       "category": "mood"
     },
     {
-      "query": "震撼的自然景观",
+      "query": "breathtaking natural scenery",
       "query_image": null,
       "relevant_doc_ids": [
         "iceland_001"
@@ -221,7 +221,7 @@
       "category": "mood"
     },
     {
-      "query": "穿传统服装的旅行",
+      "query": "travel in traditional clothing",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -236,7 +236,7 @@
       "category": "semantic"
     },
     {
-      "query": "著名的地标建筑",
+      "query": "famous landmark buildings",
       "query_image": null,
       "relevant_doc_ids": [
         "tokyo_photo_001",
@@ -255,7 +255,7 @@
       "category": "semantic"
     },
     {
-      "query": "海边或海滩",
+      "query": "seaside or beach",
       "query_image": null,
       "relevant_doc_ids": [
         "sydney_002"
@@ -281,7 +281,7 @@
       "category": "image_to_image"
     },
     {
-      "query": "东京夜景",
+      "query": "Tokyo night view",
       "query_image": "https://i.imgur.com/zgj08VU.png",
       "relevant_doc_ids": [
         "tokyo_photo_001"

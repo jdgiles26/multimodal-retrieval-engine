@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-CLI 工具 - 多模态检索命令行
+CLI Tool - Multimodal Retrieval Command Line Interface
 
-用法:
-    python -m cli search "东京塔夜景"
+Usage:
+    python -m cli search "Tokyo tower night view"
     python -m cli search-image https://example.com/photo.jpg
     python -m cli ingest --dir /path/to/photos
     python -m cli stats
@@ -17,138 +17,161 @@ from typing import Optional
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from core import get_engine, get_milvus_client
-from config.settings import settings
+from core import get_engine
+from config.settings import get_settings
 
 
-def print_json(data):
-    """美化打印 JSON"""
+def print_json(data: dict) -> None:
+    """Pretty print JSON"""
     print(json.dumps(data, ensure_ascii=False, indent=2))
 
 
-async def cmd_search(args):
-    """搜索命令"""
+async def cmd_search(args: argparse.Namespace) -> None:
+    """Search command"""
     engine = get_engine()
-    
+
     results = await engine.search(
         query_text=args.query,
         filters={"city": args.city} if args.city else None,
         top_k=args.top_k,
         use_rerank=not args.no_rerank
     )
-    
-    print(f"\n🔍 搜索: {args.query}")
-    print(f"📊 找到 {len(results)} 条结果\n")
-    
+
+    print(f"\n[INFO] Search: {args.query}")
+    print(f"[INFO] Found {len(results)} results\n")
+
     for i, r in enumerate(results, 1):
         print(f"[{i}] {r.get('file_url', 'N/A')}")
-        print(f"    内容: {r.get('content', 'N/A')[:50]}...")
-        print(f"    城市: {r.get('city', 'N/A')} | 日期: {r.get('date', 'N/A')}")
-        print(f"    向量分: {r.get('vector_score', 0):.4f} | 精排分: {r.get('rerank_score', 0):.4f}")
+        print(f"    Content: {r.get('content', 'N/A')[:50]}...")
+        print(f"    City: {r.get('city', 'N/A')} | Date: {r.get('date', 'N/A')}")
+        print(f"    Vector score: {r.get('vector_score', 0):.4f} | Rerank score: {r.get('rerank_score', 0):.4f}")
         print()
 
 
-async def cmd_search_image(args):
-    """图搜图命令"""
+async def cmd_search_image(args: argparse.Namespace) -> None:
+    """Image-to-image search command"""
     engine = get_engine()
-    
+
     results = await engine.image_search(
         image_url=args.image_url,
         filters={"city": args.city} if args.city else None,
         top_k=args.top_k
     )
-    
-    print(f"\n🖼️  图搜图: {args.image_url}")
-    print(f"📊 找到 {len(results)} 条结果\n")
-    
+
+    print(f"\n[INFO] Image search: {args.image_url}")
+    print(f"[INFO] Found {len(results)} results\n")
+
     for i, r in enumerate(results, 1):
         print(f"[{i}] {r.get('file_url', 'N/A')}")
-        print(f"    相似度: {r.get('rerank_score', 0):.4f}")
+        print(f"    Similarity: {r.get('rerank_score', 0):.4f}")
         print()
 
 
-async def cmd_ingest(args):
-    """导入命令"""
+async def cmd_ingest(args: argparse.Namespace) -> None:
+    """Ingest command"""
     from scripts.ingest_travel_data import scan_photos_dir
-    
+
     engine = get_engine()
-    
-    if args.dir:
-        photos = scan_photos_dir(args.dir)
-        print(f"📁 扫描到 {len(photos)} 张照片")
-        
-        if args.dry_run:
-            print("\n[DRY RUN] 预览前3张:")
-            for p in photos[:3]:
-                print(f"  - {p['file_path']}")
-            return
-        
-        await engine.ingest(photos, batch_size=args.batch_size)
-        print(f"✅ 成功导入 {len(photos)} 张照片")
-    else:
-        print("❌ 请指定 --dir 参数")
+
+    photos = scan_photos_dir(args.dir)
+    print(f"[INFO] Scanned {len(photos)} photos")
+
+    if args.dry_run:
+        print("\n[DRY RUN] Preview first 3:")
+        for p in photos[:3]:
+            print(f"  - {p['file_path']}")
+        return
+
+    await engine.ingest(photos, batch_size=args.batch_size)
+    print(f"[OK] Successfully imported {len(photos)} photos")
 
 
-async def cmd_stats(args):
-    """统计命令"""
-    client = get_milvus_client()
-    client.connect()
-    
-    stats = client.get_stats()
-    print("\n📊 Collection 统计:")
+async def cmd_stats(args: argparse.Namespace) -> None:
+    """Stats command"""
+    from pymilvus import connections, utility
+    settings = get_settings()
+    connections.connect(host=settings.MILVUS_HOST, port=settings.MILVUS_PORT)
+    stats = {
+        "collection": settings.MILVUS_COLLECTION,
+        "exists": utility.has_collection(settings.MILVUS_COLLECTION),
+    }
+    if stats["exists"]:
+        from pymilvus import Collection
+        col = Collection(settings.MILVUS_COLLECTION)
+        stats["count"] = col.num_entities
+    print("\n[INFO] Collection stats:")
     print_json(stats)
 
 
-async def cmd_init(args):
-    """初始化命令"""
-    client = get_milvus_client()
-    client.connect()
-    
-    print(f"🚀 创建 Collection: {settings.MILVUS_COLLECTION}")
-    client.create_collection(
-        dimension=args.dimension,
-        drop_existing=args.force
-    )
-    print("✅ 初始化完成!")
+async def cmd_init(args: argparse.Namespace) -> None:
+    """Init command"""
+    from pymilvus import connections, FieldSchema, CollectionSchema, DataType, Collection
+    settings = get_settings()
+    connections.connect(host=settings.MILVUS_HOST, port=settings.MILVUS_PORT)
+
+    print(f"[INFO] Creating collection: {settings.MILVUS_COLLECTION}")
+
+    fields = [
+        FieldSchema(name="doc_id", dtype=DataType.VARCHAR, max_length=64, is_primary=True),
+        FieldSchema(name="text", dtype=DataType.VARCHAR, max_length=2048),
+        FieldSchema(name="city", dtype=DataType.VARCHAR, max_length=64),
+        FieldSchema(name="tags", dtype=DataType.VARCHAR, max_length=512),
+        FieldSchema(name="image_url", dtype=DataType.VARCHAR, max_length=1024),
+        FieldSchema(name="video_url", dtype=DataType.VARCHAR, max_length=1024),
+        FieldSchema(name="mood", dtype=DataType.VARCHAR, max_length=64),
+        FieldSchema(name="outfit", dtype=DataType.VARCHAR, max_length=64),
+        FieldSchema(name="media_type", dtype=DataType.VARCHAR, max_length=16),
+        FieldSchema(name="embedding", dtype=DataType.FLOAT_VECTOR, dim=args.dimension),
+    ]
+    schema = CollectionSchema(fields, description="Multimodal retrieval collection")
+    collection = Collection(name=settings.MILVUS_COLLECTION, schema=schema)
+
+    index_params = {
+        "index_type": "HNSW",
+        "metric_type": "COSINE",
+        "params": {"M": 16, "efConstruction": 128},
+    }
+    collection.create_index(field_name="embedding", index_params=index_params)
+    print("[OK] Initialization complete!")
 
 
-async def main():
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="multimodal-retrieval",
-        description="Duckyo 多模态检索 CLI"
+        description="Multimodal Retrieval CLI"
     )
-    
-    subparsers = parser.add_subparsers(dest="command", help="可用命令")
-    
-    # search 命令
-    search_parser = subparsers.add_parser("search", help="文搜图")
-    search_parser.add_argument("query", help="搜索文本")
-    search_parser.add_argument("--city", help="城市过滤")
-    search_parser.add_argument("--top-k", type=int, default=10, help="返回数量")
-    search_parser.add_argument("--no-rerank", action="store_true", help="禁用Rerank")
-    
-    # search-image 命令
-    img_parser = subparsers.add_parser("search-image", help="图搜图")
-    img_parser.add_argument("image_url", help="图片URL")
-    img_parser.add_argument("--city", help="城市过滤")
-    img_parser.add_argument("--top-k", type=int, default=10, help="返回数量")
-    
-    # ingest 命令
-    ingest_parser = subparsers.add_parser("ingest", help="导入数据")
-    ingest_parser.add_argument("--dir", required=True, help="照片目录")
-    ingest_parser.add_argument("--batch-size", type=int, default=20, help="批量大小")
-    ingest_parser.add_argument("--dry-run", action="store_true", help="预览模式")
-    
-    # stats 命令
-    subparsers.add_parser("stats", help="查看统计")
-    
-    # init 命令
-    init_parser = subparsers.add_parser("init", help="初始化Collection")
-    init_parser.add_argument("--dimension", type=int, default=2560, help="向量维度")
-    init_parser.add_argument("--force", action="store_true", help="强制重建")
-    
+
+    subparsers = parser.add_subparsers(dest="command", help="Available commands")
+
+    search_parser = subparsers.add_parser("search", help="Text-to-image search")
+    search_parser.add_argument("query", help="Search text")
+    search_parser.add_argument("--city", help="City filter")
+    search_parser.add_argument("--top-k", type=int, default=10, help="Return count")
+    search_parser.add_argument("--no-rerank", action="store_true", help="Disable rerank")
+
+    img_parser = subparsers.add_parser("search-image", help="Image-to-image search")
+    img_parser.add_argument("image_url", help="Image URL")
+    img_parser.add_argument("--city", help="City filter")
+    img_parser.add_argument("--top-k", type=int, default=10, help="Return count")
+
+    ingest_parser = subparsers.add_parser("ingest", help="Import data")
+    ingest_parser.add_argument("--dir", required=True, help="Photo directory")
+    ingest_parser.add_argument("--batch-size", type=int, default=20, help="Batch size")
+    ingest_parser.add_argument("--dry-run", action="store_true", help="Preview mode")
+
+    subparsers.add_parser("stats", help="View statistics")
+
+    init_parser = subparsers.add_parser("init", help="Initialize collection")
+    init_parser.add_argument("--dimension", type=int, default=2560, help="Vector dimension")
+    init_parser.add_argument("--force", action="store_true", help="Force rebuild")
+
+    return parser
+
+
+async def main() -> None:
+    parser = build_parser()
     args = parser.parse_args()
-    
+
     if args.command == "search":
         await cmd_search(args)
     elif args.command == "search-image":

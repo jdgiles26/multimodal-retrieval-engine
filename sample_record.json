@@ -1,19 +1,19 @@
 {
   "document": {
     "id": "tokyo_002",
-    "content": "东京塔夜景，穿着汉服的 fox girl，浪漫氛围",
+    "content": "Tokyo Tower night view, fox girl wearing Hanfu, romantic atmosphere",
     "city": "Tokyo",
     "country": "Japan",
     "date": "2026-03-06",
     "day": 1,
     "tags": [
-      "汉服",
-      "夜景",
-      "东京塔",
-      "自拍"
+      "Hanfu",
+      "Night View",
+      "Tokyo Tower",
+      "Selfie"
     ],
-    "mood": "浪漫",
-    "outfit": "汉服",
+    "mood": "Romantic",
+    "outfit": "Hanfu",
     "source": "xiaohongshu"
   },
   "embedding": {
@@ -5153,18 +5153,18 @@
       -0.02708694338798523,
       0.011726836673915386
     ],
-    "content": "东京塔夜景，穿着汉服的 fox girl，浪漫氛围",
+    "content": "Tokyo Tower night view, fox girl wearing Hanfu, romantic atmosphere",
     "city": "Tokyo",
     "country": "Japan",
     "date": "2026-03-06",
     "tags": [
-      "汉服",
-      "夜景",
-      "东京塔",
-      "自拍"
+      "",
+      "Night View",
+      "TokyoTower",
+      "Selfie"
     ],
-    "mood": "浪漫",
-    "outfit": "汉服",
+    "mood": "Romantic",
+    "outfit": "",
     "source": "xiaohongshu"
   }
 }

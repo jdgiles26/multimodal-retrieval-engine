@@ -1,42 +1,42 @@
 #!/bin/bash
-# 一键部署脚本
+# One-click deployment script
 
 set -e
 
-echo "🦊 Duckyo 多模态检索系统 - 一键部署"
+echo "[INFO] Duckyo Multimodal Retrieval System - One-Click Deployment"
 echo "===================================="
 
 PROJECT_DIR="/opt/multimodal-retrieval"
 
 echo ""
-echo "📦 步骤 1: 安装依赖"
+echo "[INFO] Step 1: Install dependencies"
 echo "-------------------"
 pip install -q -r requirements.txt
-echo "✅ Python 依赖安装完成"
+echo "[OK] Python dependencies installed"
 
 echo ""
-echo "🐳 步骤 2: 启动 Docker 服务"
+echo "[INFO] Step 2: Start Docker services"
 echo "---------------------------"
 docker-compose up -d
-echo "✅ Docker 服务已启动"
+echo "[OK] Docker services started"
 
 echo ""
-echo "⏳ 步骤 3: 等待服务就绪"
+echo "[INFO] Step 3: Wait for services ready"
 echo "-----------------------"
 sleep 15
 
-# 检查服务健康
+# Check service health
 for i in {1..30}; do
     if curl -s http://localhost:9091/healthz > /dev/null 2>&1; then
-        echo "✅ Milvus 健康检查通过"
+        echo "[OK] Milvus health check passed"
         break
     fi
-    echo "  等待中... ($i/30)"
+    echo "  Waiting... ($i/30)"
     sleep 2
 done
 
 echo ""
-echo "🔧 步骤 4: 初始化数据库"
+echo "[INFO] Step 4: Initialize database"
 echo "----------------------"
 python -c "
 import sys
@@ -46,31 +46,31 @@ client = get_milvus_client()
 client.connect()
 try:
     client.create_collection(dimension=2560)
-    print('✅ Collection 创建成功')
+    print('[OK] Collection created successfully')
 except Exception as e:
     if 'already exists' in str(e).lower():
-        print('✅ Collection 已存在')
+        print('[OK] Collection already exists')
     else:
-        print(f'⚠️  {e}')
+        print(f'[WARN] {e}')
 "
 
 echo ""
-echo "🧪 步骤 5: 运行测试"
+echo "[INFO] Step 5: Run tests"
 echo "------------------"
-python scripts/test_api.py || echo "⚠️ 测试需要网络连接"
+python scripts/test_api.py || echo "[WARN] Tests require network connection"
 
 echo ""
 echo "===================================="
-echo "✅ 部署完成!"
+echo "[OK] Deployment complete!"
 echo ""
-echo "🌐 访问地址:"
+echo "[INFO] Access URLs:"
 echo "  - API: http://localhost:8000"
-echo "  - 文档: http://localhost:8000/docs"
+echo "  - Docs: http://localhost:8000/docs"
 echo "  - Milvus: http://localhost:19530"
 echo "  - Attu: http://localhost:3000"
 echo ""
-echo "📚 常用命令:"
-echo "  ./start.sh          # 启动服务"
-echo "  python cli.py --help # CLI 工具"
-echo "  docker-compose logs -f # 查看日志"
+echo "[INFO] Common commands:"
+echo "  ./start.sh          # Start services"
+echo "  python cli.py --help # CLI tool"
+echo "  docker-compose logs -f # View logs"
 echo "===================================="
